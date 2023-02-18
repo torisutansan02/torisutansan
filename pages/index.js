@@ -119,7 +119,7 @@ export default function Home() {
         </div>
       </main>
 
-      <html>
+{/*    <html>
         <body>
           <div id = "app"></div>
           <script type = "text/javascript">
@@ -133,7 +133,7 @@ export default function Home() {
             app.appendChild(header);
           </script>
         </body>
-      </html>
+      </html> */}
 
     </>
   )
