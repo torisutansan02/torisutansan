@@ -119,21 +119,21 @@ export default function Home() {
         </div>
       </main>
 
-{/*    <html>
-        <body>
-          <div id = "app"></div>
-          <script type = "text/javascript">
-            const app = document.getElementById('app');
-            const header = document.createElement('h1');
-            const headerContent = document.createTextNode(
-              'Develop. Preview. Ship.',
-            );
+   <html>
+    <body>
+      <div id = "app"> </div>
 
-            header.appendChild(headerContent);
-            app.appendChild(header);
-          </script>
-        </body>
-      </html> */}
+        <script src = "https://unpkg.com/react@17/umd/react.development.js"> </script>
+        <script src = "https://unpkg.com/react-dom@17/umd/react-dom.development.js"> </script>
+
+        //Babel Script
+        <script src = "https://unpkg.com/@babel/standalone/babel.min.js"> </script>
+        <script type = "text/jsx">
+          const app = document.getElementById('app');
+          ReactDOM.render(<h1> Hello, my name is Tristan. </h1>, app);
+      </script>
+    </body>
+  </html> 
 
     </>
   )
