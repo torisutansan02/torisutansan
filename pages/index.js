@@ -119,8 +119,6 @@ export default function Home() {
         </div>
       </main>
 
-   <html>
-    <body>
       <div id = "app"> </div>
 
         <script src = "https://unpkg.com/react@17/umd/react.development.js"> </script>
@@ -132,9 +130,7 @@ export default function Home() {
           const app = document.getElementById('app');
           ReactDOM.render(<h1> Hello, my name is Tristan. </h1>, app);
       </script>
-    </body>
-  </html> 
 
-    </>
+  </>
   )
 }
