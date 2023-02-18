@@ -118,6 +118,23 @@ export default function Home() {
           </a>
         </div>
       </main>
+
+      <html>
+        <body>
+          <div id = "app"></div>
+          <script type = "text/javascript">
+            const app = document.getElementById('app');
+            const header = document.createElement('h1');
+            const headerContent = document.createTextNode(
+              'Develop. Preview. Ship.',
+            );
+
+            header.appendChild(headerContent);
+            app.appendChild(header);
+          </script>
+        </body>
+      </html>
+
     </>
   )
 }
