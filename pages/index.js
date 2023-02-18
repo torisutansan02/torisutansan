@@ -118,15 +118,11 @@ export default function Home() {
           </a>
         </div>
 
-        <div id = "app"> </div>
-          <script src = "https://unpkg.com/react@17/umd/react.development.js"> </script>
-          <script src = "https://unpkg.com/react-dom@17/umd/react-dom.development.js"> </script>
-
-          <script src = "https://unpkg.com/@babel/standalone/babel.min.js"> </script>
-          <script type = "text/jsx">
-            const app = document.getElementById('app');
-            ReactDOM.render(<h1> Hello, my name is Tristan. </h1>, app);
-        </script>
+        <div classname = {styles.description}> 
+          <p>
+            Testing the React Framework&nbsp;
+          </p>
+        </div>
 
       </main>
 
