@@ -16,15 +16,21 @@ export default function Home() {
           <p>
             torisutansan is a personal project I am working on.
           </p>
-
-          <p>
-            Testing the React Framework&nbsp;
-          </p>
         </div>
 
         <div className = {styles.grid}>
-          <p>
-            Hello, my name is Tristan. I am a 3rd year computer science student.
+            <a
+              href = "https://linkedin.com/in/tristan-cai-b89571267"
+              target = "_blank"
+              re1 = "noopener noreferrer"
+            >
+              By {' '}
+          </a>
+          <h2 className = {inter.className}>
+            Docs <span> -&gt; </span>
+          </h2>
+          <p className = {inter.className}>
+            LinkedIn Profile
           </p>
         </div>
 
