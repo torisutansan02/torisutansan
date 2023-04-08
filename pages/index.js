@@ -11,10 +11,16 @@ export default function Home() {
       <Head>
         <title>torisutansan</title>
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
+      <main className = {styles.main}>
+        <div className = {styles.description}>
           <p>
             torisutansan is a personal project I am working on.
+          </p>
+        </div>
+
+        <div className = {styles.description}>
+          <p>
+            Here are a couple of links to my socials. I will periodically update this page.
           </p>
         </div>
 
