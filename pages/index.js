@@ -19,19 +19,19 @@ export default function Home() {
         </div>
 
         <div className = {styles.grid}>
-            <a
-              href = "https://linkedin.com/in/tristan-cai-b89571267"
-              className = {styles.card}
-              target = "_blank"
-              rel = "noopener noreferrer"
-            >
+          <a
+            href = "https://linkedin.com/in/tristan-cai-b89571267"
+            className = {styles.card}
+            target = "_blank"
+            rel = "noopener noreferrer"
+          >
+            <h2 className = {inter.className}>
+              Employment <span> -&gt; </span>
+            </h2>
+            <p className = {inter.className}>
+              LinkedIn Profile
+            </p>
           </a>
-          <h2 className = {inter.className}>
-            Employment <span> -&gt; </span>
-          </h2>
-          <p className = {inter.className}>
-            LinkedIn Profile
-          </p>
         </div>
 
       </main>
