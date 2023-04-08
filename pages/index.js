@@ -17,7 +17,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Testing out legacy code&nbsp;
+            Testing out legacy code;
           </p>
           <div>
             <a
@@ -26,14 +26,6 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
             </a>
           </div>
         </div>
