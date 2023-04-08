@@ -18,11 +18,13 @@ export default function Home() {
           </p>
 
           <p>
-            Hello, my name is Tristan. I am a 3rd year computer science student.
-          </p>
-
-          <p>
             Testing the React Framework&nbsp;
+          </p>
+        </div>
+
+        <div className = {styles.grid}>
+          <p>
+            Hello, my name is Tristan. I am a 3rd year computer science student.
           </p>
         </div>
 
