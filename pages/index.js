@@ -22,7 +22,7 @@ export default function Home() {
             <a
               href = "https://linkedin.com/in/tristan-cai-b89571267"
               target = "_blank"
-              re1 = "noopener noreferrer"
+              rel = "noopener noreferrer"
             >
               By {' '}
           </a>
