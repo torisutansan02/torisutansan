@@ -24,10 +24,9 @@ export default function Home() {
               target = "_blank"
               rel = "noopener noreferrer"
             >
-              By {' '}
           </a>
           <h2 className = {inter.className}>
-            Docs <span> -&gt; </span>
+            Employment <span> -&gt; </span>
           </h2>
           <p className = {inter.className}>
             LinkedIn Profile
