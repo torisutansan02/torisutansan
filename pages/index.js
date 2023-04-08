@@ -34,6 +34,22 @@ export default function Home() {
           </a>
         </div>
 
+        <div className = {styles.grid}>
+          <a
+            href = "https://last.fm/user/luckifier"
+            className = {styles.card}
+            target = "_blank"
+            rel = "noopener noreferrer"
+          >
+            <h2 className = {inter.className}>
+              LastFM <span> -&gt; </span>
+            </h2>
+            <p className = {inter.className}>
+              音楽聞いています
+            </p>
+          </a>
+        </div>
+
       </main>
 
   </>
