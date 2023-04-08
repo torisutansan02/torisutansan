@@ -16,13 +16,11 @@ export default function Home() {
           <p>
             torisutansan is a personal project I am working on.
           </p>
-        </div>
 
-        <p>
-          Hello, my name is Tristan. I am a 3rd year computer science student.
-        </p>
+          <p>
+            Hello, my name is Tristan. I am a 3rd year computer science student.
+          </p>
 
-        <div classname = {styles.description}> 
           <p>
             Testing the React Framework&nbsp;
           </p>
