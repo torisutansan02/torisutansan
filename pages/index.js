@@ -17,9 +17,13 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Testing out legacy code;
+            Testing out legacy code
           </p>
         </div>
+
+        <p>
+          Hello, my name is Tristan. I am a 3rd year computer science student.
+        </p>
 
         <div classname = {styles.description}> 
           <p>
