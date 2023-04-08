@@ -19,6 +19,17 @@ export default function Home() {
         </div>
 
         <div className = {styles.description}>
+          <image
+            className = {styles.logo}
+            src = "/IMG_0362.svg"
+            alt = "Shasta"
+            width = {200}
+            height = {50}
+            priority
+          />
+        </div>
+
+        <div className = {styles.description}>
           <p>
             Here are a couple of links to my socials. I will periodically update this page.
           </p>
