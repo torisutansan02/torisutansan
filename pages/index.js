@@ -23,8 +23,8 @@ export default function Home() {
             className = {styles.logo}
             src = "/IMG_0362.svg"
             alt = "Shasta"
-            width = {200}
-            height = {50}
+            width = {1024}
+            height = {1024}
             priority
           />
         </div>
