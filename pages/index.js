@@ -18,7 +18,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className = {styles.description}>
+        <div className = {styles.center}>
           <image
             className = {styles.logo}
             src = "/IMG_0362.svg"
