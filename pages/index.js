@@ -75,10 +75,10 @@ export default function Home() {
             rel = "noopener noreferrer"
           >
             <h2 className = {inter.className}>
-              LastFM <span> -&gt; </span>
+              RYM <span> -&gt; </span>
             </h2>
             <p className = {inter.className}>
-              音楽聞いています
+              RYM Profile
             </p>
           </a>
         </div>
