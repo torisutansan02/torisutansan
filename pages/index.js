@@ -21,6 +21,7 @@ export default function Home() {
         <div className = {styles.grid}>
             <a
               href = "https://linkedin.com/in/tristan-cai-b89571267"
+              className = {styles.card}
               target = "_blank"
               rel = "noopener noreferrer"
             >
