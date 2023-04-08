@@ -17,7 +17,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Testing out legacy code
+            torisutansan is a personal project I am working on.
           </p>
         </div>
 
