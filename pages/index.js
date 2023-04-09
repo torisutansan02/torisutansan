@@ -18,7 +18,7 @@ export default function Home() {
           </p>
         </div>
 
-        <img
+        <image
           src = "./public/IMG_0390.png"
           alt = ""
           priority
