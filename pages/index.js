@@ -30,9 +30,9 @@ export default function Home() {
         </div>
 
         <div className = {styles.description}>
-          <p>
+          <a>
             Here are a couple of links to my socials. I will periodically update this page.
-          </p>
+          </a>
         </div>
 
         <div className = {styles.grid}>
