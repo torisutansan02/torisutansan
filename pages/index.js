@@ -72,6 +72,20 @@ export default function Home() {
               RYM Profile
             </p>
           </a>
+
+          <a
+            href = "https://instagram.com/torisutansan?igshid=ZDdkNTZiNTM="
+            className = {styles.card}
+            target = "_blank"
+            rel = "noopener noreferrer"
+          >
+            <h2 className = {inter.className}>
+              IG <span> -&gt; </span>
+            </h2>
+            <p className = {inter.className}>
+              Instagram Profile
+            </p>
+          </a>
         </div>
 
       </main>
