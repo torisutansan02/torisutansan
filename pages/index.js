@@ -49,9 +49,7 @@ export default function Home() {
               LinkedIn Profile
             </p>
           </a>
-        </div>
 
-        <div className = {styles.grid}>
           <a
             href = "https://last.fm/user/luckifier"
             className = {styles.card}
@@ -65,9 +63,7 @@ export default function Home() {
               音楽聞いています
             </p>
           </a>
-        </div>
 
-        <div className = {styles.grid}>
           <a
             href = "https://rateyourmusic.com/~torisutan"
             className = {styles.card}
