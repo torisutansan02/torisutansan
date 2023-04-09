@@ -22,8 +22,8 @@ export default function Home() {
           <image
             src = "/IMG_0362.svg"
             alt = "Shasta"
-            width = {1024}
-            height = {1024}
+            width = {6000}
+            height = {4000}
             priority
           />
         </div>
