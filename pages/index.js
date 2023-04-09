@@ -18,13 +18,11 @@ export default function Home() {
           </p>
         </div>
 
-        <div className = {styles.center}>
-          <image
-            src = "/IMG_0362.JPG"
-            alt = ""
-            priority
-          />
-        </div>
+        <image
+          src = "/IMG_0362.JPG"
+          alt = ""
+          priority
+        />
 
         <div className = {styles.description}>
           <a>
