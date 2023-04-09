@@ -20,7 +20,6 @@ export default function Home() {
 
         <div className = {styles.center}>
           <image
-            className = {styles.logo}
             src = "/IMG_0362.svg"
             alt = "Shasta"
             width = {1024}
