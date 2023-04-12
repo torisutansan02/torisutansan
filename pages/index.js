@@ -14,18 +14,6 @@ export default function Home() {
         <title>torisutansan</title>
       </Head>
 
-      <ul>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/about">About</Link>
-        </li>
-        <li>
-          <Link href="/socials">Socials</Link>
-        </li>
-      </ul>
-
       <main className = {styles.main}>
 
       <ul>
