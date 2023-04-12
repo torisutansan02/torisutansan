@@ -28,6 +28,18 @@ export default function Home() {
 
       <main className = {styles.main}>
 
+      <ul>
+        <li>
+          <Link href="/">Home</Link>
+        </li>
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+        <li>
+          <Link href="/socials">Socials</Link>
+        </li>
+      </ul>
+
         <div className = {styles.description}>
           <p>
             torisutansan is a personal project I am working on.
