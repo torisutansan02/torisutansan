@@ -13,7 +13,21 @@ export default function Home() {
       <Head>
         <title>torisutansan</title>
       </Head>
+
+      <ul>
+        <li>
+          <Link href="/">Home</Link>
+        </li>
+        <li>
+          <Link href="/about">About</Link>
+        </li>
+        <li>
+          <Link href="/blog/hello-world">Socials</Link>
+        </li>
+      </ul>
+
       <main className = {styles.main}>
+
         <div className = {styles.description}>
           <p>
             torisutansan is a personal project I am working on.
@@ -89,20 +103,7 @@ export default function Home() {
             </p>
           </a>
         </div>
-
       </main>
-
-      <ul>
-      <li>
-        <Link href="/">Home</Link>
-      </li>
-      <li>
-        <Link href="/about">About Us</Link>
-      </li>
-      <li>
-        <Link href="/blog/hello-world">Blog Post</Link>
-      </li>
-    </ul>
   </>
   )
 }
