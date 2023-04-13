@@ -16,17 +16,19 @@ export default function Home() {
 
       <main className = {styles.main}>
 
-      <ul>
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/about">About</Link>
-        </li>
-        <li>
-          <Link href="/socials">Socials</Link>
-        </li>
-      </ul>
+      <div className = {styles.description}>
+        <ul>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="/socials">Socials</Link>
+          </li>
+        </ul>
+      </div>
 
         <div className = {styles.description}>
           <p>
@@ -34,17 +36,22 @@ export default function Home() {
           </p>
         </div>
 
-        <image
-          src = "/images/IMG_0390.png"
-          alt = ""
-          priority
-        />
-
         <div className = {styles.description}>
           <a>
             Here are a couple of links to my socials. I will periodically update this page.
           </a>
         </div>
+
+      <div className = {styles.description}>
+          <div className = "logo">
+            <Image
+              src = "/images/IMG_0390.png" 
+              alt = "" 
+              width = {300} 
+              height = {200} 
+            />
+          </div>
+      </div>
 
         <div className = {styles.grid}>
           <a
