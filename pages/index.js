@@ -42,17 +42,6 @@ export default function Home() {
           </a>
         </div>
 
-      <div className = {styles.description}>
-          <div className = "logo">
-            <Image
-              src = "/images/IMG_0390.png" 
-              alt = "" 
-              width = {300} 
-              height = {200} 
-            />
-          </div>
-      </div>
-
         <div className = {styles.grid}>
           <a
             href = "https://linkedin.com/in/tristan-cai-b89571267"
@@ -109,6 +98,17 @@ export default function Home() {
               Instagram Profile
             </p>
           </a>
+        </div>
+
+        <div className = {styles.description}>
+          <div className = "logo">
+            <Image
+              src = "/images/IMG_0390.png" 
+              alt = "" 
+              width = {300} 
+              height = {200} 
+            />
+          </div>
         </div>
       </main>
   </>
