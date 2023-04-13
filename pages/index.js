@@ -102,12 +102,14 @@ export default function Home() {
 
         <div className = {styles.description}>
           <div className = "logo">
-            <Image
-              src = "/images/IMG_0390.png" 
-              alt = "" 
-              width = {300} 
-              height = {200} 
-            />
+            <gmbbg>
+              <Image
+                src = "/images/IMG_0390.png" 
+                alt = "" 
+                width = {300} 
+                height = {200} 
+              />
+            </gmbbg>
           </div>
         </div>
       </main>
