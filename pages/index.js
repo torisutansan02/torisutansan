@@ -101,6 +101,7 @@ export default function Home() {
         </div>
 
         <div className = {styles.description}>
+          <a>
             <gmbbg>
               <Image
                 src = "/images/IMG_0390.png" 
@@ -109,6 +110,7 @@ export default function Home() {
                 height = {200} 
               />
             </gmbbg>
+          </a>
         </div>
       </main>
   </>
