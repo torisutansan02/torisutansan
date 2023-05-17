@@ -21,7 +21,7 @@ export default function Home() {
 
         <div className = {styles.description}>
           <p>
-            torisutansan is a personal project I am working on.
+            torisutansan ga totemo kawaii desu ne.
           </p>
         </div>
 
