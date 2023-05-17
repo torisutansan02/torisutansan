@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
 import Link from 'next/link'
+import Navbar from '../components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,21 +15,9 @@ export default function Home() {
         <title>torisutansan</title>
       </Head>
 
-      <main className = {styles.main}>
+      <Navbar />
 
-      <div className = {styles.description}>
-        <ul>
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/socials">Socials</Link>
-          </li>
-        </ul>
-      </div>
+      <main className = {styles.main}>
 
         <div className = {styles.description}>
           <p>
