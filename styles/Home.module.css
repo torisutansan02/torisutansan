@@ -204,6 +204,11 @@
 
 /* Mobile */
 @media (max-width: 700px) {
+
+  .navbar {
+    padding: 1px;
+  }
+  
   .content {
     padding: 4rem;
   }
