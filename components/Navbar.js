@@ -5,7 +5,7 @@ const Navbar = () => {
             <div className = "links">
                 <Link href = "/"> Home </Link>
                 <Link href = "/about"> About </Link>
-                <Link hhref = "/socials"> Socials </Link>
+                <Link href = "/socials"> Socials </Link>
             </div>
         </nav>
     );
