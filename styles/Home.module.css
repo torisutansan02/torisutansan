@@ -10,20 +10,23 @@
 }
 
 .navbar {
+  background-color: #dee1e3;
+  border: solid #c7cbce;
   font-family: "Klee One";
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  max-width: 600px;
-  margin: 0 auto;
-  border-bottom: 1px solid #c1b9b9;
+  margin: 10px auto;
+  max-width: 800px;
+  justify-content: flex;
 }
 
 .navbar h1 {
+  padding: 0.1rem 1.5rem;
   color: #000000;
 }
 
 .navbar .links {
+  padding: 0.1rem 1.5rem;
   margin-left: auto;
 }
 
