@@ -16,22 +16,21 @@ export default function Home() {
         <title>torisutansan</title>
       </Head>
 
-      <Navbar />
+      <Navbar></Navbar>
 
-      <main className = {styles.main}>
+          <h1>
+            Who am I?
+          </h1>
 
-        <div className = {styles.description}>
           <p>
-            torisutansan ga totemo kawaii desu ne.
+            Hello, my name is Tristan. I am a fourth year computer science student.
           </p>
-        </div>
 
-        <div className = {styles.description}>
-          <a>
-            Here are a couple of links to my socials. I will periodically update this page.
-          </a>
-        </div>
+          <p>
+            I post my work and other fun side projects on this website.
+          </p>
 
+        <main>
         <div className = {styles.grid}>
           <a
             href = "https://linkedin.com/in/tristan-cai-b89571267"
@@ -89,21 +88,7 @@ export default function Home() {
             </p>
           </a>
         </div>
-
-        <div className = {styles.description}>
-          <a>
-            <gmbbg>
-              <Image
-                src = "/images/IMG_0390.png" 
-                alt = "" 
-                width = {300} 
-                height = {200} 
-              />
-            </gmbbg>
-          </a>
-        </div>
-      </main>
-
+        </main>
       <Footer />
   </>
   )
