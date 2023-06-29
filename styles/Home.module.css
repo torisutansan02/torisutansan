@@ -11,16 +11,16 @@
 
 .navbar {
   font-family: "Klee One";
-  padding: 20 px;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   max-width: 600px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #c1b9b9;
 }
 
 .navbar h1 {
-  color: #00d0ff;
+  color: #000000;
 }
 
 .navbar .links {
@@ -76,7 +76,8 @@
 }
 
 .card {
-  padding: 1rem 1.2rem;
+  font-family: "Klee One";
+  padding: 1.5rem 1.5rem;
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
