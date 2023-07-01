@@ -14,9 +14,15 @@
   border: solid #c7cbce;
   font-family: "Klee One";
   display: flex;
+  z-index: 8;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 50px;
   align-items: center;
   width: 100%;
-  justify-content: flex;
+  justify-content: space-around;
 }
 
 .navbar h1 {
