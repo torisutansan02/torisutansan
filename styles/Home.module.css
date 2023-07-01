@@ -218,9 +218,6 @@
 @media (max-width: 700px) {
 
   .navbar {
-    overflow: hidden;
-    background-color: #333;
-    position: relative;
     font-size: 0.8rem;
   }
 
