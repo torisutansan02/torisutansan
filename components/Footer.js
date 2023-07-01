@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
         <footer>
-            Copyright 2023 torisutansan
+            ©2023 torisutansan
         </footer>
     )
 }
