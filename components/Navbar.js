@@ -7,7 +7,7 @@ const Navbar = () => {
             <h1> torisutansan </h1>
             <ul className = {styles.links}>
                 <li>
-                    <a href = "/"> Home </a>
+                    <a href = "#"> Home </a>
                 </li>
                 <li>
                     <a href = "about"> About </a>
