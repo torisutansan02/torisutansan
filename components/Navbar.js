@@ -5,11 +5,17 @@ const Navbar = () => {
     return (
         <div className = {styles.navbar}>
             <h1> torisutansan </h1>
-            <div className = {styles.links}>
-                <Link href = "/"> Home </Link>
-                <Link href = "/about" > About </Link>
-                <Link href = "/socials"> Socials </Link>
-            </div>
+            <ul className = {styles.links}>
+                <li>
+                    <a href = "/"> Home </a>
+                </li>
+                <li>
+                    <a href = "about"> About </a>
+                </li>
+                <li>
+                    <a href = "socials"> Socials </a>
+                </li>
+            </ul>
         </div>
     );
 }

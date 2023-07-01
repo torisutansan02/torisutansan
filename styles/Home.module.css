@@ -19,13 +19,14 @@
   left: 0;
   right: 0;
   position: fixed;
-  height: 50px;
+  height: 40px;
   align-items: center;
   width: 100%;
   justify-content: space-around;
 }
 
 .navbar h1 {
+  font-size: 25px;
   padding: 0.1rem 1.5rem;
   color: #000000;
 }
