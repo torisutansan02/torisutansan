@@ -221,6 +221,14 @@
     font-size: 0.8rem;
   }
 
+  .navbar .links {
+    font-size: 20px;
+    padding: 0.1rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    margin-right: auto;
+  }
+
   .content {
     padding: 4rem;
   }
