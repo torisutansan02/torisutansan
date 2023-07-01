@@ -12,7 +12,7 @@
 .navbar {
   background-color: #dee1e3;
   border-bottom: solid #c7cbce;
-  border-width: 2px;
+  border-width: 1px;
   font-family: "Klee One";
   display: flex;
   z-index: 8;
