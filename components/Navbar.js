@@ -7,13 +7,13 @@ const Navbar = () => {
             <h1> torisutansan </h1>
             <ul className = {styles.links}>
                 <li>
-                    <a href = "#"> Home </a>
+                    <Link href = "/"> Home </Link>
                 </li>
                 <li>
-                    <a href = "about"> About </a>
+                    <Link href = "/about"> About </Link>
                 </li>
                 <li>
-                    <a href = "socials"> Socials </a>
+                    <Link href = "/socials"> Socials </Link>
                 </li>
             </ul>
         </div>
