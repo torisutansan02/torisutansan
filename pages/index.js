@@ -30,7 +30,7 @@ export default function Home() {
             I post my work and other fun side projects on this website.
           </p>
 
-          <h2 className>
+          <h2>
             What even is this?
           </h2>
 
