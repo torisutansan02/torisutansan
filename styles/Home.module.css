@@ -11,7 +11,8 @@
 
 .navbar {
   background-color: #dee1e3;
-  border: solid #c7cbce;
+  border-bottom: solid #c7cbce;
+  border-width: 2px;
   font-family: "Klee One";
   display: flex;
   z-index: 8;
@@ -22,11 +23,11 @@
   height: 40px;
   align-items: center;
   width: 100%;
-  justify-content: space-around;
 }
 
 .navbar h1 {
   font-size: 25px;
+  display: flex;
   padding: 0.1rem 1.5rem;
   color: #000000;
 }
