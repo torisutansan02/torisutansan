@@ -88,7 +88,6 @@
 }
 
 .card {
-  font-family: "Klee One";
   padding: 1.5rem 1.5rem;
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
@@ -107,6 +106,7 @@
 }
 
 .card p {
+  font-family: "Klee One";
   margin: 0;
   opacity: 0.6;
   font-size: 0.9rem;
