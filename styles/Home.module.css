@@ -83,7 +83,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(25%, auto));
   width: var(--max-width);
-  max-width: 100%;
+  max-width: 60%;
 }
 
 .card {
@@ -314,9 +314,14 @@
 @media (prefers-color-scheme: dark) {
 
   .navbar {
-    background: #2c2f33;
+    background: #1e2124;
     border-bottom: solid black;
     border-width: 1px;
+  }
+  
+  .navbar a {
+    color: white;
+    background: #1e2124;
   }
 
   .navbar h1 {
@@ -333,10 +338,9 @@
   }
 
   .card {
-    padding: 2rem 2rem;
     border-radius: var(--border-radius);
     background: rgba(var(--card-rgb), 0.15);
-    border: 1px solid rgba(var(--card-border-rgb), 1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.10);
     transition: background 200ms, border 200ms;
   }
 }

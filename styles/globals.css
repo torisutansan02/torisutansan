@@ -101,21 +101,21 @@ footer {
 @media (prefers-color-scheme: dark) {
   footer {
     color: white;
-    background: #2c2f33;
+    background: #282b30;
   }
   li {
     color: white;
-    background: #2c2f33;
+    background: #282b30;
   }
   a {
     color: white;
-    background: #2c2f33;
+    background: #282b30;
   }
   html {
     color-scheme: dark;
   }
   body {
     color: white;
-    background: #2c2f33;
+    background: #282b30;
   }
 }
