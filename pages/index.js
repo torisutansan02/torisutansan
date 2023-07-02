@@ -64,66 +64,6 @@ export default function Home() {
           <p>
             Please click some of the links below :3
           </p>
-
-        <main>
-        <div className = {styles.grid}>
-          <a
-            href = "https://linkedin.com/in/tristan-cai-b89571267"
-            className = {styles.card}
-            target = "_blank"
-            rel = "noopener noreferrer"
-          >
-            <h2 className = {inter.className}>
-              Employment <span> -&gt; </span>
-            </h2>
-            <p className = {inter.className}>
-              LinkedIn Profile
-            </p>
-          </a>
-
-          <a
-            href = "https://last.fm/user/luckifier"
-            className = {styles.card}
-            target = "_blank"
-            rel = "noopener noreferrer"
-          >
-            <h2 className = {inter.className}>
-              LastFM <span> -&gt; </span>
-            </h2>
-            <p className = {inter.className}>
-              音楽聞いています
-            </p>
-          </a>
-
-          <a
-            href = "https://rateyourmusic.com/~torisutan"
-            className = {styles.card}
-            target = "_blank"
-            rel = "noopener noreferrer"
-          >
-            <h2 className = {inter.className}>
-              RYM <span> -&gt; </span>
-            </h2>
-            <p className = {inter.className}>
-              RYM Profile
-            </p>
-          </a>
-
-          <a
-            href = "https://instagram.com/torisutansan?igshid=ZDdkNTZiNTM="
-            className = {styles.card}
-            target = "_blank"
-            rel = "noopener noreferrer"
-          >
-            <h2 className = {inter.className}>
-              IG <span> -&gt; </span>
-            </h2>
-            <p className = {inter.className}>
-              Instagram Profile
-            </p>
-          </a>
-        </div>
-        </main>
       <Footer />
   </>
   )
