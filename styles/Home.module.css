@@ -78,6 +78,7 @@
 }
 
 .grid {
+  gap: 2rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(25%, auto));
@@ -222,10 +223,9 @@
   }
 
   .navbar .links {
-    font-size: 20px;
     padding: 0.1rem 1.5rem;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     margin-right: auto;
   }
 
@@ -312,6 +312,17 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
+  .navbar {
+    background: #2c2f33;
+    border-bottom: solid black;
+    border-width: 1px;
+  }
+
+  .navbar h1 {
+    color: white;
+  }
+
   .vercelLogo {
     filter: invert(1);
   }
@@ -319,6 +330,14 @@
   .logo,
   .thirteen img {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
+  }
+
+  .card {
+    padding: 2rem 2rem;
+    border-radius: var(--border-radius);
+    background: rgba(var(--card-rgb), 0.15);
+    border: 1px solid rgba(var(--card-border-rgb), 1);
+    transition: background 200ms, border 200ms;
   }
 }
 
