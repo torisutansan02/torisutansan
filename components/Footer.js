@@ -65,7 +65,7 @@ const Footer = () => {
                     </a>
                 </div>
             </main>
-            
+
             <footer>
                 ©2023 torisutansan
             </footer>

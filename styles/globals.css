@@ -84,7 +84,6 @@ footer {
   text-align: center;
   padding: 30px 0;
   color: #777;
-  max-width: 600px;
   margin: 2% auto;
   border-top: 1px solid #c1b9b9;
 }
@@ -100,7 +99,9 @@ footer {
 
 @media (prefers-color-scheme: dark) {
   footer {
+    border-top: 1px solid white;
     color: white;
+    max-width: 600px;
     background: #282b30;
   }
   li {
