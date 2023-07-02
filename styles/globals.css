@@ -85,6 +85,7 @@ footer {
   padding: 30px 0;
   color: #777;
   margin: 2% auto;
+  max-width: 600px;
   border-top: 1px solid #c1b9b9;
 }
 
@@ -101,7 +102,6 @@ footer {
   footer {
     border-top: 1px solid white;
     color: white;
-    max-width: 600px;
     background: #282b30;
   }
   li {
