@@ -31,7 +31,7 @@ export default function Home() {
           </p>
 
           <h2>
-            What even is this?
+            What is this?
           </h2>
 
           <p>

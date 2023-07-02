@@ -79,6 +79,9 @@
 
 .grid {
   gap: 2rem;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  align-items: center;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, minmax(25%, auto));
@@ -89,8 +92,8 @@
 .card {
   padding: 2rem 2rem;
   border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
+  background: rgba(var(--card-rgb), 0.35);
+  border: 1px solid rgba(var(--card-border-rgb), 0.45);
   transition: background 200ms, border 200ms;
 }
 
@@ -225,7 +228,7 @@
   .navbar .links {
     padding: 0.1rem 1.5rem;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     margin-right: auto;
   }
 

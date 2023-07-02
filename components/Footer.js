@@ -15,7 +15,7 @@ const Footer = () => {
                         rel = "noopener noreferrer"
                     >
                         <h2 className = {inter.className}>
-                        Employment <span> -&gt; </span>
+                        LinkedIn <span> -&gt; </span>
                         </h2>
                         <p className = {inter.className}>
                         LinkedIn Profile
@@ -67,7 +67,7 @@ const Footer = () => {
             </main>
 
             <footer>
-                ©2023 torisutansan
+                © 2023, torisutansan.
             </footer>
         </>
     )
