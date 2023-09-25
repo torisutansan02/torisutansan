@@ -43,30 +43,7 @@
 }
 
 body {
-  background: #f2f4f5;
-  color: #333;
   font-family: "Klee One";
-  margin-top: 100px;
-  margin-left: 300px;
-  margin-right: 300px;
-}
-
-h1 {
-  margin-left: 5px;
-}
-
-h2 {
-  margin-left: 10px;
-}
-
-h3 {
-  margin-left: 15px;
-}
-
-p {
-  text-indent: 20px;
-  margin-left: 25px;
-  margin-bottom: 25px;
 }
 
 a {
@@ -139,5 +116,60 @@ footer {
   body {
     color: white;
     background: #282b30;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-family: "Klee One";
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-right: 300px;
+  }
+  
+  h1 {
+    margin-left: 5px;
+  }
+  
+  h2 {
+    margin-left: 10px;
+  }
+  
+  h3 {
+    margin-left: 15px;
+  }
+  
+  p {
+    text-indent: 20px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 1023px) {
+  body {
+    font-family: "Klee One";
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    max-width: 100%;
+  }
+  
+  h1 {
+    margin-left: 5px;
+  }
+  
+  h2 {
+    margin-left: 10px;
+  }
+  
+  h3 {
+    margin-left: 15px;
+  }
+  
+  p {
+    text-indent: 20px;
+    margin-left: 25px;
+    margin-bottom: 25px;
   }
 }
