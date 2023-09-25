@@ -6,6 +6,7 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Sidebar from '../components/Sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,16 +19,15 @@ export default function Home() {
 
       <Navbar></Navbar>
 
+      <Sidebar></Sidebar>
+
           <h1>
             Who am I?
           </h1>
 
           <p>
-            Hello, my name is Tristan. I am a fourth year computer science student.
-          </p>
-
-          <p>
-            I post my work and other fun side projects on this website.
+            Hello, my name is Tristan. I am a fourth year computer science student. I will post my projects, 
+            and other activities on here.
           </p>
 
           <h2>
