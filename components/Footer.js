@@ -68,6 +68,8 @@ const Footer = () => {
 
             <footer>
                 © 2023, torisutansan.
+                <br/>
+                My website is open-source, feel free to use it as a reference.
             </footer>
         </>
     )

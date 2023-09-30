@@ -27,7 +27,8 @@ export default function Home() {
 
           <p>
             Hello, my name is Tristan. I am a fourth year computer science student. I will post my projects, 
-            and other activities on here.
+            and other activities on here. It is my personal objective to try to learn new things whenever I
+            have the opportunity. As such, I hope this website evolves with time.
           </p>
 
           <h2>
