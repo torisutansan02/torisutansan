@@ -21,7 +21,7 @@ export default function Home() {
     if (user) {
       return (
         <div>
-          Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+          Welcome {user.name}! <Link href="/api/auth/logout">Logout</Link>
         </div>
       );
     }
