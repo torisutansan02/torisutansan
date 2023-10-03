@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import { useUser } from '@auth0/nextjs-auth0'
+import Head from 'next/head';
+import Image from 'next/image';
+import { Inter } from '@next/font/google';
+import styles from '@/styles/Home.module.css';
+import { useUser } from '@auth0/nextjs-auth0';
 
-import Link from 'next/link'
+import Link from 'next/link';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
@@ -13,30 +13,18 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-  // if (error) {
-  //   return (
-  //     <>
-  //     <h1> error. </h1>
-  //     </>
-  //   )
-  // }
-
-  // if (isLoading) {
-  //   return (
-  //     <>
-  //     <h1> loading... </h1>
-  //     </>
-  //   )
-  // }
-
-  // if (user) {
-  //   return (
-  //     <>
-  //     <h1> Testing {user.name}! </h1>
-
-  //     </>
-  //   )
-  // }
+    const { user, error, isLoading } = useUser();
+  
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>{error.message}</div>;
+  
+    if (user) {
+      return (
+        <div>
+          Welcome {user.name}! <a href="/api/auth/logout">Logout</a>
+        </div>
+      );
+    }
 
   return (
     <>
