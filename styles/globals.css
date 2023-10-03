@@ -144,6 +144,13 @@ footer {
     margin-left: 25px;
     margin-bottom: 25px;
   }
+
+  .pretty {
+    background-color: #696969;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px #555555 ;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -169,8 +176,15 @@ footer {
   
   p {
     text-indent: 20px;
-    margin-left: 25px;
-    margin-bottom: 25px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+  }
+
+  .pretty {
+    background-color: #696969;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px #555555;
   }
 
   footer {

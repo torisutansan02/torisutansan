@@ -40,7 +40,7 @@ export default function Home() {
             Who am I?
           </h1>
 
-          <p>
+          <p className = "pretty">
             Hello, my name is Tristan. I am a fourth year computer science student. I will post my projects, 
             and other activities on here. It is my personal objective to try to learn new things whenever I
             have the opportunity. As such, I hope this website evolves with time.
@@ -50,7 +50,7 @@ export default function Home() {
             What is this?
           </h2>
 
-          <p>
+          <p className = "pretty">
             I am going to use this to hone in on my front-end skills. I am hoping I get better with CSS, html and JavaScript.
           </p>
 
@@ -58,7 +58,7 @@ export default function Home() {
             Purpose
           </h3>
 
-          <p>
+          <p className = "pretty">
             Hopefully I can optimize my code and other features with this website. Most of what I reference comes from NetNinja on Youtube.
           </p>
 
@@ -66,19 +66,21 @@ export default function Home() {
             Other Activities
           </h3>
 
-          <p>
+          <p className = "pretty">
             I will create a sidebar where you can navigate to some of the things I am doing. 
             The purpose of this sidebar is to show you my various works or projects.
             It might also contain some of the hobbies or other things I find of interest.
           </p>
 
-          <p>
+          <p className = "pretty">
             Other than that, I hope this becomes an experiment I can have a bit of fun with. 
             I am using HTML, CSS, JavaScript, Tailwind primarily for this project.
           </p>
 
-          <p>
-            Please click some of the links below :3
+          <p className = "pretty">
+            If you have any interest in contacting me, please click one of the linked below.
+            I am very happy to make friends with you, or perhaps connect with you on LinkedIn.
+            Hopefully you find this interesting, or any of my other projects.
           </p>
       <Footer />
   </>
