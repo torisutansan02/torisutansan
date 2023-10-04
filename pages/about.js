@@ -29,9 +29,9 @@ function About() {
                 adjust for times where life becomes difficult.
             </p>
 
-            <Link href = "https://rubbishradartristan.web.app" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto" target = "_blank"> Rubbish Radar </Link>
+            <Link href = "https://rubbishradartristan.web.app" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white" target = "_blank"> Rubbish Radar </Link>
 
-            <Link href = "https://torisutanproject.vercel.app/" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto" target = "_blank"> Biohack Project </Link>
+            <Link href = "https://torisutanproject.vercel.app/" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white" target = "_blank"> Biohack Project </Link>
 
             <Footer /> 
         </>
