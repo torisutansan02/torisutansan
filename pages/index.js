@@ -51,7 +51,8 @@ export default function Home() {
           </h2>
 
           <p className = "pretty">
-            I am going to use this to hone in on my front-end skills. I am hoping I get better with CSS, html and JavaScript.
+            I am going to use this to hone in on my front-end skills. I am hoping I get 
+            better with CSS, html and JavaScript.
           </p>
 
           <h3 className = "heading">
@@ -59,7 +60,8 @@ export default function Home() {
           </h3>
 
           <p className = "pretty">
-            Hopefully I can optimize my code and other features with this website. Most of what I reference comes from NetNinja on Youtube.
+            Hopefully I can optimize my code and other features with this website. Most of 
+            what I reference comes from NetNinja on Youtube.
           </p>
 
           <h3 className = "heading">
@@ -74,11 +76,13 @@ export default function Home() {
 
           <p className = "pretty">
             Other than that, I hope this becomes an experiment I can have a bit of fun with. 
-            I am using HTML, CSS, JavaScript, Tailwind primarily for this project.
+            I am using HTML, CSS, JavaScript, Tailwind primarily for this project. Alongside
+            this, I am also going to use Auth0 as a database and user authentication. My
+            personal blog serves as a way to healthily express myself.
           </p>
 
           <p className = "pretty">
-            If you have any interest in contacting me, please click one of the linked below.
+            If you have any interest in contacting me, please click one of the links below.
             I am very happy to make friends with you, or perhaps connect with you on LinkedIn.
             Hopefully you find this interesting, or any of my other projects.
           </p>
