@@ -36,7 +36,7 @@ export default function Home() {
 
       <Sidebar></Sidebar>
 
-          <h1>
+          <h1 className = "heading">
             Who am I?
           </h1>
 
@@ -46,7 +46,7 @@ export default function Home() {
             have the opportunity. As such, I hope this website evolves with time.
           </p>
 
-          <h2>
+          <h2 className = "heading">
             What is this?
           </h2>
 
@@ -54,7 +54,7 @@ export default function Home() {
             I am going to use this to hone in on my front-end skills. I am hoping I get better with CSS, html and JavaScript.
           </p>
 
-          <h3>
+          <h3 className = "heading">
             Purpose
           </h3>
 
@@ -62,7 +62,7 @@ export default function Home() {
             Hopefully I can optimize my code and other features with this website. Most of what I reference comes from NetNinja on Youtube.
           </p>
 
-          <h3>
+          <h3 className = "heading">
             Other Activities
           </h3>
 

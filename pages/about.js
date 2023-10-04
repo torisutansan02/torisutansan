@@ -10,7 +10,7 @@ function About() {
 
             <Sidebar></Sidebar>
 
-            <h1> About Me </h1>  
+            <h1 className = "heading"> About Me </h1>  
             <p className = "pretty"> 
                 Hello, my name is Tristan. Down below, you will find links to a couple of past
                 projects. The entire purpose of this project is to demonstrate my ability in

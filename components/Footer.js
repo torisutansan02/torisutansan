@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 const Footer = () => {
     return (
-        <>
+        <t>
             <main>
                 <div className = {styles.grid}>
                     <a
@@ -18,7 +18,7 @@ const Footer = () => {
                         LinkedIn <span> -&gt; </span>
                         </h2>
                         <p className = {inter.className}>
-                        LinkedIn Profile
+                        LinkedIn
                         </p>
                     </a>
 
@@ -32,7 +32,7 @@ const Footer = () => {
                         LastFM <span> -&gt; </span>
                         </h2>
                         <p className = {inter.className}>
-                        音楽聞いています
+                        Music
                         </p>
                     </a>
 
@@ -46,7 +46,7 @@ const Footer = () => {
                         RYM <span> -&gt; </span>
                         </h2>
                         <p className = {inter.className}>
-                        RYM Profile
+                        RYM
                         </p>
                     </a>
 
@@ -60,7 +60,7 @@ const Footer = () => {
                         IG <span> -&gt; </span>
                         </h2>
                         <p className = {inter.className}>
-                        Instagram Profile
+                        Instagram
                         </p>
                     </a>
                 </div>
@@ -71,7 +71,7 @@ const Footer = () => {
                 <br/>
                 My website is open-source, feel free to use it as a reference.
             </footer>
-        </>
+        </t>
     )
 }
 
