@@ -51,6 +51,12 @@ function Sidebar() {
                   Social
                 </h3>
               </Link>
+              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/login">
+                <FaRegComments className="text-2xl text-gray-600 group-hover:text-white " />
+                <h3 className="text-base text-white group-hover:text-white font-semibold ">
+                  Login
+                </h3>
+              </Link>
             </div>
             {/* setting  */}
             <div className=" my-4 border-b border-gray-100 pb-4">
