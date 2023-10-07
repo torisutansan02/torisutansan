@@ -17,7 +17,7 @@ function Socials() {
                 LinkedIn.
             </p>  
             
-            <p>
+            <p className = "pretty">
                 Please click any of the four boxes on top of the
                 footer.
             </p>

@@ -18,8 +18,15 @@ function Login() {
             <Sidebar></Sidebar>
 
             <h1 className = "heading"> Yay </h1>
-            <p classname = "pretty"> Welcome {user.name}! <Link href="/api/auth/logout"> Logout </Link> </p>
-            
+
+            <p className = "pretty"> 
+                Welcome {user.name}! You can now access my
+                personal blogs to find out some interesting
+                things I do on my free time.
+            </p>
+
+            <Link href = "/api/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
+
             <Footer/>
         </>
     );
@@ -32,7 +39,7 @@ function Login() {
                 
                 <h1 className = "heading"> Login </h1> 
 
-                <Link className = "pretty" href="api/auth/login"> Login </Link>
+                <Link href = "/api/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
 
                 <Footer />
             </>
