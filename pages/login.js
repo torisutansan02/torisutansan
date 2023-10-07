@@ -13,9 +13,13 @@ function Login() {
 
     if (user) {
     return (
-        <div>
-        Welcome {user.name}! <Link href="/api/auth/logout">Logout</Link>
-        </div>
+        <>
+            <Navbar/>
+            <Sidebar></Sidebar>
+            <h1> Yay </h1>
+            <p> Welcome {user.name}! <Link href="/api/auth/logout"> Logout </Link> </p>
+            <Footer/>
+        </>
     );
     }
     else {
