@@ -16,8 +16,10 @@ function Login() {
         <>
             <Navbar/>
             <Sidebar></Sidebar>
-            <h1> Yay </h1>
-            <p> Welcome {user.name}! <Link href="/api/auth/logout"> Logout </Link> </p>
+
+            <h1 className = "heading"> Yay </h1>
+            <p classname = "pretty"> Welcome {user.name}! <Link href="/api/auth/logout"> Logout </Link> </p>
+            
             <Footer/>
         </>
     );
@@ -30,7 +32,7 @@ function Login() {
                 
                 <h1 className = "heading"> Login </h1> 
 
-                <Link href="api/auth/login"> Login </Link>
+                <Link className = "pretty" href="api/auth/login"> Login </Link>
 
                 <Footer />
             </>

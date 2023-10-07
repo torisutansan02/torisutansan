@@ -1,9 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import { Inter } from '@next/font/google';
-import styles from '@/styles/Home.module.css';
 
-import Link from 'next/link';
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
@@ -37,7 +34,9 @@ export default function Home() {
 
           <p className = "pretty">
             I am going to use this to hone in on my front-end skills. I am hoping I get 
-            better with CSS, html and JavaScript.
+            better with CSS, HTML and JavaScript. Back-end skills are also important. I
+            am going to use user-authentication for server-side and client-side features.
+            This way, I can add to my personal blog.
           </p>
 
           <h3 className = "heading">
@@ -46,7 +45,8 @@ export default function Home() {
 
           <p className = "pretty">
             Hopefully I can optimize my code and other features with this website. Most of 
-            what I reference comes from NetNinja on Youtube.
+            what I reference comes from NetNinja on Youtube. Alongside many other resources,
+            like Stack Overflow.
           </p>
 
           <h3 className = "heading">
@@ -62,7 +62,7 @@ export default function Home() {
           <p className = "pretty">
             Other than that, I hope this becomes an experiment I can have a bit of fun with. 
             I am using HTML, CSS, JavaScript, Tailwind primarily for this project. Alongside
-            this, I am also going to use Auth0 as a database and user authentication. My
+            this, I am also going to use Auth0 for user authentication, and as a database. My
             personal blog serves as a way to healthily express myself.
           </p>
 

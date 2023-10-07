@@ -16,6 +16,11 @@ function Socials() {
                 things. I recommend connecting with me on
                 LinkedIn.
             </p>  
+            
+            <p>
+                Please click any of the four boxes on top of the
+                footer.
+            </p>
 
             <Footer />
         </>

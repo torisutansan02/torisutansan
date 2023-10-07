@@ -8,7 +8,7 @@ export default function Blog({ allPostsData }) {
     <>
         <Navbar />
         <Sidebar></Sidebar>
-        <h2 className = "heading">Blog</h2>
+        <h2 className = "heading"> Blog </h2>
         <ul>
           {allPostsData.map(({ id, date, title }) => (
             <li key={id}>
