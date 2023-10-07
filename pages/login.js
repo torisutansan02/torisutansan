@@ -26,7 +26,7 @@ function Login() {
                 
                 <h1 className = "heading"> Login </h1> 
 
-                <Link href="https://torisutan.org/api/auth/login"> Login </Link>
+                <Link href="api/auth/login"> Login </Link>
 
                 <Footer />
             </>
