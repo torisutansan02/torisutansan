@@ -7,6 +7,22 @@ import Sidebar from '../components/Sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const mongoose = require('mongoose');
+
+const uri = "mongodb+srv://torisutansan02:Tbcej5ZKVmgv4iLG@cluster0.4hmnj6i.mongodb.net/?retryWrites=true&w=majority";
+
+async function connect(){
+  try {
+      await mongoose.connect(uri);
+      console.log("connected to MongoDB");
+  }
+  catch {
+      console.log("error");
+  }
+}
+
+connect();
+
 export default function Home() {
   return (
     <>
