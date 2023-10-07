@@ -3,7 +3,7 @@ import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
 import Link from 'next/link';
 
-import { useAuth0 } from "@auth0/nextjs-auth0";
+import { useUser } from '@auth0/nextjs-auth0';
 
 function Login() {
     const { user, error, isLoading } = useUser();
