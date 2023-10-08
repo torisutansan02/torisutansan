@@ -4,6 +4,31 @@ import Sidebar from '../components/Sidebar'
 import Link from 'next/link';
 
 import { useUser } from '@auth0/nextjs-auth0';
+import connectMongo from '../utils/connectMongo';
+import Test from '../models/testModel';
+
+export const getServerSideProps = async () => {
+    try {
+      console.log('CONNECTING TO MONGO');
+      await connectMongo();
+      console.log('CONNECTED TO MONGO');
+  
+      console.log('FETCHING DOCUMENTS');
+      const tests = await Test.find();
+      console.log('FETCHED DOCUMENTS');
+  
+      return {
+        props: {
+          tests: JSON.parse(JSON.stringify(tests)),
+        },
+      };
+    } catch (error) {
+      console.log(error);
+      return {
+        notFound: true,
+      };
+    }
+  };
 
 function Login() {
     const { user, error, isLoading } = useUser();
@@ -11,11 +36,29 @@ function Login() {
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error.message}</div>;
 
+    const createTest = async () => {
+        const randomNum = Math.floor(Math.random() * 1000);
+        const res = await fetch('/api/test/add', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: `Test ${randomNum}`,
+            email: `test${randomNum}@test.com`,
+          }),
+        });
+        const data = await res.json();
+        console.log(data);
+      };
+
     if (user) {
     return (
         <>
             <Navbar/>
             <Sidebar></Sidebar>
+
+            <button onClick={createTest}> Create Test </button>
 
             <h1 className = "heading"> Yay </h1>
 
