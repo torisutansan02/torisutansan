@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 const mongoose = require('mongoose');
 
-const uri = "mongodb+srv://torisutansan02:Tbcej5ZKVmgv4iLG@cluster0.4hmnj6i.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI;
 
 async function connect(){
   try {
