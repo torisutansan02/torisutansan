@@ -4,8 +4,8 @@ import Sidebar from '../components/Sidebar'
 import Link from 'next/link';
 
 import { useUser } from '@auth0/nextjs-auth0';
-import connectMongo from '../utils/connectMongo';
-import Test from '../models/testModel';
+// import connectMongo from '../utils/connectMongo';
+// import Test from '../models/testModel';
 
 // export const getServerSideProps = async () => {
 //     require('dotenv').config();
