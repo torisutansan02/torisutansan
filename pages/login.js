@@ -44,8 +44,8 @@ function Login() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            name: `Test ${randomNum}`,
-            email: `test${randomNum}@test.com`,
+            name: `${user.name}`,
+            email: `${user.email}`,
           }),
         });
         const data = await res.json();
@@ -57,8 +57,6 @@ function Login() {
         <>
             <Navbar/>
             <Sidebar></Sidebar>
-
-            {/* <button onClick={/*createTest}> Create Test </button> */}
 
             <h1 className = "heading"> Yay </h1>
 
