@@ -58,7 +58,7 @@ function Login() {
             <Navbar/>
             <Sidebar></Sidebar>
 
-            <button onClick={createTest}> Create Test </button>
+            {/* <button onClick={/*createTest}> Create Test </button> */}
 
             <h1 className = "heading"> Yay </h1>
 
