@@ -7,28 +7,29 @@ import { useUser } from '@auth0/nextjs-auth0';
 import connectMongo from '../utils/connectMongo';
 import Test from '../models/testModel';
 
-export const getServerSideProps = async () => {
-    try {
-      console.log('CONNECTING TO MONGO');
-      await connectMongo();
-      console.log('CONNECTED TO MONGO');
+// export const getServerSideProps = async () => {
+//     require('dotenv').config();
+//     try {
+//       console.log('CONNECTING TO MONGO');
+//       await connectMongo();
+//       console.log('CONNECTED TO MONGO');
   
-      console.log('FETCHING DOCUMENTS');
-      const tests = await Test.find();
-      console.log('FETCHED DOCUMENTS');
+//       console.log('FETCHING DOCUMENTS');
+//       const tests = await Test.find();
+//       console.log('FETCHED DOCUMENTS');
   
-      return {
-        props: {
-          tests: JSON.parse(JSON.stringify(tests)),
-        },
-      };
-    } catch (error) {
-      console.log(error);
-      return {
-        notFound: true,
-      };
-    }
-  };
+//       return {
+//         props: {
+//           tests: JSON.parse(JSON.stringify(tests)),
+//         },
+//       };
+//     } catch (error) {
+//       console.log(error);
+//       return {
+//         notFound: true,
+//       };
+//     }
+//   };
 
 function Login() {
     const { user, error, isLoading } = useUser();
