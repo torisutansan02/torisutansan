@@ -1,7 +1,7 @@
 import { Inter } from '@next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData } from '../pages/api/posts';
 
 const BlogEntry = ({allPostsData}) => {
     return (

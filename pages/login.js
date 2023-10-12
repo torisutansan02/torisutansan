@@ -45,8 +45,8 @@ function Login() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            name: `${user.name}`,
-            email: `${user.email}`,
+            name: "Hi",
+            email: "Hello",
           }),
         });
         const data = await res.json();

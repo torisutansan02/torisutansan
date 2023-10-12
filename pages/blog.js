@@ -1,13 +1,39 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
-import { getSortedPostsData } from '../lib/posts';
+
+// import { getSortedPostsData } from '../lib/posts';
+import { useEffect, useState } from 'react'
 
 import { useUser } from '@auth0/nextjs-auth0';
 
 import Link from 'next/link'
 
-export default function Blog({ allPostsData }) {
+export default function Blog({ allPosts }) {
+  const [loading, setLoading] = useState(false);
+  const [state, setPostsState] = useState('test');
+
+  useEffect(() => {
+    setPostsState(allPosts);
+  }, [allPosts]);
+  
+  let submitForm = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    let res = await fetch("http://localhost:3000/api/posts", {
+      method: "POST",
+      body: JSON.stringify({
+        title: "My goal in life",
+        content: "Try to be funny, I failed",
+      }),
+    });
+    res = await res.json();
+    setPostsState([state, res]);
+    // setTitle("");
+    // setContent("");
+    setLoading(false);
+  };
+
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;
@@ -16,21 +42,21 @@ export default function Blog({ allPostsData }) {
   if (user) {
     return (
       <>
+        {/* <button onClick = {submitForm}> Test </button> */}
           <Navbar />
           <Sidebar></Sidebar>
+
           <h2 className = "heading"> Blog </h2>
           <ul>
-            {allPostsData.map(({ id, date, title }) => (
-              <li key={id}>
-                <Link href = {`/blog/${id}`}> {title} </Link>
+              <li key={allPosts.title}>
+                <Link href = {`/blog/${allPosts.title}`}> {allPosts.title} </Link>
                 <br />
-                {id}
+                  {allPosts.content}
                 <br />
-                {date}
+                  {/* {date} */}
                 <br />
                 <br />
               </li>
-            ))}
           </ul>
           <Footer />
       </>
@@ -52,11 +78,25 @@ export default function Blog({ allPostsData }) {
   }
 }
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData,
+// export async function getStaticProps() {
+//   const allPostsData = getSortedPostsData();
+//   return {
+//     props: {
+//       allPostsData,
+//     },
+//   };
+// }
+
+export async function getServerSideProps({context}) {
+  let res = await fetch("http://localhost:3000/api/posts", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
     },
+  });
+  let allPosts = await res.json();
+
+  return {
+    props: { allPosts },
   };
 }
