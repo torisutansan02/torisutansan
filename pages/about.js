@@ -12,7 +12,7 @@ function About() {
 
             <h1 className = "heading"> About Me </h1>  
             <p className = "pretty"> 
-                My name is Tristan Cai. I identify as non-binary and my pronouns are they/they/theirs.
+                My name is Tristan Cai. I identify as non-binary and my pronouns are they/them/any.
                 I like to work on various projects. The entire purpose of this website is to prove and
                 demonstrate my skills. I am using Tailwind CSS to develop the front-end of this website.
             </p>
