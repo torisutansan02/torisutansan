@@ -1,63 +1,29 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
-
-// import { getSortedPostsData } from '../lib/posts';
-import { useEffect, useState } from 'react'
-
+import { getSortedPostsData } from '../lib/posts';
+import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
 
-import Link from 'next/link'
-
-export default function Blog({ allPosts }) {
-  const [loading, setLoading] = useState(false);
-  const [state, setPostsState] = useState('test');
-
-  useEffect(() => {
-    setPostsState(allPosts);
-  }, [allPosts]);
-  
-  let submitForm = async (e) => {
-    setLoading(true);
-    e.preventDefault();
-    let res = await fetch("http://localhost:3000/api/posts", {
-      method: "POST",
-      body: JSON.stringify({
-        title: "My goal in life",
-        content: "Try to be funny, I failed",
-      }),
-    });
-    res = await res.json();
-    setPostsState([state, res]);
-    // setTitle("");
-    // setContent("");
-    setLoading(false);
-  };
-
+export default function Blog({ allPostsData }) {
   const { user, error, isLoading } = useUser();
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>{error.message}</div>;
 
   if (user) {
     return (
       <>
-        {/* <button onClick = {submitForm}> Test </button> */}
           <Navbar />
           <Sidebar></Sidebar>
-
           <h2 className = "heading"> Blog </h2>
-          <ul>
-              <li key={allPosts.title}>
-                <Link href = {`/blog/${allPosts.title}`}> {allPosts.title} </Link>
-                <br />
-                  {allPosts.content}
-                <br />
-                  {/* {date} */}
-                <br />
-                <br />
-              </li>
-          </ul>
+          
+          <p> Below, you can find links to my blog posts </p>
+
+          {allPostsData.map(({ id, date, title }) => (
+            <p key={id}>
+              <Link className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md text-white" href={`/blog/${id}`}>{title}</Link>
+            <br />
+            </p>
+          ))}
+
           <Footer />
       </>
     );
@@ -78,25 +44,11 @@ export default function Blog({ allPosts }) {
   }
 }
 
-// export async function getStaticProps() {
-//   const allPostsData = getSortedPostsData();
-//   return {
-//     props: {
-//       allPostsData,
-//     },
-//   };
-// }
-
-export async function getServerSideProps({context}) {
-  let res = await fetch("http://localhost:3000/api/posts", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  let allPosts = await res.json();
-
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
   return {
-    props: { allPosts },
+    props: {
+      allPostsData,
+    },
   };
 }
