@@ -10,7 +10,10 @@ function About() {
 
             <Sidebar></Sidebar>
 
-            <h1 className = "heading"> About Me </h1>  
+            <h1 className = "heading"> 
+                About Me 
+            </h1>  
+            
             <p className = "pretty"> 
                 My name is Tristan Cai. I identify as non-binary and my pronouns are they/them/any.
                 I like to work on various projects. The entire purpose of this website is to prove and
@@ -26,7 +29,7 @@ function About() {
             <p className = "pretty">
                 I try to stick with daily routines and habits. These are mostly dietary and ritualistic.
                 These activities promote health and well-being. Healthy diets, intense physical exercise,
-                and thinking occur naturally. I'm streamlining these processes and enhancing my creative
+                and thinking occur naturally. I like streamlining these processes and enhancing my creative
                 output.
             </p>
 
