@@ -81,12 +81,12 @@
 .grid {
   max-width: 100%;
   padding-bottom: 25px;
-  gap: 20px;
+  gap: 10px;
   margin: 0 auto;
   align-items: center;
   justify-content: center;
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  grid-template-columns: repeat(2, minmax(25%, auto));
   width: var(--max-width);
 }
 
@@ -198,7 +198,7 @@
     justify-content: center;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(1, minmax(25%, auto));
+    grid-template-columns: repeat(1, minmax(10%, auto));
     width: var(--max-width);
   }
 

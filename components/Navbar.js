@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css'
 const Navbar = () => {
     return (
         <div className = {styles.navbar}>
-            <h1 className = "font-bold"> torisutan </h1>
+            <h1 className = "NavHeader"> torisutan </h1>
             <ul className = {styles.links}>
                 <li>
                     <Link className = "hover:text-sky-500" href = "/"> Home </Link>

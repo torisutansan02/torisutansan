@@ -64,7 +64,10 @@ function Login() {
             <p className = "pretty"> 
                 Welcome {user.name}! You can now access my
                 personal blogs to find out some interesting
-                things I do on my free time.
+                things I do in my free time. My blogs can be 
+                interesting or boring. Sometimes I talk about my
+                diet, or schoolwork. Or sometimes I go on hikes or
+                watch anime, movies! Listen to music!
             </p>
 
             <Link href = "/api/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
@@ -83,7 +86,8 @@ function Login() {
 
                 <p className = "pretty">
                   Please click the button below to login. Logging in to my website allows you to access my personal blogs.
-                  To learn more about my work flow and processes, you should log in.
+                  To learn more about my work flow and processes, you should log in. For those that have interest in learning
+                  about some of the things I do in my day to day life.
                 </p>
 
                 <Link href = "/api/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>

@@ -6,7 +6,6 @@ const inter = Inter({ subsets: ['latin'] })
 const Footer = () => {
     return (
         <>
-            <main>
             <footer>
                 <div className = {styles.grid}>
                         <a
@@ -69,7 +68,6 @@ const Footer = () => {
                 <br/>
                 My website is open-source, feel free to use it as a reference.
             </footer>
-            </main>
         </>
     )
 }
