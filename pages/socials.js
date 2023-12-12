@@ -18,8 +18,9 @@ function Socials() {
             </p>  
             
             <p className = "pretty">
-                Please click any of the four boxes on top of the
-                footer.
+                Please click any of the four boxes below the
+                footer. These are parts of my digital footprint.
+                They also summarize the things I am interested in.
             </p>
 
             <Footer />
