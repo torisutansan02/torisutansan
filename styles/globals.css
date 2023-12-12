@@ -146,14 +146,15 @@ footer {
   }
   
   p {
+    text-align: justify;
     text-indent: 20px;
     margin-left: 25px;
     margin-bottom: 25px;
   }
 
   .pretty {
-    color: white;
-    background-color: #696969;
+    color: black;
+    background-color: #E8E8E8;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 10px #555555;
@@ -199,8 +200,8 @@ footer {
   }
 
   .pretty {
-    color: white;
-    background-color: #696969;
+    color: black;
+    background-color: #D3D3D3;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 10px #555555;

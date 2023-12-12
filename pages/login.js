@@ -81,6 +81,11 @@ function Login() {
                 
                 <h1 className = "heading"> Login </h1> 
 
+                <p className = "pretty">
+                  Please click the button below to login. Logging in to my website allows you to access my personal blogs.
+                  To learn more about my work flow and processes, you should log in.
+                </p>
+
                 <Link href = "/api/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>
 
                 <Footer />

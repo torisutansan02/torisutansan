@@ -25,7 +25,7 @@ function Sidebar() {
             aria-hidden="true"
           />
         </Disclosure.Button>
-        <div className="p-3 w-15 h-screen bg-zinc-800 z-20 fixed top-10 -left-96 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
+        <div className="p-3 w-15 h-screen bg-indigo-300 z-20 fixed top-10 -left-96 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
           <div className="flex flex-col justify-start item-center">
             <div className=" my-4 border-b border-gray-100 pb-4">
               <Link className="flex mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/">
@@ -62,14 +62,14 @@ function Sidebar() {
             {/* setting  */}
             <div className=" my-4 border-b border-gray-100 pb-4">
               <div className="flex mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineSettings className="text-2xl text-gray-600 group-hover:text-white " />
-                <h3 className="text-base text-white group-hover:text-white font-semibold ">
+                <MdOutlineSettings className="text-2xl text-black group-hover:text-white " />
+                <h3 className="text-base text-black group-hover:text-white font-semibold ">
                   Settings
                 </h3>
               </div>
               <div className="flex mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
-                <MdOutlineMoreHoriz className="text-2xl text-gray-600 group-hover:text-white " />
-                <h3 className="text-base text-white group-hover:text-white font-semibold ">
+                <MdOutlineMoreHoriz className="text-2xl text-black group-hover:text-white " />
+                <h3 className="text-base text-black group-hover:text-white font-semibold ">
                   More
                 </h3>
               </div>
