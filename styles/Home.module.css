@@ -27,6 +27,7 @@
 }
 
 .navbar h1 {
+  margin-right: 0px;
   font-size: 20px;
   padding: 0.1rem 1.5rem;
   color: #000000;
@@ -39,6 +40,7 @@
 }
 
 .navbar .links {
+  margin-left: 0px;
   font-size: 20px;
   padding: 0.1rem 1.5rem;
   display: flex;
@@ -193,18 +195,18 @@
   .grid {
     max-width: 100%;
     padding-bottom: 25px;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(1, minmax(10%, auto));
+    grid-template-columns: repeat(2, minmax(10%, auto));
     width: var(--max-width);
   }
 
 .card {
   display: grid;
-  padding: 15px 15px;
+  padding: 10px 10px;
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0.35);
   border: 1px solid rgba(var(--card-border-rgb), 0.45);
@@ -217,7 +219,7 @@
 }
 
 .card h2 {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 0.7rem;
 }

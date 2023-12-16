@@ -17,9 +17,6 @@ const Footer = () => {
                             <h2 className = {inter.className}>
                             LinkedIn <span> -&gt; </span>
                             </h2>
-                            <p className = {inter.className}>
-                            Professional
-                            </p>
                         </a>
 
                         <a
@@ -31,9 +28,6 @@ const Footer = () => {
                             <h2 className = {inter.className}>
                             LastFM <span> -&gt; </span>
                             </h2>
-                            <p className = {inter.className}>
-                            Music
-                            </p>
                         </a>
 
                         <a
@@ -45,9 +39,6 @@ const Footer = () => {
                             <h2 className = {inter.className}>
                             RYM <span> -&gt; </span>
                             </h2>
-                            <p className = {inter.className}>
-                            Taste
-                            </p>
                         </a>
 
                         <a
@@ -59,9 +50,6 @@ const Footer = () => {
                             <h2 className = {inter.className}>
                             Instagram <span> -&gt; </span>
                             </h2>
-                            <p className = {inter.className}>
-                            Social
-                            </p>
                         </a>
                     </div>
                     © 2023, torisutansan.
