@@ -51,7 +51,7 @@ a {
   text-decoration: none;
 }
 
-li {
+.listNav {
   list-style: none;
 }
 
@@ -132,6 +132,7 @@ footer {
   body {
     font-family: "Klee One";
     margin-top: 75px;
+    margin-left: 500px;
   }
 
   .body {
@@ -149,15 +150,9 @@ footer {
     color: black;
     background-color: #E8E8E8;
     padding: 20px;
-    margin-left: 400px;
     margin-right: 400px;
     border-radius: 20px;
     box-shadow: 1px 1px 10px #555555;
-  }
-
-  .visible {
-    margin-left: 400px;
-    margin-right: 400px;
   }
 
   .heading {
@@ -166,7 +161,6 @@ footer {
     background-color: #966fd6;
     color: white;
     padding: 5px;
-    margin-left: 400px;
     margin-right: 400px;
     padding-left: 20px;
     padding-right: 20px;
@@ -175,16 +169,11 @@ footer {
 }
 
 @media (min-width: 1024px) {
-  h5{
-    margin-left: 400px;
-  }
   p {
-    margin-left: 400px;
     margin-right: 400px;
   }
   
   ul {
-    margin-left: 400px;
     margin-right: 400px;
   }
 }

@@ -6,13 +6,13 @@ const Navbar = () => {
         <div className = {styles.navbar}>
             <h1> torisutan </h1>
             <ul className = {styles.links}>
-                <li>
+                <li className = "listNav">
                     <Link className = "hover:text-sky-500" href = "/"> Home </Link>
                 </li>
-                <li>
+                <li className = "listNav">
                     <Link className = "hover:text-sky-500" href = "/about"> About </Link>
                 </li>
-                <li>
+                <li className = "listNav">
                     <Link className = "hover:text-sky-500" href = "/socials"> Socials </Link>
                 </li>
             </ul>

@@ -1,6 +1,6 @@
 ---
 title: 'First Blog Post'
-date: '2023-11-27'
+date: 'November 27, 2023'
 ---
 
 This is my first blog I am posting to my website. Today, I am trying to learn dynamic routing to post these cute little blogs on my website. When I get better with databases, I want to use MongoDB.
