@@ -16,9 +16,16 @@ export default function Blog({ allPostsData }) {
           <h2 className = "heading"> Blog </h2>
           
           <p className = "pretty"> 
-            Below, you can find links to my blog posts. These are posts that revolve around my daily life.
+            You can find links to my blog posts below. These are posts that revolve around my daily life.
             I find various things interesting so checking out my blog is a must! There are lots of things
-            I do on a day to day basis. But I like to change it up a bit as well!
+            I do on a day-to-day basis. I am changing things up, and I plan on following a solid routine.
+            Routines are essential for time management and ensuring I can finish tasks.
+          </p>
+
+          <p className = "pretty">
+            The blogs below have a name with a particular topic. Each one from descending order is
+            chronological. I am going to date each one of these blogs to give an idea of how frequently I post.
+            This also gives you an idea of how much my life changes over time.
           </p>
 
           {allPostsData.map(({ id, date, title }) => (
@@ -38,9 +45,34 @@ export default function Blog({ allPostsData }) {
         <Sidebar />
 
         <h1 className = "heading"> Blog </h1>
-        <p> 
-          If you want to access blogs on this webste,
-          please log in.
+
+        <p className = "pretty"> 
+          If you want to access blogs on this website,
+          please log in. My blogs are journalistic in
+          nature and I use them to document interests.
+          I refer back to my blogs when I need to
+          recollect memories.
+        </p>
+
+        <p className = "pretty">
+          In particular, I use my blogs to talk about 
+          the things I learn in my life. Sometimes these
+          are ideas I familiarize myself with or concepts
+          I self-teach. Else, I document the ideas I learn
+          from school, books, et cetera.
+        </p>
+
+        <p className = "pretty">
+          I might also cite books or other resources I use
+          when writing these blogs. There might also be pages
+          I add with class notes or otherwise important
+          information I want to retain.
+        </p>
+
+        <p className = "pretty">
+          Please click the Login section on the right sidebar.
+          I think you may find some of my journaling
+          interesting!
         </p>
         <Footer />
       </>

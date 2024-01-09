@@ -86,8 +86,20 @@ function Login() {
 
                 <p className = "pretty">
                   Please click the button below to login. Logging in to my website allows you to access my personal blogs.
-                  To learn more about my work flow and processes, you should log in. For those that have interest in learning
-                  about some of the things I do in my day to day life.
+                  To learn more about my work flow and processes, you need to have authorization. For those that have 
+                  interest in learning more about the things I do in my day to day life.
+                </p>
+
+                <p className = "pretty">
+                  The login button is below these paragraphs. I am open to talking to you so please do not hesitate to
+                  reach out. The best way to reach out to me is through Instagram or connecting on LinkedIn. If you have
+                  any questions regarding this project, these are ways to reach out. I am more than happy to make friends
+                  with new people.
+                </p>
+
+                <p className = "pretty">
+                  I also love music. So I may talk in length about albums I like. I use RateYourMusic and LastFM to
+                  document my listening journey. You can add me on both if this interests you.
                 </p>
 
                 <Link href = "/api/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>
