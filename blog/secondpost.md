@@ -3,12 +3,11 @@ title: 'Second Blog Post'
 date: 'December 12, 2023'
 ---
 
-I am making a second blog post. Currently, I am in Northern California. Spending the Christmas season with my brother.
-
-A couple of things I am going to do here:
+This is my second blog post I am posting to my website. I am currently in Northern California, in El Dorado Hills. I am spending the Christmas season with my brother. There is going to be a list of things I plan on doing while on my vacation here.
 
 - Organizing Sakurabu activities.
 - Seeing Christmas lights.
 
-I miss Riverside and college. Northern California is very boring. However, I think this gives me a great opportunity
-to relax and enjoy my break.
+I miss living in Riverside and attending college classes. However, I think my fall quarter was quite difficult. I fell behind in many of my classes, however, I am giving myself time to rethink my studying habits. I am going into the winter quarter with a different mindset.
+
+There is not much to say or do. My brother has a cute cat whose name is Puff. My grandfather gave my brother the cat, and I think my brother is doing a great job taking care of him. Especially since my brother works full time.
