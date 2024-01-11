@@ -67,7 +67,12 @@ function Login() {
                 things I do in my free time. My blogs can be 
                 interesting or boring. Sometimes I talk about my
                 diet, or schoolwork. Or sometimes I go on hikes or
-                watch anime, movies! Listen to music!
+                watch anime, movies! I like to listen to lots of music!
+            </p>
+
+            <p className = "pretty">
+              On the sidebar, please click the Blog button. You can access my blogs
+              where I discuss various habits in my life.
             </p>
 
             <Link href = "/api/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
