@@ -44,7 +44,7 @@ export default function Home() {
             have the opportunity. As such, I hope this website evolves with time.
           </p>
 
-          <img src = "/images/tristancai2024.png" className = "h-40 w-50">
+          <img src = "/images/tristancai2024.png" className = "h-40 w-50 rounded-lg">
           </img>
 
           <h2 className = "heading">

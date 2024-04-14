@@ -30,7 +30,9 @@ export default function Blog({ allPostsData }) {
 
           {allPostsData.map(({ id, date, title }) => (
             <p className = "visible" key={id}>
-              <Link className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md text-white" href={`/blog/${id}`}>{title}</Link>
+              <Link className="bg-zinc-700 hover:bg-gray-900 py-1 px-2 rounded-md indent-0 text-white mx-2 my-1 md:mx-1 md:my-0" href={`/blog/${id}`}>
+                <span className="inline-block">{title}</span>
+              </Link>
             <br />
             </p>
           ))}

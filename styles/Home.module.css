@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Klee One:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku:wght@300;400;500;600;700&family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap');
 
 .main {
   display: flex;
@@ -15,7 +14,7 @@
   border-bottom: solid #c7cbce;
   z-index: 99;
   border-width: 1px;
-  font-family: "Klee One";
+  font-family: "Yuji Syuku", sans-serif;
   display: flex;
   top: 0;
   left: 0;
@@ -27,10 +26,10 @@
 }
 
 .navbar h1 {
-  margin-right: 0px;
+  margin-right: 0;
   font-size: 20px;
   padding: 0.1rem 1.5rem;
-  color: #000000;
+  color: #000;
 }
 
 .navbar li {
@@ -40,7 +39,7 @@
 }
 
 .navbar .links {
-  margin-left: 0px;
+  margin-left: 0;
   font-size: 20px;
   padding: 0.1rem 1.5rem;
   display: flex;
@@ -49,14 +48,9 @@
 }
 
 .description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
-  z-index: 2;
-  font-family: var(--font-mono);
 }
 
 .description a {
@@ -77,7 +71,6 @@
 
 .code {
   font-weight: 700;
-  font-family: var(--font-mono);
 }
 
 .grid {
@@ -93,7 +86,7 @@
 }
 
 .card {
-  padding: 15px 15px;
+  padding: 15px;
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0.35);
   border: 1px solid rgba(var(--card-border-rgb), 0.45);
@@ -112,7 +105,6 @@
 }
 
 .card p {
-  font-family: "Klee One";
   margin: 0;
   opacity: 0.6;
   line-height: 1.5;
@@ -123,7 +115,16 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 20px 20px;
+  padding: 20px;
+}
+
+.center::before,
+.center::after {
+  content: '';
+  left: 50%;
+  position: absolute;
+  filter: blur(45px);
+  transform: translateZ(0);
 }
 
 .center::before {
@@ -141,16 +142,6 @@
   z-index: -1;
 }
 
-.center::before,
-.center::after {
-  content: '';
-  left: 50%;
-  position: absolute;
-  filter: blur(45px);
-  transform: translateZ(0);
-}
-
-/* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
@@ -172,16 +163,14 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 1023px) {
-
   .navbar {
     font-size: 0.8rem;
   }
 
   .navbar .links {
     font-size: 16px;
-    padding: 6px 6px;
+    padding: 6px;
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -204,33 +193,18 @@
     width: var(--max-width);
   }
 
-.card {
-  display: grid;
-  padding: 10px 10px;
-  border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0.35);
-  border: 1px solid rgba(var(--card-border-rgb), 0.45);
-  transition: background 200ms, border 200ms;
-}
+  .card {
+    padding: 10px;
+    font-size: 16px;
+  }
 
-.card span {
-  display: inline-block;
-  transition: transform 200ms;
-}
+  .card h2 {
+    font-size: 16px;
+  }
 
-.card h2 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 0.7rem;
-}
-
-.card p {
-  font-family: "Klee One";
-  margin: 0;
-  opacity: 0.6;
-  font-size: 16px;
-  line-height: 1.5;
-}
+  .card p {
+    font-size: 16px;
+  }
 
   .center {
     padding: 8rem 0 6rem;
@@ -288,7 +262,6 @@
   }
 }
 
-/* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1023px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
@@ -296,7 +269,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
   .navbar {
     background: #1e2124;
     border-bottom: solid black;
@@ -312,28 +284,14 @@
     color: white;
   }
 
-  .vercelLogo {
-    filter: invert(1);
-  }
-
+  .vercelLogo,
   .logo,
   .thirteen img {
     filter: invert(1) drop-shadow(0 0 0.3rem #ffffff70);
   }
 
   .card {
-    border-radius: var(--border-radius);
     background: rgba(var(--card-rgb), 0.15);
     border: 1px solid rgba(var(--card-border-rgb), 0.10);
-    transition: background 200ms, border 200ms;
-  }
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
   }
 }
