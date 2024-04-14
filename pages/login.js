@@ -75,7 +75,7 @@ function Login() {
               where I discuss various habits in my life. My interests lie in self-teaching
               myself various different concepts. I may also talk about my diet, exercises,
               or various different activities. I utilize dynamic routing, following a 
-              "YYYYMMDD" format to route to particular entries. 
+              YYYYMMDD format to route to particular entries. 
             </p>
 
             <Link href = "/api/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
