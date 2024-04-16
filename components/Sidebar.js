@@ -10,7 +10,7 @@ import {
   MdOutlineSettings,
   MdOutlineLogout,
 } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
+import { CgProfile, CgLogIn } from "react-icons/cg";
 import { FaRegComments } from "react-icons/fa";
 import { BiMessageSquareDots } from "react-icons/bi";
 
@@ -19,7 +19,7 @@ function Sidebar() {
     <>
     <div>
       <Disclosure as="nav">
-        <Disclosure.Button className="mt-10 absolute top-4 right-4 inline-flex items-center peer justify-center rounded-md p-2 text-gray-800 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group">
+        <Disclosure.Button className="mt-10 fixed top-4 right-4 inline-flex items-center peer justify-center rounded-md p-2 text-gray-800 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group">
           <GiHamburgerMenu
             className="block md:hidden h-6 w-6"
             aria-hidden="true"
@@ -47,13 +47,13 @@ function Sidebar() {
                 </h3>
               </Link>
               <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/socials">
-                <FaRegComments className="text-2xl text-gray-600 group-hover:text-white " />
+                <BiMessageSquareDots className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-white group-hover:text-white font-semibold ">
                   Social
                 </h3>
               </Link>
               <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/login">
-                <FaRegComments className="text-2xl text-gray-600 group-hover:text-white " />
+                <CgLogIn className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-white group-hover:text-white font-semibold ">
                   Login
                 </h3>
