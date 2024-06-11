@@ -25,34 +25,34 @@ function Sidebar() {
             aria-hidden="true"
           />
         </Disclosure.Button>
-        <div className="p-3 w-15 h-screen bg-indigo-300 z-20 fixed top-10 -left-96 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
+        <div className="p-3 w-15 h-screen bg-indigo-400 z-20 fixed top-10 -left-96 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
           <div className="flex flex-col justify-start item-center">
             <div className=" my-4 border-b border-gray-100 pb-4">
-              <Link className="flex mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/">
+              <Link className="flex mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/">
                 <MdOutlineSpaceDashboard className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-white group-hover:text-white font-semibold">
                   Home
                 </h3>
               </Link>
-              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/about">
+              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/about">
                 <CgProfile className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-white group-hover:text-white font-semibold ">
                   About
                 </h3>
               </Link>
-              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/blog">
+              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/blog">
                 <FaRegComments className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-white group-hover:text-white font-semibold ">
                   Blog
                 </h3>
               </Link>
-              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/socials">
+              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/socials">
                 <BiMessageSquareDots className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-white group-hover:text-white font-semibold ">
                   Social
                 </h3>
               </Link>
-              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/login">
+              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/login">
                 <CgLogIn className="text-2xl text-gray-600 group-hover:text-white " />
                 <h3 className="text-base text-white group-hover:text-white font-semibold ">
                   Login
