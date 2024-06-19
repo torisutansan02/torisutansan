@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Sidebar from '../../components/Sidebar';
 import 'katex/dist/katex.min.css'; // Import KaTeX CSS
+import '../blog/katex-custom.css'; // Import custom KaTeX CSS
 
 export default function Post({ postData }) {
   return (

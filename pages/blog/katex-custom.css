@@ -1,0 +1,7 @@
+.katex-display {
+    text-align: left !important; /* Align block equations to the left */
+}
+  
+.katex {
+    text-align: left !important; /* Align inline equations to the left */
+}
