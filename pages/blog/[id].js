@@ -1,7 +1,9 @@
+import React from 'react';
 import { getAllPostIds, getPostData } from '../../lib/posts';
-import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
-import Sidebar from '../../components/Sidebar'
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import Sidebar from '../../components/Sidebar';
+import 'katex/dist/katex.min.css'; // Import KaTeX CSS
 
 export default function Post({ postData }) {
   return (
