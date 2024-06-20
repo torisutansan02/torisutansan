@@ -7,3 +7,9 @@
     text-align: left !important; /* Align inline equations to the left */
     font-size: 24px;
 }
+
+@media (max-width: 1023px) {
+    code {
+        font-size: 8px;
+    }
+}
