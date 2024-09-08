@@ -13,7 +13,6 @@
 .navbar {
   background-color: #dee1e3;
   border-bottom: solid #c7cbce;
-  z-index: 99;
   border-width: 1px;
   font-family: "Yuji Syuku", sans-serif;
   display: flex;
@@ -29,7 +28,7 @@
 .navbar h1 {
   margin-right: 0;
   font-size: 20px;
-  padding: 0.1rem 1.5rem;
+  padding: 5px 5px;
   color: #000;
 }
 
@@ -277,12 +276,14 @@
   }
   
   .navbar a {
+    display: none;
     color: white;
     background: #1e2124;
   }
 
   .navbar h1 {
     color: white;
+    padding-bottom: 10px;
   }
 
   .vercelLogo,
