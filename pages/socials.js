@@ -7,6 +7,8 @@ function Socials() {
         <>
             <Navbar />
             <Sidebar></Sidebar>
+
+            <div className = "text">
             
             <h1 className = "heading"> Socials </h1> 
 
@@ -30,6 +32,8 @@ function Socials() {
                 Or my trip to Shasta in April of 2023. These are landmark
                 journeys and I plan on adding more for you to see.
             </p>
+
+            </div>
 
             <Footer />
         </>

@@ -33,6 +33,7 @@ export default function Home() {
       <Navbar></Navbar>
 
       <Sidebar></Sidebar>
+      <div className = "text">
 
           <h1 className = "heading">
             Who am I?
@@ -90,6 +91,7 @@ export default function Home() {
             I am very happy to make friends with you, or perhaps connect with you on LinkedIn.
             Hopefully you find this interesting, or any of my other projects.
           </p>
+        </div>
       <Footer />
   </>
   )

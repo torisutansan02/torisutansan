@@ -13,6 +13,7 @@ export default function Blog({ allPostsData }) {
       <>
           <Navbar />
           <Sidebar></Sidebar>
+          <div className = "text">
           <h2 className = "heading"> Blog </h2>
           
           <p className = "pretty"> 
@@ -30,12 +31,14 @@ export default function Blog({ allPostsData }) {
 
           {allPostsData.map(({ id, date, title }) => (
             <p className = "visible" key={id}>
-              <Link className="bg-zinc-700 hover:bg-gray-900 py-1 px-2 rounded-md indent-0 text-white mx-2 my-1 md:mx-1 md:my-0" href={`/blog/${id}`}>
-                <span className="inline-block">{title}</span>
+              <Link className="grid bg-zinc-700 hover:bg-gray-900 content-center text-center py-4 mt-10 rounded-sm text-white" href={`/blog/${id}`}>
+                <span className="">{title}</span>
               </Link>
             <br />
             </p>
           ))}
+
+          </div>
 
           <Footer />
       </>
@@ -45,6 +48,8 @@ export default function Blog({ allPostsData }) {
       <>
         <Navbar />
         <Sidebar />
+
+        <div className = "text">
 
         <h1 className = "heading"> Blog </h1>
 
@@ -76,6 +81,8 @@ export default function Blog({ allPostsData }) {
           I think you may find some of my journaling
           interesting!
         </p>
+
+        </div>
         <Footer />
       </>
     )

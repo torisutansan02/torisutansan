@@ -14,7 +14,8 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer>
+        <>
+        <div className = "footer">
             <div className={styles.grid}>
                 {socialLinks.map((link, index) => (
                     <a
@@ -33,7 +34,8 @@ const Footer = () => {
             &copy; {currentYear}, torisutansan.
             <br/>
             My website is open-source, feel free to use it as a reference.
-        </footer>
+        </div>
+        </>
     )
 }
 

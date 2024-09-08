@@ -9,6 +9,7 @@ function About() {
             <Navbar />
 
             <Sidebar></Sidebar>
+            <div className = "text">
 
             <h1 className = "heading"> 
                 About Me 
@@ -45,6 +46,7 @@ function About() {
 
             <Link href = "https://torisutanproject.vercel.app/" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white" target = "_blank"> Biohack Project </Link>
 
+            </div>
             <Footer /> 
         </>
     );

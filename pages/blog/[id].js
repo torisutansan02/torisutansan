@@ -11,6 +11,8 @@ export default function Post({ postData }) {
     <>
       <Navbar />
       <Sidebar></Sidebar>
+      <div className = "text">
+      <div className = "pretty">
       {postData.title}
       <br />
       {postData.id}
@@ -18,6 +20,8 @@ export default function Post({ postData }) {
       {postData.date}
       <br />
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </div>
+      </div>
       <Footer />
     </>
   );

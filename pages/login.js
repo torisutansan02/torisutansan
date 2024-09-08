@@ -59,6 +59,8 @@ function Login() {
             <Navbar/>
             <Sidebar></Sidebar>
 
+            <div className = "text">
+
             <h1 className = "heading"> Yay </h1>
 
             <p className = "pretty"> 
@@ -80,6 +82,8 @@ function Login() {
 
             <Link href = "/api/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
 
+            </div>
+
             <Footer/>
         </>
     );
@@ -90,6 +94,7 @@ function Login() {
                 <Navbar />
                 <Sidebar></Sidebar>
                 
+                <div className = "text">
                 <h1 className = "heading"> Login </h1> 
 
                 <p className = "pretty">
@@ -111,7 +116,7 @@ function Login() {
                 </p>
 
                 <Link href = "/api/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>
-
+                </div>
                 <Footer />
             </>
         );
