@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { Inter } from '@next/font/google';
+import Image from 'next/image'; // Import the Image component
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
@@ -45,8 +46,15 @@ export default function Home() {
             have the opportunity. As such, I hope this website evolves with time.
           </p>
 
-          <img src = "/images/tristancai2024.png" className = "h-40 w-50 rounded-lg">
-          </img>
+          <Image
+            src="/images/tristancai2024.png"
+            alt="Tristan Cai 2024"
+            width={256} // specify width
+            height={170} // specify height
+            className="rounded-md"
+            priority // Add priority property
+          />
+
 
           <h2 className = "heading">
             What is this?

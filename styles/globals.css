@@ -5,7 +5,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: "Yuji Syuku";
+  font-family: "Noto Sans JP";
   color: white;
   background: #282b30;
 }
@@ -25,15 +25,6 @@ a {
   border-top: 2px solid black;
   color: white;
   background: #141414;
-}
-
-.not-found {
-  text-align: center;
-}
-
-.not-found a{
-  color: #4979ff;
-  text-decoration: underline;
 }
 
 a {
