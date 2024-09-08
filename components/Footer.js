@@ -5,8 +5,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 const socialLinks = [
     { name: 'LinkedIn', url: 'https://linkedin.com/in/tristan-cai-b89571267', icon: 'linkedin' },
-    { name: 'LastFM', url: 'https://last.fm/user/torisutan', icon: 'lastfm' },
-    { name: 'RYM', url: 'https://rateyourmusic.com/~torisunyan', icon: 'rym' },
+    { name: 'LastFM', url: 'https://last.fm/user/torisunyan', icon: 'lastfm' },
+    { name: 'RYM', url: 'https://rateyourmusic.com/~torisutan', icon: 'rym' },
     { name: 'Instagram', url: 'https://instagram.com/torisunyan?igshid=ZDdkNTZiNTM=', icon: 'instagram' },
 ]
 

@@ -42,9 +42,9 @@ function About() {
                 expression are endless. As an anarchist, I envision a world of endless exploration.
             </p>
 
-            <Link href = "https://rubbishradartristan.web.app" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white" target = "_blank"> Rubbish Radar </Link>
+            <Link href = "https://rubbishradartristan.web.app" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white" target = "_blank"> Rubbish Radar </Link>
 
-            <Link href = "https://torisutanproject.vercel.app/" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white" target = "_blank"> Biohack Project </Link>
+            <Link href = "https://torisutanproject.vercel.app/" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white" target = "_blank"> Biohack Project </Link>
 
             </div>
             <Footer /> 

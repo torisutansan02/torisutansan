@@ -61,10 +61,10 @@ function Login() {
 
             <div className = "text">
 
-            <h1 className = "heading"> Yay </h1>
+            <h1 className = "heading"> Hi {user.name}! </h1>
 
             <p className = "pretty"> 
-                Welcome {user.name}! You can now access my
+                Welcome! You can now access my
                 personal blogs to find out some interesting
                 things I do in my free time. My blogs can be 
                 interesting or boring. Sometimes I talk about my
@@ -80,7 +80,8 @@ function Login() {
               YYYYMMDD format to route to particular entries. 
             </p>
 
-            <Link href = "/api/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
+            
+            <Link href = "/api/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
 
             </div>
 
@@ -115,7 +116,7 @@ function Login() {
                   document my listening journey. You can add me on both if this interests you.
                 </p>
 
-                <Link href = "/api/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-2 m-2 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>
+                <Link href = "/api/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>
                 </div>
                 <Footer />
             </>
