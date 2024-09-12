@@ -102,6 +102,7 @@ html {
     box-shadow: 1px 1px 10px #555555;
     opacity: 1;
     transition: opacity 1s ease-in;
+    margin: 20px;
     animation-name: fadeInOpacity;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
@@ -123,7 +124,7 @@ html {
     overflow: hidden;
     color: rgb(255, 95, 255);
     border-radius: 10px;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    animation: typing 2s steps(40, end), blink-caret 1s step-end infinite;
   }
 
   @keyframes typing {
