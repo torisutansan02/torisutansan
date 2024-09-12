@@ -96,6 +96,7 @@ html {
 
   .pretty {
     color: black;
+    font-size: 90%;
     background-color: #D3D3D3;
     padding: 20px;
     border-radius: 20px;
