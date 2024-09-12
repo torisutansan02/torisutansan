@@ -17,3 +17,9 @@ do not taste very good. But in combination, I think they are delicious.
 - Tropical fruit blend (Mangoes, strawberries).
 
 You might want to try this recipe yourself. I use a variety of different ingredients each day for my smoothies. Please take my advice and use different ingredients for smoothies everyday! Variety makes everything more fun and flavorful!
+
+|   First Column    |   Second Column   |
+|   ----            |   -------------   |
+|   Test Case 1     |   Test Case 1     |
+|   Test Case 2     |   Test Case 2     |
+|   Test Case 3     |   Test Case 3     |

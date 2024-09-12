@@ -64,6 +64,25 @@ html {
     border-radius: 10px;
   }
 
+  table, td {
+    background-color: lightgray;
+    text-align: left;
+    padding: 10px;
+    border-radius: 10px;
+    border-width: medium;
+    border-style: solid;
+    border-color: #a9a9a9;
+  }
+  
+  th {
+    background-color: lightgray;
+    text-align: left;
+    padding: 10px;
+    border-radius: 10px;
+    border-width: medium;
+    border-style: solid;
+    border-color: #7f7f7f;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -81,20 +100,63 @@ html {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 1px 1px 10px #555555;
+    opacity: 1;
+    transition: opacity 1s ease-in;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+  }
+
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   .heading {
     font-family: "Montserrat Alternates";
     width: fit-content;
-    background-color: #966fd6;
-    color: white;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+    overflow: hidden;
+    color: rgb(255, 95, 255);
     border-radius: 10px;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
   }
 
   footer {
     margin-top: 25px;
+  }
+
+  table, td {
+    background-color: lightgray;
+    text-align: left;
+    padding: 5px;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    border-color: #a9a9a9;
+  }
+  
+  th {
+    background-color: lightgray;
+    text-align: left;
+    padding: 5px;
+    border-radius: 5px;
+    border-width: medium;
+    border-style: solid;
+    border-color: #7f7f7f;
   }
 }
