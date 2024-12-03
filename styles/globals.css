@@ -56,12 +56,8 @@ html {
   .heading {
     font-family: "Montserrat Alternates";
     width: fit-content;
-    background-color: #966fd6;
     color: white;
     padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px;
   }
 
   table, td {
@@ -123,7 +119,7 @@ html {
     font-family: "Montserrat Alternates";
     width: fit-content;
     overflow: hidden;
-    color: rgb(255, 95, 255);
+    color: white;
     border-radius: 10px;
     animation: typing 2s steps(40, end), blink-caret 1s step-end infinite;
   }
