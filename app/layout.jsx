@@ -1,11 +1,5 @@
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { Auth0Provider } from "@auth0/nextjs-auth0";
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-    <UserProvider>
-      <body>{children}</body>
-    </UserProvider>
-    </html>
-  );
+export default function Layout({ children }) {
+  return <Auth0Provider>{children}</Auth0Provider>;
 }

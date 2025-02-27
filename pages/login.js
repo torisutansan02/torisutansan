@@ -1,57 +1,16 @@
+"use client";
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
 import Link from 'next/link';
 
-import { useUser } from '@auth0/nextjs-auth0';
-// import connectMongo from '../utils/connectMongo';
-// import Test from '../models/testModel';
-
-// export const getServerSideProps = async () => {
-//     require('dotenv').config();
-//     try {
-//       console.log('CONNECTING TO MONGO');
-//       await connectMongo();
-//       console.log('CONNECTED TO MONGO');
-  
-//       console.log('FETCHING DOCUMENTS');
-//       const tests = await Test.find();
-//       console.log('FETCHED DOCUMENTS');
-  
-//       return {
-//         props: {
-//           tests: JSON.parse(JSON.stringify(tests)),
-//         },
-//       };
-//     } catch (error) {
-//       console.log(error);
-//       return {
-//         notFound: true,
-//       };
-//     }
-//   };
+import { useUser } from "@auth0/nextjs-auth0";
 
 function Login() {
     const { user, error, isLoading } = useUser();
   
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error.message}</div>;
-
-    const createTest = async () => {
-        const randomNum = Math.floor(Math.random() * 1000);
-        const res = await fetch('/api/test/add', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: "Hi",
-            email: "Hello",
-          }),
-        });
-        const data = await res.json();
-        console.log(data);
-      };
 
     if (user) {
     return (
@@ -81,7 +40,7 @@ function Login() {
             </p>
 
             
-            <Link href = "/api/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
+            <Link href = "/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
 
             </div>
 
@@ -116,7 +75,7 @@ function Login() {
                   document my listening journey. You can add me on both if this interests you.
                 </p>
 
-                <Link href = "/api/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>
+                <Link href = "/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>
                 </div>
                 <Footer />
             </>
