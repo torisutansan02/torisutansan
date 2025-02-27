@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Inter } from '@next/font/google';
+import { Inter } from "next/font/google";
 import Image from 'next/image'; // Import the Image component
 
 import Navbar from '../components/Navbar'
