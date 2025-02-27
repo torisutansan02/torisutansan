@@ -9,10 +9,11 @@ export async function middleware(request) {
       return authRes;
     }
 
-    const session = await auth0.getSession(request); // ✅ Pass `request`
+    const session = await auth0.getSession(request);
 
     if (!session) {
-      return NextResponse.redirect(new URL("/auth/login", request.url));
+      const baseUrl = request.nextUrl.origin || process.env.APP_BASE_URL || "http://localhost:3000";
+      return NextResponse.redirect(new URL("/auth/login", baseUrl)); // ✅ Fixed URL issue
     }
 
     return authRes;
