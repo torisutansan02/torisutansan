@@ -13,7 +13,7 @@ export async function middleware(request) {
 
     if (!session) {
       const baseUrl = request.nextUrl.origin || process.env.APP_BASE_URL || "http://localhost:3000";
-      return NextResponse.redirect(new URL("/auth/login", baseUrl)); // ✅ Fixed URL issue
+      return NextResponse.redirect(new URL("/auth/login", baseUrl)); // ✅ Fixed for production
     }
 
     return authRes;
