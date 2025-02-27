@@ -8,7 +8,7 @@ export async function middleware(request) {
         return authRes;
     }
 
-    const { origin } = new URL(process.env.APP_BASE_URL)
+    const { origin } = new URL(request.url)
     const session = await auth0.getSession();
 
     if (!session) {

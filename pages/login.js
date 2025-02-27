@@ -40,7 +40,7 @@ function Login() {
             </p>
 
             
-            <Link href = "/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </Link>
+            <a href = "/auth/logout" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Logout </a>
 
             </div>
 
@@ -75,7 +75,7 @@ function Login() {
                   document my listening journey. You can add me on both if this interests you.
                 </p>
 
-                <Link href = "/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </Link>
+                <a href = "/auth/login" className = "bg-zinc-700 hover:bg-gray-900 p-4 m-4 rounded-md flex w-40 text-center justify-center mx-auto text-white"> Login </a>
                 </div>
                 <Footer />
             </>

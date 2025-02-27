@@ -31,9 +31,9 @@ export default function Blog({ allPostsData }) {
 
           {allPostsData.map(({ id, date, title }) => (
             <p className = "visible" key={id}>
-              <Link className="grid bg-zinc-700 hover:bg-gray-900 content-center text-center py-4 mt-1 rounded-sm text-white" href={`/blog/${id}`}>
+              <a className="grid bg-zinc-700 hover:bg-gray-900 content-center text-center py-4 mt-1 rounded-sm text-white" href={`/blog/${id}`}>
                 <span className="">{title}</span>
-              </Link>
+              </a>
             <br />
             </p>
           ))}
