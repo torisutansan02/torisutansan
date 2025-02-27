@@ -9,7 +9,7 @@ export async function middleware(request) {
     }
 
     const { origin } = new URL(request.url)
-    const session = await auth0.getSession();
+    const session = await auth0.getSession(request);
 
     if (!session) {
         return NextResponse.redirect(`${origin}/auth/login`); // ✅ Fixed for production
