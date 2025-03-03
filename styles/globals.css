@@ -94,7 +94,7 @@ html {
     color: black;
     font-size: 90%;
     background-color: #D3D3D3;
-    padding: 20px;
+    padding: 15px;
     border-radius: 20px;
     box-shadow: 1px 1px 10px #555555;
     opacity: 1;
@@ -157,4 +157,14 @@ html {
     border-style: solid;
     border-color: #7f7f7f;
   }
+
+  li {
+    font-size: 14px;
+  }
+
+  ul {
+    padding-left: 15px;
+    font-size: 12px;
+  }
+
 }

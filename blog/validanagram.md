@@ -111,13 +111,27 @@ class Solution:
         charS = {}
         charT = {}
         
-        # Because s and t are the same length, you can iterate from 0 to n - 1 with either string
+        '''
+        Because s and t are the same length, 
+        you can iterate from 0 to n - 1 
+        with either string
+        '''
         for i in range(len(s)):
-            # Increment the character in the hash map of s by 1.
-            # Look up its current value or start with 0 if it does not exist.
+            '''
+            Increment the character in the 
+            hash map of s by 1.
+            Look up its current value or 
+            start with 0 if it does not exist.
+            '''
             charS[s[i]] = 1 + charS.get(s[i], 0)
-            # Exact same process for the character in the hash map of t.
+            '''
+            Exact same process for the 
+            character in the hash map of t.
+            '''
             charT[t[i]] = 1 + charT.get(t[i], 0)
         
-        # Return True if the two tables are identical, False otherwise
+        '''
+        Return True if the two tables 
+        are identical, False otherwise
+        '''
         return charS == charT
