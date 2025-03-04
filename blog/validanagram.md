@@ -1,6 +1,6 @@
 ---
 title: 'Valid Anagram'
-date: 'February 27, 2025'
+date: 'March 3, 2025'
 ---
 
 # Valid Anagram Explanation

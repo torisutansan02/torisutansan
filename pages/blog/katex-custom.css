@@ -12,6 +12,7 @@
     code {
         font-size: 7px;
     }
+    
     .katex-display {
         text-align: left !important; /* Align block equations to the left */
         font-size: 16px;
