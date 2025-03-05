@@ -18,30 +18,30 @@ Think about what consitutes a valid anagram. You want to count the characters in
 Your first thought should be to map the character count to a list of anagrams. Doing this, we create a list with a key and a value. The tuple represents a key, like if we have a tuple $(1, 1, 1, 0)$ with an a, b, c, and no d. Let's assume we have an input, where:
 
 - $strs =$
-    - $["abc", "cba", "bca", "abd"]$.
+    - $["abc", "cba", "bca", "abd"]$
 
 <br />
 
 Start by making a dictionary for storing the strings. Then, iterate through the strings and keep track of the occurrences of characters. Append strings whose values match a key.
 
 - $Count:$
-- $["a": 0, "b": 0, "c": 0, "d": 0]$.
-    - $String = "abc"$.
-        - $Tuple:$
-            - $(1, 1, 1, 0)$.
-        - $Value:$
-            - $["abc"]$.
-    - $String = "cba"$.
-        - $Tuple:$
-            - $(1, 1, 1, 0)$.
-        - $Value:$
-            - $["abc", "cba"]$.
-    - $String = "bca"$.
+- $["a": 0, "b": 0, "c": 0, "d": 0]$
+    - $String = "abc"$
         - $Tuple:$
             - $(1, 1, 1, 0)$
         - $Value:$
-            - $["abc", "cba", "bca"]$.
-    - $String = "abd"$.
+            - $["abc"]$
+    - $String = "cba"$
+        - $Tuple:$
+            - $(1, 1, 1, 0)$
+        - $Value:$
+            - $["abc", "cba"]$
+    - $String = "bca"$
+        - $Tuple:$
+            - $(1, 1, 1, 0)$
+        - $Value:$
+            - $["abc", "cba", "bca"]$
+    - $String = "abd"$
         - $Tuples:$
             - $(1, 1, 1, 0)$
             - $(1, 1, 0, 1)$
