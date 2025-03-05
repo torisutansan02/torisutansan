@@ -3,7 +3,7 @@ title: 'Two Sum'
 date: 'February 27, 2025'
 ---
 
-# Two Sum Explanation
+# Two Sum
 
 You have an array of integers nums and an integer target.
 

@@ -3,7 +3,7 @@ title: 'Contains Duplicate'
 date: 'March 4, 2025'
 ---
 
-# Contains Duplicate Explanation
+# Contains Duplicate
 
 You have an array nums, where you return True if a value appears in at least two indexes. Return False otherwise.
 

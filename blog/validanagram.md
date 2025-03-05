@@ -3,7 +3,7 @@ title: 'Valid Anagram'
 date: 'March 3, 2025'
 ---
 
-# Valid Anagram Explanation
+# Valid Anagram
 
 You have two strings s and t.
 
