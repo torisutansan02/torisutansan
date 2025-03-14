@@ -60,6 +60,12 @@ html {
     padding: 5px;
   }
 
+  .blogheading {
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+  }
+
   table, td {
     background-color: lightgray;
     text-align: left;
@@ -124,6 +130,13 @@ html {
     animation: typing 2s steps(40, end), blink-caret 1s step-end infinite;
   }
 
+  .blogheading {
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+  }
+
   @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
@@ -132,6 +145,18 @@ html {
   @keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: orange; }
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
   }
 
   footer {
@@ -146,6 +171,7 @@ html {
     border-width: medium;
     border-style: solid;
     border-color: #a9a9a9;
+    margin: 5px;
   }
   
   th {
@@ -160,9 +186,11 @@ html {
 
   li {
     font-size: 14px;
+    padding-bottom: 5px;
   }
 
   ul {
+    padding-top: 10px;
     padding-left: 15px;
     font-size: 12px;
   }

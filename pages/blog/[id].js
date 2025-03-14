@@ -13,12 +13,8 @@ export default function Post({ postData }) {
       <Sidebar></Sidebar>
       <div className = "text">
       <div className = "pretty">
-      {postData.title}
-      <br />
-      {postData.id}
-      <br />
-      {postData.date}
-      <br />
+      <p class = "blogheading"> {postData.title} </p>
+      <p class = "blogheading"> {postData.date} </p>
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </div>
       </div>
