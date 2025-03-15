@@ -10,9 +10,18 @@
 
 @media (max-width: 1023px) {
     code {
-        font-size: 7px;
-        max-width: 100%
-    }
+        font-size: 12px;
+        max-width: 100%;
+        display: block; /* Ensures it behaves like a block element */
+        white-space: pre; /* Preserves formatting */
+        overflow-x: auto; /* Enables horizontal scrolling */
+        overflow-y: auto; /* Enables vertical scrolling */
+        max-height: 200px; /* Adjust height as needed */
+        background-color: #f4f4f4; /* Optional: Background color */
+        padding: 10px; /* Optional: Padding for better readability */
+        border: 1px solid #ddd; /* Optional: Border for better visibility */
+        border-radius: 10px;
+    }    
     
     .katex-display {
         text-align: left !important; /* Align block equations to the left */
