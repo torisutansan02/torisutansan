@@ -1,6 +1,6 @@
 ---
 title: 'Evaluate Reverse Polish Notation'
-date: 'March 12, 2025'
+date: 'March 14, 2025'
 ---
 
 # Evaluate Reverse Polish Notation
