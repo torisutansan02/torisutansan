@@ -1,6 +1,6 @@
 ---
 title: 'Koko Eating Bananas'
-date: 'March 14, 2025'
+date: 'March 15, 2025'
 ---
 
 # Koko Eating Bananas
