@@ -18,23 +18,15 @@ Every open parenthesis $"("$ needs to have a corresponding closing parenthesis $
 
 - And our total open and closed parentheses must also not exceed $n$.
 
-<br />
-
 What kind of solution does this hint at?
 
 ### Stack
 
 We have to use a $stack$ as our data structure, but we should also recursively backtrack.
 
-<br />
-
 Since we are tracking how many open and closed parentheses we have, shouldn't we set them to a variable?
 
-<br />
-
 Below, I will set my variables. $res$ represents the array of strings of valid parentheses.
-
-<br />
 
 We will use a stack $s$ to append or pop from the stack. The variables $o$ represent $open$ and $c$ represents $closed$ parentheses.
 
@@ -188,8 +180,6 @@ We will use a stack $s$ to append or pop from the stack. The variables $o$ repre
         - $o == c == n$
 - Valid Solution:
     - $res = ["(())", "()()"]$
-
-<br />
 
 Therefore, you must return the result. We have all valid strings.
 

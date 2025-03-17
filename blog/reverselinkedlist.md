@@ -32,8 +32,6 @@ Well, imagine if we have two previous and current pointers where the previous po
 
 Intuitively, we need to set head to where $5$ is at.
 
-<br />
-
 $1-2-3-4-5$
 
 Imagine we have three pointers instead of two:
@@ -70,8 +68,6 @@ Imagine we have three pointers instead of two:
 - $curr = 2$
     - $curr = nxt$
 
-<br/>
-
 $1-null$
 
 #### Second Iteration:
@@ -98,8 +94,6 @@ $1-null$
     - $prev = curr$
 - $curr = 3$
     - $curr = nxt$
-
-<br/>
 
 $2-1-null$
 
@@ -128,8 +122,6 @@ $2-1-null$
 - $curr = 4$
     - $curr = nxt$
 
-<br/>
-
 $3-2-1-null$
 
 #### Fourth Iteration:
@@ -156,8 +148,6 @@ $3-2-1-null$
     - $prev = curr$
 - $curr = 5$
     - $curr = nxt$
-
-<br/>
 
 $4-3-2-1-null$
 
@@ -186,11 +176,7 @@ $4-3-2-1-null$
 - $curr = null$
     - $curr = nxt$
 
-<br/>
-
 $5-4-3-2-1-null$
-
-<br />
 
 |   nxt     |   prev    |   curr    |   head    |   list
 |   ---     |   ---     |   ---     |   ---     |   ---
