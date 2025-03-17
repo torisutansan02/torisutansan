@@ -24,14 +24,36 @@
     }    
     
     .katex-display {
-        text-align: left !important; /* Align block equations to the left */
+        text-align: left !important; /* Align block equations */
         font-size: 100%;
         font-weight: bold;
+        max-width: 100%;
+        
+        /* Prevent overflow */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal !important;
+        display: block;
+        
+        /* Force line breaks */
+        overflow-x: auto; /* Allow horizontal scrolling if needed */
     }
-      
+    
     .katex {
-        text-align: left !important; /* Align inline equations to the left */
+        text-align: left !important;
         font-size: 100%;
         font-weight: bolder;
+        max-width: 100%;
+        
+        /* Prevent overflow */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal !important;
+        display: inline-block;
+        
+        /* Force wrapping for inline math */
+        overflow-x: auto;
+
+        vertical-align: middle; /* Ensures inline equations align with text */
     }
 }
