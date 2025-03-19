@@ -17,7 +17,7 @@ By simply looking at the tree, your intuition should be to count the number of n
 
 But how should we search the entire tree and find the path that has the maximum path?
 
-## Tree
+### Tree
 
 The way you can do this is by using depth first search $(dfs)$ to go along the path.
 
