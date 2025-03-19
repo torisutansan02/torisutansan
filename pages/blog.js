@@ -2,11 +2,18 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
 import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
 import { useUser } from '@auth0/nextjs-auth0';
+import { useState } from 'react';
 
 export default function Blog({ allPostsData }) {
   const { user, error, isLoading } = useUser();
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const categories = [...new Set(allPostsData.flatMap(post => post.category))].filter(category => category);
+
+  const filteredPosts = selectedCategory
+  ? allPostsData.filter(post => post.category === selectedCategory)
+  : [];
 
   if (user) {
     return (
@@ -29,14 +36,34 @@ export default function Blog({ allPostsData }) {
             This also gives you an idea of how much my life changes over time.
           </p>
 
-          {allPostsData.map(({ id, date, title }) => (
-            <p className = "visible" key={id}>
-              <a className="grid bg-zinc-700 hover:bg-gray-900 content-center text-center py-4 mt-1 rounded-sm text-white" href={`/blog/${id}`}>
-                <span className="">{title}</span>
-              </a>
-            <br />
-            </p>
-          ))}
+          <select
+            className="p-2 rounded bg-zinc-700 text-white my-4"
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+          >
+            <option value="" disabled>Category</option>
+            {categories.map(category => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+
+          {/* Only display posts if a category is selected */}
+          {filteredPosts.length > 0 ? (
+            filteredPosts.map(({ id, title }) => (
+              <p className="visible" key={id}>
+                <a
+                  className="grid bg-zinc-700 hover:bg-gray-900 content-center text-center py-4 mt-1 rounded-sm text-white"
+                  href={`/blog/${id}`}
+                >
+                  {title}
+                </a>
+              </p>
+            ))
+          ) : (
+            <p> Please select a category.</p>
+          )}
 
           </div>
 
@@ -93,7 +120,8 @@ export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData,
+      allPostsData: allPostsData || [],
     },
+    revalidate: 10,
   };
 }
