@@ -36,18 +36,23 @@ export default function Blog({ allPostsData }) {
             This also gives you an idea of how much my life changes over time.
           </p>
 
-          <select
-            className="p-2 rounded bg-zinc-700 text-white my-4"
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-          >
-            <option value="" disabled>Category</option>
-            {categories.map(category => (
-              <option key={category} value={category}>
-                {category}
-              </option>
-            ))}
-          </select>
+          <div className="relative inline-block">
+            <select
+              className="appearance-none pt-3 pb-3 pr-10 pl-4 text-left rounded bg-zinc-500 text-white"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+            >
+              <option value="" disabled>Category</option>
+              {categories.map(category => (
+                <option key={category} value={category}>
+                  {category}
+                </option>
+              ))}
+            </select>
+            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none text-white">
+              ▼
+            </div>
+          </div>
 
           {/* Only display posts if a category is selected */}
           {filteredPosts.length > 0 ? (
