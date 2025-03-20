@@ -6,7 +6,7 @@ category: 'Trees'
 
 # Subtree of Another Tree
 
-You have two binary trees $root$ and $subroot$, you must return $True$ if there is a $subtree$ of $root$ that has the same structure and node values as $subRoot$, $False$ otherwise.
+You have two binary trees $root$ and $subroot$, return $True$ if there is a $subtree$ of $root$ that has the same structure and node values as $subRoot$, $False$ otherwise.
 
 <img src="/subtreeOfAnotherTree/SubtreeOfAnotherTree1.png" style="width: 100%; height: 100%;">
 
