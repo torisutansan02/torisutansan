@@ -8,7 +8,7 @@ category: 'Trees'
 
 You have two binary trees $root$ and $subroot$, you must return $True$ if there is a $subtree$ of $root$ that has the same structure and node values as $subRoot$, $False$ otherwise.
 
-<img src="/subTreeOfAnotherTree/SubtreeOfAnotherTree1.png" style="width: 100%; height: 100%;">
+<img src="/subtreeOfAnotherTree/SubtreeOfAnotherTree1.png" style="width: 100%; height: 100%;">
 
 ## How to Solve?
 
@@ -28,7 +28,7 @@ What if we just created a helper function for the same tree and when called for 
 
 Try using recursion and $Preorder$ $DFS$ to see if you can get the answer. If not, I will include an illustration below to demonstrate the algorithm.
 
-<img src="/subTreeOfAnotherTree/SubtreeOfAnotherTree2.png" style="width: 100%; height: 100%;">
+<img src="/subtreeOfAnotherTree/SubtreeOfAnotherTree2.png" style="width: 100%; height: 100%;">
 
 ### Helpful Hints
 
