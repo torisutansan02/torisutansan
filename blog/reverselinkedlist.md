@@ -1,6 +1,7 @@
 ---
 title: 'Reverse Linked List'
 date: 'March 16, 2025'
+category: 'Linked List'
 ---
 
 # Reverse Linked List

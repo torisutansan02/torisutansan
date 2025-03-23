@@ -1,6 +1,7 @@
 ---
 title: 'Longest Consecutive Sequence'
 date: 'March 5, 2025'
+category: 'Arrays'
 ---
 
 # Longest Consecutive Sequence

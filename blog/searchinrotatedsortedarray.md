@@ -1,6 +1,7 @@
 ---
 title: 'Search in Rotated Sorted Array'
 date: 'March 15, 2025'
+category: 'Binary Search'
 ---
 
 # Search in Rotated Sorted Array
@@ -16,8 +17,6 @@ You are given an integer array $nums$ and you must find the index $i$ that conta
 
 This question is particularly difficult. But notice how in the second example, the $0$ is in the second half of the array. This gives us a hint to the solution.
 
-<br />
-
 Should we split the array in half?
 
 ### Binary Search
@@ -27,17 +26,11 @@ This is what we get when we split the array in half:
 - $[4, 5, 6, 7]$
 - $[0, 1, 2]$
 
-<br />
-
 Notice how 0 is in the second half. This problem is quite complex, and it is best explained in examples.
 
 - But now that we know we need to use binary search, we just need to find the constraints for setting the left and right pointers.
 
-<br />
-
 Below, I will provide multiple examples of the implementation of binary search. These examples are meant to give hints as to what the constraints are.
-
-<br />
 
 ### Example 1:
 
@@ -109,8 +102,6 @@ Below, I will provide multiple examples of the implementation of binary search. 
 - Notice how $nums[m] == target$?
     - Our constraint after computing m should check if this is the case.
     - We simply want to return $m$ in this case.
-
-<br />
 
 Unfortunately, this does not satisfy all our constraints. Let's use another example.
 

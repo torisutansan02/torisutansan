@@ -1,6 +1,7 @@
 ---
 title: 'Product of Array Except Self'
 date: 'March 5, 2025'
+category: 'Arrays'
 ---
 
 # Product of Array Except Self
@@ -28,8 +29,6 @@ Let's first find the prefix of the indices.
     - Fourth value is 6. $3 * 2 * 1 = 6$.
 - $[1, 1, 2, 6]$
 
-<br />
-
 Let's find the postfix of the indices.
 
 - $[1, 2, 3, 4]$
@@ -40,15 +39,11 @@ Let's find the postfix of the indices.
     - Fourth value is 24. $1 * 2 * 3 * 4 = 24$.
 - $[24, 12, 8, 6]$.
 
-<br />
-
 Do you notice how we are doing a lot of repeated work? What if we stored the prefix and postfix in a variable? Let's create a table demonstrating the calculations we need to keep two variables $prefix$ and $postfix$. We should also create a result array the size of nums and store it's content with 1's.
 
 - $nums = [1, 2, 3, 4]$
 - $res = [1, 1, 1, 1]$
 - $prefix = 1$
-
-<br />
 
 Here is the prefix formula and table.
 
@@ -81,8 +76,6 @@ Here is postfix formula and table.
 |   0       |   24                  |   1               |   24                  |   24
 
 - $res = [24, 12, 8, 6]$
-
-<br />
 
 Note how the prefix and postfix products lead us to the solution we are looking for. You'd want to return the result after these operations.
 

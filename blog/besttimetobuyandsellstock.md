@@ -1,6 +1,7 @@
 ---
 title: 'Best Time to Buy and Sell Stock'
 date: 'March 11, 2025'
+category: 'Sliding Window'
 ---
 
 # Best Time to Buy and Sell Stock
@@ -16,23 +17,17 @@ You are given an array $prices$ where $prices[i]$ represents the value of the cu
 
 Notice how you can make a profit if you buy a stock for cheaper earlier and then sell a stock later. This information is useful because it hints at using a sliding window.
 
-<br />
-
 Think about it like this. If I buy a stock on day 1 and not day 2, then the price of the stock goes down each consecutive day. Buying a stock for a cheaper price will always output a greater return than purchasing it at a more expensive cost.
 
 ### Sliding Window
 
 To effectively utilize the sliding window technique, you have to first consider the fact that the time frame must be at least two days. Otherwise, you wouldn't buy a stock.
 
-<br />
-
 Set a max profit variable to keep track of the current profit. For your window, assign $l$ to the beginning of the list and $r$ to the second index.
 
 - $l = 0$
 - $r = 1$
 - $maxProfit = 0$
-
-<br />
 
 From here, you want to see if the price of the stock at the left pointer is less than the price of the stock at the right pointer.
 

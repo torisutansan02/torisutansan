@@ -1,6 +1,7 @@
 ---
 title: 'Binary Search'
 date: 'March 14, 2025'
+category: 'Binary Search'
 ---
 
 # Binary Search

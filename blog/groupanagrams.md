@@ -1,6 +1,7 @@
 ---
 title: 'Group Anagrams'
 date: 'March 4, 2025'
+category: 'Arrays'
 ---
 
 # Group Anagrams
@@ -19,8 +20,6 @@ Your first thought should be to map the character count to a list of anagrams. D
 
 - $strs =$
     - $["abc", "cba", "bca", "abd"]$
-
-<br />
 
 Start by making a dictionary for storing the strings. Then, iterate through the strings and keep track of the occurrences of characters. Append strings whose values match a key.
 
@@ -48,8 +47,6 @@ Start by making a dictionary for storing the strings. Then, iterate through the 
         - $Values:$
             - $["abc", "cba", "bca"]$
             - $["abd"]$.
-
-<br />
 
 Afterwards, return a list corresponding with the tuple's values.
 - $[["abc", "cba", "bca"], ["abd"]]$

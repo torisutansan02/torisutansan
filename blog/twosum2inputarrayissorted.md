@@ -1,6 +1,7 @@
 ---
 title: 'Two Sum II - Input Array is Sorted'
 date: 'March 6, 2025'
+category: 'Two Pointers'
 ---
 
 # Two Sum II - Input Array is Sorted
@@ -15,8 +16,6 @@ You are given a sorted numbers array and a target where you have to find the ind
 ## How to Solve?
 
 It is helpful that the input array is sorted. You might notice that adding the two indexes from the beginning of the list and the end of the list generates a value too big. Adding $numbers[0] + numbers[3] = 17$.
-
-<br />
 
 $What\ am\ I\ getting\ at?$
 - Well, the pattern is that if the sum is greater than the target, maybe you should use a left and right pointer? What happens if we decrement the right pointer?
@@ -33,14 +32,10 @@ The intuition behind the problem is very simple. But coding it might seem a bit 
 - $l = 0$
 - $r = len(numbers) - 1$
 
-<br />
-
 Let's use the following numbers array and target:
 
 - $numbers = [1, 1, 3, 6, 7]$
 - $target = 9$
-
-<br />
 
 This example perfectly illustrates the two pointers algorithm and we could demonstrate it below.
 
@@ -92,8 +87,6 @@ This example perfectly illustrates the two pointers algorithm and we could demon
     - $numbers[l] + numbers[r] == target$
     - We have found the result.
 - You want to return $[l + 1, r + 1]$.
-
-<br />
 
 Do not keep iterating if we found the result. If we found the result, then you just want to return the left and right pointers + 1. You should also end the loop when the left pointer is less than the right pointer. Why? Because we want there two be two separate indices. If the left pointer ever equals the right pointer, then they are the same index.
 

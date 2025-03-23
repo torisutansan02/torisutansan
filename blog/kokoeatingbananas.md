@@ -1,17 +1,14 @@
 ---
 title: 'Koko Eating Bananas'
 date: 'March 15, 2025'
+category: 'Binary Search'
 ---
 
 # Koko Eating Bananas
 
 You have an array $piles$ representing the bananas in a pile and an integer $h$ representing hours. You must return a value $k$ of how many bananas you can eat per pile that totals less than $h$.
 
-<br />
-
 The goal is to minimize the amount of bananas per pile, so reduce $k$ to its smallest value.
-
-<br />
 
 Example:
 - $piles = [2, 4, 5, 7]$
@@ -29,21 +26,15 @@ The easiest way to solve how many bananas you must eat is to simply look at the 
 
 - $7$.
 
-<br />
-
 If I eat $7$ bananas per hours, it takes me $4$ hours to finish all the bananas. This is going to be our upper bound. Quite simply, we can iterate from eating $1$ banana to $7$ bananas and find the minimum to eat all of them in $8$ hours or less.
 
 ### Binary Search
 
 But why do that? Now that we know our lower bound is $1$ and our upper bound is $7$, is there an algorithm we can utilize to reduce our runtime?
 
-<br />
-
 Yes there is, and the approach is very intuitive. Our lower bound is our left pointer $l$, and our upper bound is our right pointer $r$.
 
 - We can use binary search.
-
-<br />
 
 Below, I will simulate how binary search is going to work. We will use a middle pointer $k$ to get the middle index between $l$ and $r$. We are going to halve our possibilities each iteration.
 
@@ -56,8 +47,6 @@ Below, I will simulate how binary search is going to work. We will use a middle 
 - $res = r$
     - Our worst case is to return the maximum amount of hours.
 - $hours = 0$
-
-<br />
 
 Utilize the formula:
 - $k = l + ((r - l) // 2)$
@@ -133,8 +122,6 @@ Utilize the formula:
     - $res = 3$
         - $res = min(res, k)$
     - But notice $l == r$. No need to continue the algorithm.
-
-<br />
 
 Return our result $res$.
 

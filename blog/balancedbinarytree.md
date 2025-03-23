@@ -1,6 +1,7 @@
 ---
 title: 'Balanced Binary Tree'
 date: 'March 18, 2025'
+category: 'Trees'
 ---
 
 # Balanced Binary Tree

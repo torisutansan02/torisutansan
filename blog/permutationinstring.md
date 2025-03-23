@@ -1,6 +1,7 @@
 ---
 title: 'Permutation in String'
 date: 'March 12, 2025'
+category: 'Sliding Window'
 ---
 
 # Permutation in String
@@ -20,31 +21,21 @@ The size of $s1$ is the most important factor in solving this problem. If you ha
 
 - $s1 = "ab"$
 
-<br />
-
 What you want to evaluate is two consecutive characters in the string $s2$. If it was size 3, then 3 characters. What kind of algorithm does this suggest we should implement?
 
 ### Sliding Window
 
 When creating our sliding window, we must consider that the length of $s1$ is always going to be either equal to or less than the length of $s2$. The size of $s1$ is going to the be size of our window.
 
-<br />
-
 If $s1$ has a size of 2, we care about evaluating two characters in $s2$.
-
-<br />
 
 What if $s2$ is smaller than $s1$?
 
 - Then it is impossible for $s2$ to have a substring that is an anagram of $s1$. Immediately return false.
 
-<br />
-
 What is $s1$ and $s2$ are the same size?
 
 - Evaluate if the two strings are anagrams and return $True$ if that is the case. Or return true if the two hash maps already match.
-
-<br />
 
 Otherwise, we would go about our sliding window algorithm. The most intuitive approach is to use two hash maps for storing the counts of $s1$ and $s2$ that are the size of $s1$. We can do this with the code below:
 
@@ -53,8 +44,6 @@ Otherwise, we would go about our sliding window algorithm. The most intuitive ap
 - $s2Char = Count(s2[:len(s1)])$
     - Count the first characters of $s2$ up until the length of $s1$
 
-<br />
-
 Let's assign a left pointer to the beginning of the list and a right pointer to the the length of $s1$. This creates a window of length $s1 + 1$.
 
 - $l = 0$
@@ -62,11 +51,7 @@ Let's assign a left pointer to the beginning of the list and a right pointer to 
 - $r = len(s1)$
     - Add $s[r]$ to the map.
 
-<br />
-
 The tables below demonstrate the behavior of the sliding window. We want to increment the left and right pointer at the same time. 
-
-<br />
 
 We also want to add the character at the right pointer and remove the character at the left pointer prior to incrementing.
 
@@ -121,8 +106,6 @@ We also want to add the character at the right pointer and remove the character 
     - Add $s[r]$ to the hash map.
 - Increment $l$ and $r$.
 
-<br />
-
 Technically, our hash maps are equal. We can preemptively return if $s1Char == s2Char$, but I'll continue the table for the sake of the algorithm.
 
 |   left    |   right   |   s2
@@ -140,8 +123,6 @@ Technically, our hash maps are equal. We can preemptively return if $s1Char == s
     - Add $s[r]$ to the hash map.
 - No need to increment $l$ or $r$ anymore.
     - $r$ will go out of bounds.
-
-<br />
 
 If we have found that $s1Char$ and $s2Char$ do not have the same hash map, there was no substring in $s2$ that contains an anagram of $s1$. You should return $False$.
 

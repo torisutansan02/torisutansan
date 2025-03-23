@@ -1,6 +1,7 @@
 ---
 title: 'First Blog Post'
 date: 'November 27, 2023'
+category: 'Personal'
 ---
 
 This is my first blog I am posting to my website. Today, I am trying to learn dynamic routing to post these cute little blogs on my website. When I get better with databases, I want to use MongoDB. Every paragraph in my blog is going to have four to five sentences. Enough to explain my

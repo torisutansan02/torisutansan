@@ -1,6 +1,7 @@
 ---
 title: 'Linked List Cycle'
 date: 'March 17, 2025'
+category: 'Linked List'
 ---
 
 # Linked List Cycle

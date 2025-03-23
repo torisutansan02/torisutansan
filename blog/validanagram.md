@@ -1,6 +1,7 @@
 ---
 title: 'Valid Anagram'
 date: 'March 3, 2025'
+category: 'Arrays'
 ---
 
 # Valid Anagram
@@ -15,8 +16,6 @@ First, think about an edge case. If you have two strings, where:
 - $s = "ana"$
 - $t = "an"$
 
-<br />
-
 You'll find that the number of a's is 2 for string s and the number of a's for string t is 1.
 
 - Immediately, you want to check if the strings are not equal and return false since they will never be anagrams.
@@ -25,22 +24,20 @@ You'll find that the number of a's is 2 for string s and the number of a's for s
 
 Sorting is not optimal, because the fastest sorting algorithm is merge sort. A merge sort algorithm takes a runtime of:
 - $O(nlogn)$. 
-<br />
+
 However, the space complexity is $O(1)$.
 - $s = "anagram"$
 - $t = "naagram"$
-<br />
+
 After sorting:
 - $s = "anagram"$
 - $t = "anagram"$
-<br />
+
 You can then return True if both of these strings match each other like the above example or False otherwise.
 
 ### Hash Map Solution
 A hash map solution requires us to count the number of instances a character appears in a string.
 By running through two examples, we can understand how hash maps help us in this problem.
-
-<br />
 
 - $s = "anagram"$
 - $t = "naagram"$
@@ -54,8 +51,6 @@ By running through two examples, we can understand how hash maps help us in this
 |   m           |   1       |
 
 - Note how both of these share the same hash map as shown above, because each character appears the same number of times.
-
-<br />
 
 #### Counter Example
 
@@ -77,7 +72,7 @@ What if the strings are not the same, how would the hash maps look like?
 |   t           |   1       |
 
 - The above hash map accounts for t.
-<br />
+
 Note how the two hash maps are not the same. We know from looking at the count of the characters from a hash map, these are not going to be anagrams.
 
 #### Helpful Hints

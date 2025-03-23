@@ -1,6 +1,7 @@
 ---
 title: 'Two Sum'
 date: 'February 27, 2025'
+category: 'Arrays'
 ---
 
 # Two Sum
@@ -15,12 +16,8 @@ You must return an array of two indices such that
 Imagine you have an array with a target, like:
 - $nums = [2,7,11,15], target = 9.$
 
-<br />
-
 Intuitively, you know that the numbers 2 and 7 add up to 9.
 This is easy to understand, but programming a solution without brute force requires some thought.
-
-<br />
 
 ### A Brute Force Solution:
 Indices represent $nums_0$ to $nums_{n - 1}$ where n represents the size of the array. A brute force solution would use two indices $i$ and $j$ to check every possible combination. Let's make the assumption that n is the size of the array.
@@ -31,18 +28,12 @@ Indices represent $nums_0$ to $nums_{n - 1}$ where n represents the size of the 
     - $target = nums[0] + nums[1].$
     - where $nums[0] = 2$ and $nums[1] = 7.$
 
-<br />
-
 We found that $nums[0]$ and $nums[1]$ add up to the target value. So we return the array indices $[0, 1].$
-
-<br />
  
 This solution runs fast in this case, because the first two indices are the return value. But what about in this scenario?
 - $nums = [11, 15, 2, 7].$
 - We have to iterate the $i$ index 3 times.
 - Each iteration of $i$, we have to iterate $j$ a total of $(n - 1) - i$ times.
-
-<br />
 
 In the worse case scenario, we have to traverse the loop in the time complexity $O(n^2)$. Since we are using variables, the space complexity is $O(1)$. This is because variables take up constant space, as opposed to initializing a new data structure to return the values.
 
@@ -50,11 +41,7 @@ In the worse case scenario, we have to traverse the loop in the time complexity 
 
 A hash map makes it easy to store values and run through the loop once. This reduces the runtime, but also requires us to use more space.
 
-<br />
-
 Let's create a hashmap. The first column represents the index and the second value is mapped to the index.
-
-<br />
 
 |   Index   |   Value   |
 |   ----    |   ----    |

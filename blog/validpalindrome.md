@@ -1,6 +1,7 @@
 ---
 title: 'Valid Palindrome'
 date: 'March 6, 2025'
+category: 'Two Pointers'
 ---
 
 # Valid Palindrome
@@ -26,8 +27,6 @@ Let's assign a left and right pointer where the left pointer starts at the begin
 
 - s = "rac ecar"
     - Note how I purposefully altered this string to show the case where we have a character that is a space.
-
-<br />
 
 Create a table to represent the left and right pointer's position.
 

@@ -1,20 +1,17 @@
 ---
 title: 'Valid Parentheses'
 date: 'March 12, 2025'
+category: 'Stack'
 ---
 
 # Valid Parentheses
 
 You have a string $s$ that contains characters $"("$, $")"$, $"\{"$, $"\}"$, $"["$, $"]"$. To find a valid parentheses, each opening bracket, brace, or parentheses must be closed by their correspondent closing counterpart.
 
-<br />
-
 They must also be closed in the correct order.
 
 - $s = "([{}])"$
 - $Output: True$
-
-<br />
 
 An invalid example:
 
@@ -25,19 +22,13 @@ An invalid example:
 
 To find the correct pair, think about a hash map. If you find a $"("$, it's key pair is $")"$.
 
-<br />
-
 Using this intution, it is wise to create a hash map where the closing parentheses is the key and it's value is an opening parentheses. 
-
-<br />
 
 You can utilize a stack for the opening parentheses and pop them from the stack.
 
 ### Stack
 
 To solve this problem, we can create an empty stack. For this stack, we want to append only opening parentheses. If we find closing parentheses, we can pop from the stack.
-
-<br />
 
 Below, I will declare the stack and hash map. The tables will illustrate the behavior of the stack. Use a $for$ loop and increment $i$ until the end of the string.
 
@@ -139,8 +130,6 @@ Below, I will declare the stack and hash map. The tables will illustrate the beh
 
 - Pop $'['$ from the stack.
 - We have reached the end of the list.
-
-<br />
 
 We want to return $True$ since the stack is empty.
 

@@ -1,6 +1,7 @@
 ---
 title: 'Middle of the Linked List'
 date: 'March 17, 2025'
+category: 'Linked List'
 ---
 
 # Middle of the Linked List

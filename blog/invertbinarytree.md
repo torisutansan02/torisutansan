@@ -1,6 +1,7 @@
 ---
 title: 'Invert Binary Tree'
 date: 'March 16, 2025'
+category: 'Trees'
 ---
 
 # Invert Binary Tree

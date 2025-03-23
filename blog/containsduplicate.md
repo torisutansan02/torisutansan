@@ -1,6 +1,7 @@
 ---
 title: 'Contains Duplicate'
 date: 'March 4, 2025'
+category: 'Arrays'
 ---
 
 # Contains Duplicate
@@ -11,11 +12,7 @@ You have an array nums, where you return True if a value appears in at least two
 
 Imagine you have an array $nums = [1, 2, 3, 1]$.
 
-<br />
-
 Simply, you scan the array and recognize that there are two 1's. You then know that this array contains duplicates.
-
-<br />
 
 ### Brute Force
 
@@ -37,8 +34,6 @@ One of the ways you can solve this problem is with a brute force approach. You w
     - $\sum^{n - 1}_{j=i+1} g(j)$
     - If $i = 0$, compare $i$ to $j = 1, 2, 3$.
     - If $i = 2$, compare $i$ to $j = 3$.
-
-<br />
 
 Notice how ineffective the solution is. You have to run through every index in the list. Then, you have to compare the current index to the following indexes. Two nested for loops, resulting in a runtime of:
 - $O(n^2)$.

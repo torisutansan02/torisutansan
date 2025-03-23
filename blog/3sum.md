@@ -22,8 +22,6 @@ You need to return a list of lists. Therefore, you should set your result to an 
 
 Afterwards, iterate through the list and utilize a left and right pointer. The left pointer starts at $i + 1$ and increments, the right pointer starts at the end of the list.
 
-<br />
-
 To avoid duplicates, check if the current index past the first index is equal to the previous index. Start the next iteration if that is the case.
 
 ### Two Pointers
@@ -42,8 +40,6 @@ The rest of the algorithm uses two pointers. Let's assign the left pointer and t
 Let's use the above sorted array. Write a variable $3Sum$ where $3Sum = a + nums[l] + nums[r]$. If 3Sum is less than 0, the values add up to a value too large. Decrement the right pointer. If $3Sum$ is greater than 0, then the values add up to a value too small. Increment the left pointer. Otherwise, append the three values as a list of lists to the result array. Increment the left pointer and decrement the right pointer after finding a 3Sum solution, while also continuously incrementing the left pointer if its current index is the same as its previous.
 
 - Ensure the left pointer and right pointer never meet or cross.
-
-<br />
 
 Below represents the array and tables following the two pointers algorithm.
 
@@ -161,8 +157,6 @@ Below represents the array and tables following the two pointers algorithm.
 - $a + nums[l] + nums[r]$
     - $0 + 1 + 2 = 3$.
     - Next iteration since $l \ != r$
-
-<br />
 
 Our table ends at this iteration. Why? Because a increments until the end of the list. However, $l$ and $r$ meet or $l$ surpasses r. This is a condition that cannot be satisfied. Therefore, we have finished the algorithm. You should return the set you found.
 

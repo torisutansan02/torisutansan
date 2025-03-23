@@ -1,6 +1,7 @@
 ---
 title: 'Longest Repeating Character Replacement'
 date: 'March 11, 2025'
+category: 'Sliding Window'
 ---
 
 # Longest Repeating Character Replacement
@@ -16,8 +17,6 @@ You have a string $s$ and an integer $k$ which represents how many characters yo
 
 Take a look at the first 5 characters of $s = "AABABBA"$. The first 5 characters are $"AABAB"$ and the B repeats twice. 
 
-<br />
-
 How can we remove the first three elements to get $"AB"$ to satisfy the condition where $k = 1$? This intuition is how we are going to implement our algorithm.
 
 ### Sliding Window
@@ -26,19 +25,13 @@ We should create a sliding window starting at the first index of the string. Thi
 
 - $0 <= k <= s.length()$
 
-<br />
-
 We should track the count of the characters in a string using a hash map. The hash map stores the characters, but is used primarily for evaluating the count of a single character of the string at the index of the right pointer.
 
 - $cnt = \{\}$
 - Remember how hash maps work?
     - $\{ Key: Value \}$ pair.
 
-<br />
-
 Utilizing this knowledge, we can store the max frequency of a character in a string at $s[r]$ up until $r$ using a variable and the $max()$ function. The right pointer is denoted with $r$.
-
-<br />
 
 There should also be a result variable to return the longest substring we can create so far. Let's assign a left and right pointer to the beginning of the list to create our sliding window.
 
@@ -223,8 +216,6 @@ There should also be a result variable to return the longest substring we can cr
     - Max of $maxFreq$ and $cnt[s[r]]$
 - $res = 4$
     - Max of $res$ and $(r - l + 1)$
-
-<br />
 
 We cannot update the left and right pointer anymore. The right pointer goes out of bounds. Return the result variable.
 

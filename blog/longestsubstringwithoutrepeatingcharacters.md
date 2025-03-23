@@ -1,6 +1,7 @@
 ---
 title: 'Longest Substring Without Repeating Characters'
 date: 'March 11, 2025'
+category: 'Sliding Window'
 ---
 
 # Longest Substring Without Repeating Characters
@@ -16,19 +17,13 @@ Assume you have a string $s$ where you need to return a substring without duplic
 
 Notice how a repeating character immediately makes it impossible to extend the string.
 
-<br />
-
 With the string $s = "pwwkew"$, we have to eliminate the $"pw"$ before calculating $"wke"$. 
-
-<br/>
 
 What if we had some method of removing characters up until that point?
 
 ### Sliding Window
 
 We can create a sliding window where we set the left and right pointers to the beginning of a string. We know that one character has a length of 1.
-
-<br />
 
 How do we find out if a character is repeating? You can do this by creating a hash set.
 
@@ -163,8 +158,6 @@ How do we find out if a character is repeating? You can do this by creating a ha
     - $(r - l + 1) = 3$
     - Same max length as before.
 - Don't iterate anymore since $r$ is at the end of the list.
-
-<br />
 
 Simply, return the max length.
 

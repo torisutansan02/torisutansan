@@ -1,6 +1,7 @@
 ---
 title: 'Top K Frequent Elements'
 date: 'March 5, 2025'
+category: 'Arrays'
 ---
 
 # Top K Frequent Elements
@@ -20,8 +21,6 @@ Think about how many times a value appears in an array. You'd want to prioritize
 A bucket sort algorithm allows us to sort the values based on their occurrences. Assume the following array and k value:
 
 - $nums = [1, 1, 1, 2, 2, 100], k = 2$
-
-<br />
 
 Let's create an empty hash map and frequency count.
 - $cnt = \{\}$
@@ -43,19 +42,13 @@ You can then use the hash map to update the count of the each element. This beco
 - Our hash map looks like:
     - $cnt = \{1: 3, 2: 2, 100: 1\}$
 
-<br />
-
 You will then need to insert the values into the frequency array. You can use the tuple (n, c) to store the number corresponding to its count in the frequency's arrays.
 
 - $n$ is our current number.
 - $c$ is the count of the current number 
 
-<br />
-
 Our frequency array should end up looking like this after inserting the numbers based on their count.
 - $[[], [100], [2], [1], [], [], []]$
-
-<br />
 
 The easiest part of the code is iterating backwards. Notice how 1 appears the most times. Followed shortly by 2. Since $k = 2$, we want to retrieve 2 values that appear the most times.
 

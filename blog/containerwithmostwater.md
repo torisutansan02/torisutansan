@@ -1,6 +1,7 @@
 ---
 title: 'Container with Most Water'
 date: 'March 9, 2025'
+category: 'Two Pointers'
 ---
 
 # Container With Most Water

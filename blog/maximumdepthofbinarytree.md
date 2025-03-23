@@ -1,6 +1,7 @@
 ---
 title: 'Maximum Depth of Binary Tree'
 date: 'March 18, 2025'
+category: 'Trees'
 ---
 
 # Maximum Depth of Binary Tree

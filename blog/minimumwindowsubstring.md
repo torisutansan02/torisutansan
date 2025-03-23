@@ -1,6 +1,7 @@
 ---
 title: 'Minimum Window Substring'
 date: 'March 12, 2025'
+category: 'Sliding Window'
 ---
 
 # Minimum Window Substring
@@ -16,48 +17,30 @@ You are given two strings $s$ and $t$ with lengths $m$ and $n$. Return a minimum
 
 We need to keep count of the characters we have in our window in the string $s$. It is also imperative to know how many characters we need from our string $t$.
 
-<br />
-
 Using this intuition, we know this problem is a sliding window. It is possible that $t$ can contain 0 or 1 character so our sliding window should start at a size of 1.
 
 ### Sliding Window
 
 Our sliding window needs to contain at least enough of the characters in $t$. Therefore, we should initialize a hash map to $t$ with its characters and counts.
 
-<br />
-
 Another thing to consider is how many characters we have in $s$ that satisfies the character count in $t$. We can use variables $have$ and $need$ to track this.
 
-<br />
-
 The last thing to think about is what we are returning. We want the minimum window substring. So our result should be an array with indices of the left and right pointer. To keep track of the result length, we can have a result length variable.
-
-<br />
 
 What if our string is empty?
 
 - Return $""$
 
-<br />
-
 Otherwise, we need to utilize the sliding window algorithm. The right pointer continuously increments until we have enough characters to satisfy the hash map of $t$.
-
-<br />
 
 From there, we should compute if the current result length is less than the previous result length. Set our array to the left and right pointers if it does. Then, remove the character at the left pointer.
 
-<br />
-
 Check if the character at the left pointer is in the hash map of $t$ and that we have enough of those characters. If not, we need to decrement the $have$ variable. Afterwards, we increment our right pointer.
-
-<br />
 
 Below, I am going to assign our variables and demonstrate the sliding window algorithm. The left and right pointer starts at the beginning of the list.
 
 - $s = "BDABNC"$
 - $t = "ABC"$
-
-<br/>
 
 These are the variables:
 
@@ -212,8 +195,6 @@ These are the variables:
     - $window = \{"B": 1, "N": 1, "C": 1\}$
     - $have = 2$
 - Increment $l$
-
-<br />
 
 Notice our $have$ value is now not equal to our $need$ value. We also cannot increment $r$ since it goes out of bounds. Therefore, we must return the result:
 

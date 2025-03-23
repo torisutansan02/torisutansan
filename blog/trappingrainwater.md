@@ -1,6 +1,7 @@
 ---
 title: 'Trapping Rain Water'
 date: 'March 9, 2025'
+category: 'Two Pointers'
 ---
 
 # Trapping Rain Water
@@ -18,15 +19,9 @@ You are given an array $heights$ where each index represents a height. Your goal
 
 This problem is quite difficult, even though it uses a left and right pointer. You want to assign the left pointer to the beginning of the list and the right pointer at the end of the list. From there, you assign a $lMax$ to $height[l]$ and a $rMax$ to $height[r]$. 
 
-<br />
-
 You want to increment the left pointer if the left max is less than the right max, and vice versa for decrementing the right pointer. 
 
-<br />
-
 Then, you must update the left max and right max based on which is incremented or decremented. 
-
-<br />
 
 Afterwards, you will add the amount of rain water trapped by adding the max area to $lMax - height[l]$ or $rMax - height[r]$
 
@@ -142,8 +137,6 @@ Let's assign the left pointer to $l$ and the right pointer to $r$. We can also a
     - $lMax = 2$
 - $res = res + (lMax - height[l])$
     - $res = 2 + (2 - 0)$
-
-<br />
 
 Following this algorithm, we find that the max area is 4.
 

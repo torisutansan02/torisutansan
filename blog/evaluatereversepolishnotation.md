@@ -1,13 +1,12 @@
 ---
 title: 'Evaluate Reverse Polish Notation'
 date: 'March 14, 2025'
+category: 'Stack'
 ---
 
 # Evaluate Reverse Polish Notation
 
 You have an array of strings $tokens$ with numbers and arithmetic expressions.
-
-<br />
 
 Evaluate the expression using Reverse Polish Notation.
 
@@ -16,8 +15,6 @@ Evaluate the expression using Reverse Polish Notation.
     - And use their operand.
 - Division truncates towards zero.
 - No division by zero.
-
-<br />
 
 Examples:
 - $Input: ["2", "1", "+", "3", "*"]$
@@ -36,18 +33,12 @@ Notice how we are going to need two previous values to use an operand. The $+$ o
 - $["2", "1", "+", "3", "*"]$
 - $2 + 1 = 3$.
 
-<br />
-
 Then $3$ becomes our new $first$ value and then our $second$ value is $3$. A good intuition is to think of it like a new array:
 
 - $["3", "3", "*"]$
 - $3 * 3 = 9$.
 
-<br />
-
 Notice how we follow this notation to get our result. We added the value $"3"$ to our array from $2 + 1$ and multiplied the existing $3$ to get a result of $9$.
-
-<br />
 
 Which data structure can we utilize to get this result?
 
@@ -55,14 +46,10 @@ Which data structure can we utilize to get this result?
 
 To solve this problem, we can create an empty stack. We want to add integers to this stack. But more specifically, we care about the two previous integers before an operation.
 
-<br />
-
 Why not add the operator?
 - Because we can use an arithmetic expression or operand of the two previous values to get the next value.
 - The next value will be the previous value of a value after it.
 - Or the next value is going to be the result.
-
-<br />
 
 For example, follow this intution for the stack:
 - $[2, 1, 3]$
@@ -71,11 +58,7 @@ For example, follow this intution for the stack:
 - $3 * 3 = 9$
     - Which is our result.
 
-<br/>
-
 Let's create two variables $a$ and $b$ where $a$ is the first previous value in our $stack$ and $b$ is the second previous value.
-
-<br />
 
 Below, I will simulate the behavior of iterating through $tokens$ while utilizing a $stack$ to return the result.
 
@@ -162,8 +145,6 @@ Below, I will simulate the behavior of iterating through $tokens$ while utilizin
 - $b * a$
     - $3 * 3 = 9$
 - We add $9$ to the stack.
-
-<br />
 
 Notice how $i$ reached the end of the list. We cannot iterate anymore and therefore the remaining value in the stack is our result.
 

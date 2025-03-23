@@ -1,6 +1,7 @@
 ---
 title: 'Find Minimum in Rotated Sorted Array'
 date: 'March 15, 2025'
+category: 'Binary Search'
 ---
 
 # Find Minimum in Rotated Sorted Array

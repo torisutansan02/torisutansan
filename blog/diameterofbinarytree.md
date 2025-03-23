@@ -1,6 +1,7 @@
 ---
 title: 'Diameter of Binary Tree'
 date: 'March 18, 2025'
+category: 'Trees'
 ---
 
 # Diameter of Binary Tree

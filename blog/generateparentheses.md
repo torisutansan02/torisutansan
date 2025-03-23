@@ -1,6 +1,7 @@
 ---
 title: 'Generate Parentheses'
 date: 'March 16, 2025'
+category: 'Stack'
 ---
 
 # Generate Parentheses

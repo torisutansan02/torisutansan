@@ -1,6 +1,7 @@
 ---
 title: 'Second Blog Post'
 date: 'December 12, 2023'
+category: 'Personal'
 ---
 
 This is my second blog post I am posting to my website. I am currently in Northern California, in El Dorado Hills. I am spending the Christmas season with my brother. There is going to be a list of things I plan on doing while on my vacation here.
