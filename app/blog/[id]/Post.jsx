@@ -1,0 +1,185 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { useUser } from "@auth0/nextjs-auth0";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Sidebar from "@/components/Sidebar";
+import hljs from "highlight.js";
+import "katex/dist/katex.min.css";
+import "./katex-custom.css";
+import "@/styles/Home.module.css";
+import "@/styles/globals.css";
+
+export default function Post({ postData }) {
+  const { user } = useUser();
+  const [likes, setLikes] = useState(0);
+  const [favorites, setFavorites] = useState(0);
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
+
+  const postId = postData.id;
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      if (!postId) return;
+
+      try {
+        const [likesRes, favoritesRes, commentsRes] = await Promise.all([
+          fetch(`/api/likes?postId=${postId}`),
+          fetch(`/api/favorites?postId=${postId}`),
+          fetch(`/api/comments?postId=${postId}`),
+        ]);
+
+        if (!likesRes.ok || !favoritesRes.ok || !commentsRes.ok) {
+          throw new Error("One or more fetches failed");
+        }
+
+        const [likesData, favoritesData, commentsData] = await Promise.all([
+          likesRes.json(),
+          favoritesRes.json(),
+          commentsRes.json(),
+        ]);
+
+        setLikes(likesData.count);
+        setFavorites(favoritesData.count);
+        setComments(commentsData);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
+
+    fetchData();
+  }, [postId]);
+
+  const handleLike = async () => {
+    if (!user) return alert("Login to like this post");
+    if (!postId) return alert("Post ID not found");
+
+    const res = await fetch("/api/likes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        postId,
+        userId: user.sub,
+        name: user.name,
+        email: user.email,
+      }),
+    });
+
+    if (res.ok) {
+      setLikes((prev) => prev + 1);
+    } else if (res.status === 409) {
+      alert("You already liked this post.");
+    } else {
+      alert("Failed to like post.");
+    }
+  };
+
+  const handleFavorite = async () => {
+    if (!user) return alert("Login to favorite this post");
+    if (!postId) return alert("Post ID not found");
+  
+    const res = await fetch("/api/favorites", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        postId,
+        userId: user.sub,
+        name: user.name,
+        email: user.email,
+      }),
+    });
+  
+    if (res.ok) {
+      setFavorites((prev) => prev + 1);
+    } else if (res.status === 409) {
+      alert("You already favorited this post.");
+    } else {
+      alert("Failed to favorite post.");
+    }
+  };  
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault();
+    if (!user) return alert("Login to comment");
+    if (!newComment.trim()) return;
+    if (!postId) return alert("Post ID not found");
+
+    const response = await fetch("/api/comments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        postId,
+        userId: user.sub,
+        name: user.name,
+        email: user.email,
+        content: newComment,
+      }),
+    });
+
+    if (response.ok) {
+      const newCommentData = await response.json();
+      setComments((prev) => [newCommentData, ...prev]);
+      setNewComment("");
+    } else {
+      alert("Failed to add comment");
+    }
+  };
+
+  return (
+    <>
+      <Navbar />
+      <Sidebar />
+
+      <div className="text">
+        <div className="pretty">
+          <h1 className="blogheading">{postData.title}</h1>
+          <p className="blogheading">{postData.date}</p>
+          <div
+            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+          />
+        </div>
+
+        <div className="actions">
+          <button onClick={handleLike}>❤️ Like ({likes})</button>
+          <button onClick={handleFavorite}>⭐ Favorite ({favorites})</button>
+        </div>
+
+        <div className="comments">
+          <h3>Comments ({comments.length})</h3>
+
+          {user ? (
+            <form onSubmit={handleCommentSubmit}>
+              <textarea
+                value={newComment}
+                onChange={(e) => setNewComment(e.target.value)}
+                placeholder="Write a comment..."
+                required
+              />
+              <button type="submit">Post Comment</button>
+            </form>
+          ) : (
+            <p>Please log in to comment.</p>
+          )}
+
+          <ul>
+            {comments.length ? (
+              comments.map((comment) => (
+                <li key={comment.id}>
+                  <strong>{comment.userName || "Anonymous"}:</strong>{" "}
+                  {comment.content}
+                </li>
+              ))
+            ) : (
+              <p>No comments yet.</p>
+            )}
+          </ul>
+        </div>
+      </div>
+
+      <Footer />
+    </>
+  );
+}
