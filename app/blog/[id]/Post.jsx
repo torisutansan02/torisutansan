@@ -156,7 +156,7 @@ export default function Post({ postData }) {
                 className = "flex p-8 bg-zinc-600"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
-                placeholder=""
+                placeholder="Write a comment.."
                 required
               />
               <button className = "bg-zinc-500 mt-2 p-2" type="submit">Post Comment</button>
@@ -169,7 +169,7 @@ export default function Post({ postData }) {
             comments.map((comment) => (
               <p className="text-sm flex gap-1 p-4 mr-3 border-gray-200 bg-gray-600 text-white-700" key={comment.id}>
                 <strong>{user.name}:</strong>{" "}
-                "{comment.content}"
+                {comment.content}
               </p>
             ))
           ) : (
