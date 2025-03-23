@@ -143,8 +143,8 @@ export default function Post({ postData }) {
         </div>
 
         <div className="actions">
-          <button onClick={handleLike}>❤️ Like ({likes})</button>
-          <button onClick={handleFavorite}>⭐ Favorite ({favorites})</button>
+          <button className = "m-2 mt-5 bg-zinc-500 p-1" onClick={handleLike}> ❤️ {likes}</button>
+          <button className = "m-2 mt-5 bg-zinc-500 p-1" onClick={handleFavorite}> 💾 {favorites}</button>
         </div>
 
         <div className="comments">
@@ -153,29 +153,28 @@ export default function Post({ postData }) {
           {user ? (
             <form onSubmit={handleCommentSubmit}>
               <textarea
+                className = "flex p-8 bg-zinc-600"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
-                placeholder="Write a comment..."
+                placeholder=""
                 required
               />
-              <button type="submit">Post Comment</button>
+              <button className = "bg-zinc-500 mt-2 p-2" type="submit">Post Comment</button>
             </form>
           ) : (
             <p>Please log in to comment.</p>
           )}
 
-          <ul>
-            {comments.length ? (
-              comments.map((comment) => (
-                <li key={comment.id}>
-                  <strong>{comment.userName || "Anonymous"}:</strong>{" "}
-                  {comment.content}
-                </li>
-              ))
-            ) : (
-              <p>No comments yet.</p>
-            )}
-          </ul>
+          {comments.length ? (
+            comments.map((comment) => (
+              <p className="text-sm flex gap-1 p-4 mr-3 border-gray-200 bg-gray-600 text-white-700" key={comment.id}>
+                <strong>{user.name}:</strong>{" "}
+                "{comment.content}"
+              </p>
+            ))
+          ) : (
+            <p>No comments yet.</p>
+          )}
         </div>
       </div>
 

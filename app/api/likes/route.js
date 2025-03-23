@@ -41,7 +41,7 @@ export async function POST(req) {
       update: {},
       create: {
         auth0Id: userId,
-        name: name || 'Anonymous',
+        name: name,
         email: email || `${userId}@example.com`,
       },
     });

@@ -21,10 +21,8 @@ export async function GET(req) {
 export async function POST(req) {
   try {
     const { userId, postId, name, email } = await req.json();
-    console.log("▶️ Received:", { userId, postId, name, email });
 
     if (!userId || !postId) {
-      console.log("❌ Missing userId or postId");
       return NextResponse.json({ error: 'Missing userId or postId' }, { status: 400 });
     }
 
@@ -43,14 +41,13 @@ export async function POST(req) {
       update: {},
       create: {
         auth0Id: userId,
-        name: name || 'Anonymous',
+        name: name,
         email: email || `${userId}@example.com`,
       },
     });
 
     const existing = await prisma.favorite.findFirst({ where: { userId, postId } });
     if (existing) {
-      console.log("⚠️ Already favorited");
       return NextResponse.json({ error: 'Already favorited' }, { status: 409 });
     }
 
@@ -58,11 +55,9 @@ export async function POST(req) {
       data: { userId, postId },
     });
 
-    console.log("✅ Favorite created:", newFavorite);
     return NextResponse.json(newFavorite, { status: 201 });
 
   } catch (error) {
-    console.error("🔥 Error creating favorite:", error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

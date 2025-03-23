@@ -21,7 +21,7 @@ export async function GET(req) {
       userId: comment.userId,
       postId: comment.postId,
       content: comment.content,
-      userName: comment.user?.name || 'Anonymous',
+      userName: comment.user?.name,
       createdAt: comment.createdAt,
     }));
 
@@ -55,7 +55,7 @@ export async function POST(req) {
       update: {},
       create: {
         auth0Id: userId,
-        name: name || 'Anonymous',
+        name: name,
         email: email || `${userId}@example.com`,
       },
     });
@@ -68,7 +68,7 @@ export async function POST(req) {
     return NextResponse.json({
       id: newComment.id,
       content: newComment.content,
-      userName: newComment.user?.name || 'Anonymous',
+      userName: newComment.user?.name,
       createdAt: newComment.createdAt,
     }, { status: 201 });
   } catch (error) {
