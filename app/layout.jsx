@@ -1,9 +1,10 @@
 // app/layout.js or app/layout.tsx
 import { Auth0Provider } from '@auth0/nextjs-auth0';
+import '../styles/globals.css';
 
 export const metadata = {
-  title: 'Your App Name',
-  description: 'Your app description',
+  title: 'torisutansan',
+  description: 'My personal website',
 };
 
 export default function RootLayout({ children }) {

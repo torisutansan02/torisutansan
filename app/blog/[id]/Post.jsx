@@ -5,7 +5,6 @@ import { useUser } from "@auth0/nextjs-auth0";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
-import hljs from "highlight.js";
 import "katex/dist/katex.min.css";
 import "./katex-custom.css";
 import "@/styles/Home.module.css";
@@ -26,25 +25,13 @@ export default function Post({ postData }) {
       if (!postId) return;
 
       try {
-        const [likesRes, favoritesRes, commentsRes] = await Promise.all([
-          fetch(`/api/likes?postId=${postId}`),
-          fetch(`/api/favorites?postId=${postId}`),
-          fetch(`/api/comments?postId=${postId}`),
-        ]);
+        const res = await fetch(`/api/post-meta?postId=${postId}`);
+        if (!res.ok) throw new Error("Failed to fetch post metadata");
 
-        if (!likesRes.ok || !favoritesRes.ok || !commentsRes.ok) {
-          throw new Error("One or more fetches failed");
-        }
-
-        const [likesData, favoritesData, commentsData] = await Promise.all([
-          likesRes.json(),
-          favoritesRes.json(),
-          commentsRes.json(),
-        ]);
-
-        setLikes(likesData.count);
-        setFavorites(favoritesData.count);
-        setComments(commentsData);
+        const { likes, favorites, comments } = await res.json();
+        setLikes(likes);
+        setFavorites(favorites);
+        setComments(comments);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       }

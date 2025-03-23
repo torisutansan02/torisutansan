@@ -1,8 +1,7 @@
 "use client";
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import Sidebar from '../components/Sidebar'
-import Link from 'next/link';
+import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
+import Sidebar from '../../components/Sidebar'
 
 import { useUser } from "@auth0/nextjs-auth0";
 
@@ -12,8 +11,7 @@ function Login() {
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error.message}</div>;
 
-    if (user) {
-    return (
+    if (user) { return (
         <>
             <Navbar/>
             <Sidebar></Sidebar>
@@ -46,10 +44,8 @@ function Login() {
 
             <Footer/>
         </>
-    );
-    }
-    else {
-        return (
+      );
+    } else (
             <>
                 <Navbar />
                 <Sidebar></Sidebar>
@@ -80,7 +76,6 @@ function Login() {
                 <Footer />
             </>
         );
-    }
 }
 
 export default Login

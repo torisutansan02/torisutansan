@@ -1,5 +1,5 @@
+"use client";
 import React from "react";
-import Link from 'next/link'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Disclosure } from "@headlessui/react";
 import {
@@ -29,40 +29,40 @@ function Sidebar() {
           <div className="flex flex-col justify-start item-center">
             <div className="my-2 border-b border-gray-100 pb-2">
 
-              <Link className="flex mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/">
+              <a className="flex mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/">
                 <MdOutlineSpaceDashboard className="text-2xl text-gray-500 group-hover:text-white " />
                 <h3 className="text-sm text-white group-hover:text-white font-semibold">
                   Home
                 </h3>
-              </Link>
+              </a>
 
-              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/about">
+              <a className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/about">
                 <CgProfile className="text-2xl text-gray-500 group-hover:text-white " />
                 <h3 className="text-sm text-white group-hover:text-white font-semibold ">
                   About
                 </h3>
-              </Link>
+              </a>
 
-              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/blog">
+              <a className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/blog">
                 <FaRegComments className="text-2xl text-gray-500 group-hover:text-white " />
                 <h3 className="text-sm text-white group-hover:text-white font-semibold ">
                   Blog
                 </h3>
-              </Link>
+              </a>
 
-              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/socials">
+              <a className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/socials">
                 <BiMessageSquareDots className="text-2xl text-gray-500 group-hover:text-white " />
                 <h3 className="text-sm text-white group-hover:text-white font-semibold ">
                   Social
                 </h3>
-              </Link>
+              </a>
 
-              <Link className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/login">
+              <a className="flex  mb-2 justify-start items-center gap-1 pl-5 hover:bg-gray-900 p-1 rounded-md group cursor-pointer hover:shadow-lg m-auto" href = "/login">
                 <CgLogIn className="text-2xl text-gray-500 group-hover:text-white " />
                 <h3 className="text-sm text-white group-hover:text-white font-semibold ">
                   Login
                 </h3>
-              </Link>
+              </a>
 
             </div>
             {/* setting  */}

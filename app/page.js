@@ -1,12 +1,9 @@
 import Head from 'next/head';
-import { Inter } from "next/font/google";
 import Image from 'next/image'; // Import the Image component
 
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
