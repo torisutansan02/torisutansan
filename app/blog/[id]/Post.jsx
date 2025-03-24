@@ -146,7 +146,7 @@ export default function Post({ postData }) {
                 placeholder="Write a comment.."
                 required
               />
-              <button className = "bg-zinc-500 mt-2 p-2" type="submit">Post Comment</button>
+              <button className = "bg-zinc-500 mt-2 mb-2 p-2" type="submit">Post Comment</button>
             </form>
           ) : (
             <p>Please log in to comment.</p>
@@ -154,10 +154,10 @@ export default function Post({ postData }) {
 
           {comments.length ? (
             comments.map((comment) => (
-              <p className="text-sm flex gap-1 p-4 mr-3 border-gray-200 bg-gray-600 text-white-700" key={comment.id}>
-                <strong>{user.name}:</strong>{" "}
-                {comment.content}
-              </p>
+              <div className="text-12 mr-3 p-3 border-gray-200 bg-gray-600" key={comment.id}>
+                <strong>{user.name}</strong>{" "}
+                <p className="italic"> {comment.content} </p>
+              </div>
             ))
           ) : (
             <p>No comments yet.</p>
