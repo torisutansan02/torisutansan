@@ -1,7 +1,7 @@
 ---
 title: '3Sum'
 date: 'March 9, 2025'
-category: 'Arrays'
+category: 'Two Pointers'
 ---
 
 # 3Sum
