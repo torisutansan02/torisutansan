@@ -26,39 +26,46 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Missing userId or postId' }, { status: 400 });
     }
 
-    await prisma.blogPost.upsert({
-      where: { id: postId },
-      update: {},
-      create: {
-        id: postId,
-        title: postId,
-        content: '',
+    const existing = await prisma.favorite.findUnique({
+      where: {
+        userId_postId: {
+          userId,
+          postId,
+        },
       },
     });
 
-    await prisma.user.upsert({
-      where: { auth0Id: userId },
-      update: {},
-      create: {
-        auth0Id: userId,
-        name: name,
-        email: email || `${userId}@example.com`,
-      },
-    });
-
-    const existing = await prisma.favorite.findFirst({ where: { userId, postId } });
     if (existing) {
       return NextResponse.json({ error: 'Already favorited' }, { status: 409 });
     }
 
-    const newFavorite = await prisma.favorite.create({
-      data: { userId, postId },
-    });
+    const [, , newFavorite] = await prisma.$transaction([
+      prisma.user.upsert({
+        where: { auth0Id: userId },
+        update: {},
+        create: {
+          auth0Id: userId,
+          name,
+          email: email || `${userId}@example.com`,
+        },
+      }),
+      prisma.blogPost.upsert({
+        where: { id: postId },
+        update: {},
+        create: {
+          id: postId,
+          title: postId,
+          content: '',
+        },
+      }),
+      prisma.favorite.create({
+        data: { userId, postId },
+      }),
+    ]);
 
     return NextResponse.json(newFavorite, { status: 201 });
-
   } catch (error) {
+    console.error('Error creating favorite:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
-

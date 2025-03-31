@@ -1,6 +1,5 @@
-// app/api/post-meta/route.js
 import { NextResponse } from 'next/server';
-import prisma from '@/lib/prisma'; // adjust path if needed
+import prisma from '@/lib/prisma';
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
@@ -17,14 +16,31 @@ export async function GET(request) {
       prisma.comment.findMany({
         where: { postId },
         orderBy: { createdAt: 'desc' },
-        take: 50, // Optional limit
+        take: 50,
+        select: {
+          id: true,
+          userId: true,
+          postId: true,
+          content: true,
+          createdAt: true,
+          user: { select: { name: true } },
+        },
       }),
     ]);
+
+    const formattedComments = comments.map((comment) => ({
+      id: comment.id,
+      userId: comment.userId,
+      postId: comment.postId,
+      content: comment.content,
+      createdAt: comment.createdAt,
+      userName: comment.user?.name,
+    }));
 
     return NextResponse.json({
       likes,
       favorites,
-      comments,
+      comments: formattedComments,
     });
   } catch (error) {
     console.error('Error fetching post meta:', error);

@@ -12,7 +12,16 @@ export async function GET(req) {
   try {
     const comments = await prisma.comment.findMany({
       where: { postId },
-      include: { user: { select: { name: true } } },
+      select: {
+        id: true,
+        userId: true,
+        postId: true,
+        content: true,
+        createdAt: true,
+        user: {
+          select: { name: true },
+        },
+      },
       orderBy: { createdAt: 'desc' },
     });
 
@@ -40,30 +49,38 @@ export async function POST(req) {
       return NextResponse.json({ error: 'Missing userId, postId or content' }, { status: 400 });
     }
 
-    await prisma.blogPost.upsert({
-      where: { id: postId },
-      update: {},
-      create: {
-        id: postId,
-        title: postId,
-        content: '',
-      },
+    const existingCount = await prisma.comment.count({
+      where: { userId, postId },
     });
 
-    await prisma.user.upsert({
-      where: { auth0Id: userId },
-      update: {},
-      create: {
-        auth0Id: userId,
-        name: name,
-        email: email || `${userId}@example.com`,
-      },
-    });
+    if (existingCount >= 3) {
+      return NextResponse.json({ error: 'Comment limit reached for this post' }, { status: 429 });
+    }
 
-    const newComment = await prisma.comment.create({
-      data: { userId, postId, content },
-      include: { user: { select: { name: true } } },
-    });
+    const [, , newComment] = await prisma.$transaction([
+      prisma.user.upsert({
+        where: { auth0Id: userId },
+        update: {},
+        create: {
+          auth0Id: userId,
+          name,
+          email: email || `${userId}@example.com`,
+        },
+      }),
+      prisma.blogPost.upsert({
+        where: { id: postId },
+        update: {},
+        create: {
+          id: postId,
+          title: postId,
+          content: '',
+        },
+      }),
+      prisma.comment.create({
+        data: { userId, postId, content },
+        include: { user: { select: { name: true } } },
+      }),
+    ]);
 
     return NextResponse.json({
       id: newComment.id,

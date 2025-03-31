@@ -110,6 +110,8 @@ export default function Post({ postData }) {
       const newCommentData = await response.json();
       setComments((prev) => [newCommentData, ...prev]);
       setNewComment("");
+    } else if (response.status === 429) {
+      alert("You have reached the max comments for this post.");
     } else {
       alert("Failed to add comment");
     }
@@ -156,7 +158,10 @@ export default function Post({ postData }) {
             comments.map((comment) => (
               <div className="text-12 mr-3 p-3 border-gray-200 bg-gray-600" key={comment.id}>
                 <strong>{user.name}</strong>{" "}
-                <p className="italic"> {comment.content} </p>
+                <p className=""> {comment.content} </p>
+                <p className="text-sm text-gray-400">
+                  {new Date(comment.createdAt).toLocaleString()}
+                </p>
               </div>
             ))
           ) : (

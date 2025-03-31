@@ -13,9 +13,10 @@ model BlogPost {
   content   String     @db.Text
   category  String?    @db.VarChar(255)
   createdAt DateTime   @default(now())
-  comments  Comment[]
-  favorites Favorite[]
-  likes     Like[]
+
+  comments  Comment[]  @relation(onDelete: Cascade)
+  favorites Favorite[] @relation(onDelete: Cascade)
+  likes     Like[]     @relation(onDelete: Cascade)
 }
 
 model Comment {
@@ -25,8 +26,8 @@ model Comment {
   content   String   @db.Text
   createdAt DateTime @default(now())
 
-  blogpost  BlogPost @relation(fields: [postId], references: [id])
-  user      User     @relation(fields: [userId], references: [auth0Id])
+  blogpost  BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
 
   @@index([postId])
   @@index([userId])
@@ -38,8 +39,8 @@ model Favorite {
   userId    String
   createdAt DateTime @default(now())
 
-  blogpost  BlogPost @relation(fields: [postId], references: [id])
-  user      User     @relation(fields: [userId], references: [auth0Id])
+  blogpost  BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
 
   @@unique([userId, postId])
   @@index([postId])
@@ -52,8 +53,8 @@ model Like {
   userId    String
   createdAt DateTime @default(now())
 
-  blogpost  BlogPost @relation(fields: [postId], references: [id])
-  user      User     @relation(fields: [userId], references: [auth0Id])
+  blogpost  BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
 
   @@unique([userId, postId])
   @@index([postId])
@@ -61,11 +62,12 @@ model Like {
 }
 
 model User {
-  id       Int      @id @default(autoincrement())
-  auth0Id  String   @unique @db.VarChar(255)
-  name     String   @db.VarChar(255)
-  email    String   @unique @db.VarChar(255)
-  comments Comment[]
-  favorites Favorite[]
-  likes     Like[]
+  id        Int       @id @default(autoincrement())
+  auth0Id   String    @unique @db.VarChar(255)
+  name      String    @db.VarChar(255)
+  email     String    @unique @db.VarChar(255)
+
+  comments  Comment[]  @relation(onDelete: Cascade)
+  favorites Favorite[] @relation(onDelete: Cascade)
+  likes     Like[]     @relation(onDelete: Cascade)
 }
