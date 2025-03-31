@@ -4,13 +4,14 @@ import prisma from '@/lib/prisma';
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const postId = searchParams.get('postId');
+  const userId = searchParams.get('userId'); // 👈 added
 
   if (!postId) {
     return NextResponse.json({ error: 'Missing postId' }, { status: 400 });
   }
 
   try {
-    const [likes, favorites, comments] = await Promise.all([
+    const [likes, favorites, comments, hasLiked, hasFavorited] = await Promise.all([
       prisma.like.count({ where: { postId } }),
       prisma.favorite.count({ where: { postId } }),
       prisma.comment.findMany({
@@ -26,6 +27,8 @@ export async function GET(request) {
           user: { select: { name: true } },
         },
       }),
+      userId ? prisma.like.findFirst({ where: { postId, userId } }) : null,
+      userId ? prisma.favorite.findFirst({ where: { postId, userId } }) : null,
     ]);
 
     const formattedComments = comments.map((comment) => ({
@@ -41,6 +44,8 @@ export async function GET(request) {
       likes,
       favorites,
       comments: formattedComments,
+      hasLiked: !!hasLiked,
+      hasFavorited: !!hasFavorited,
     });
   } catch (error) {
     console.error('Error fetching post meta:', error);

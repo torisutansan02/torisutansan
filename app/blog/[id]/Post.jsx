@@ -16,29 +16,34 @@ export default function Post({ postData }) {
   const [favorites, setFavorites] = useState(0);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [hasLiked, setHasLiked] = useState(false);
+  const [hasFavorited, setHasFavorited] = useState(false);
 
   const postId = postData.id;
 
   useEffect(() => {
-
     const fetchData = async () => {
       if (!postId) return;
 
       try {
-        const res = await fetch(`/api/post-meta?postId=${postId}`);
+        const res = await fetch(
+          `/api/post-meta?postId=${postId}${user ? `&userId=${user.sub}` : ''}`
+        );
         if (!res.ok) throw new Error("Failed to fetch post metadata");
 
-        const { likes, favorites, comments } = await res.json();
+        const { likes, favorites, comments, hasLiked, hasFavorited } = await res.json();
         setLikes(likes);
         setFavorites(favorites);
         setComments(comments);
+        setHasLiked(hasLiked);
+        setHasFavorited(hasFavorited);
       } catch (error) {
         console.error("Failed to fetch data:", error);
       }
     };
 
     fetchData();
-  }, [postId]);
+  }, [postId, user]);
 
   const handleLike = async () => {
     if (!user) return alert("Login to like this post");
@@ -57,6 +62,7 @@ export default function Post({ postData }) {
 
     if (res.ok) {
       setLikes((prev) => prev + 1);
+      setHasLiked(true);
     } else if (res.status === 409) {
       alert("You already liked this post.");
     } else {
@@ -67,7 +73,7 @@ export default function Post({ postData }) {
   const handleFavorite = async () => {
     if (!user) return alert("Login to favorite this post");
     if (!postId) return alert("Post ID not found");
-  
+
     const res = await fetch("/api/favorites", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -78,15 +84,16 @@ export default function Post({ postData }) {
         email: user.email,
       }),
     });
-  
+
     if (res.ok) {
       setFavorites((prev) => prev + 1);
+      setHasFavorited(true);
     } else if (res.status === 409) {
       alert("You already favorited this post.");
     } else {
       alert("Failed to favorite post.");
     }
-  };  
+  };
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
@@ -132,8 +139,23 @@ export default function Post({ postData }) {
         </div>
 
         <div className="actions">
-          <button className = "m-2 mt-5 bg-zinc-500 p-1" onClick={handleLike}> ❤️ {likes}</button>
-          <button className = "m-2 mt-5 bg-zinc-500 p-1" onClick={handleFavorite}> 💾 {favorites}</button>
+          <button
+            className={`m-2 mt-5 p-1 rounded ${
+              hasLiked ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"
+            }`}
+            onClick={handleLike}
+          >
+            ❤️ {likes}
+          </button>
+
+          <button
+            className={`m-2 mt-5 p-1 rounded ${
+              hasFavorited ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"
+            }`}
+            onClick={handleFavorite}
+          >
+            💾 {favorites}
+          </button>
         </div>
 
         <div className="comments">
@@ -142,13 +164,15 @@ export default function Post({ postData }) {
           {user ? (
             <form onSubmit={handleCommentSubmit}>
               <textarea
-                className = "flex p-8 bg-zinc-600"
+                className="flex p-8 bg-zinc-600 w-full rounded text-white"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
-                placeholder="Write a comment.."
+                placeholder="Write a comment..."
                 required
               />
-              <button className = "bg-zinc-500 mt-2 mb-2 p-2" type="submit">Post Comment</button>
+              <button className="bg-zinc-500 mt-2 mb-2 p-2 rounded text-white" type="submit">
+                Post Comment
+              </button>
             </form>
           ) : (
             <p>Please log in to comment.</p>
@@ -156,10 +180,10 @@ export default function Post({ postData }) {
 
           {comments.length ? (
             comments.map((comment) => (
-              <div className="text-12 mr-3 p-3 border-gray-200 bg-gray-600" key={comment.id}>
-                <strong>{user.name}</strong>{" "}
-                <p className=""> {comment.content} </p>
-                <p className="text-sm text-gray-400">
+              <div className="text-sm mr-3 mt-2 p-3 border border-gray-500 bg-gray-600 rounded" key={comment.id}>
+                <strong>{user.name}</strong>
+                <p className="italic text-white">{comment.content}</p>
+                <p className="text-xs text-gray-300">
                   {new Date(comment.createdAt).toLocaleString()}
                 </p>
               </div>
