@@ -4,7 +4,7 @@ import prisma from '@/lib/prisma';
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const postId = searchParams.get('postId');
-  const userId = searchParams.get('userId'); // 👈 added
+  const userId = searchParams.get('userId');
 
   if (!postId) {
     return NextResponse.json({ error: 'Missing postId' }, { status: 400 });
@@ -24,7 +24,12 @@ export async function GET(request) {
           postId: true,
           content: true,
           createdAt: true,
-          user: { select: { name: true } },
+          user: {
+            select: {
+              name: true,
+              image: true, // ✅ added image
+            },
+          },
         },
       }),
       userId ? prisma.like.findFirst({ where: { postId, userId } }) : null,
@@ -38,6 +43,7 @@ export async function GET(request) {
       content: comment.content,
       createdAt: comment.createdAt,
       userName: comment.user?.name,
+      userImage: comment.user?.image, // ✅ send image to frontend
     }));
 
     return NextResponse.json({

@@ -19,7 +19,10 @@ export async function GET(req) {
         content: true,
         createdAt: true,
         user: {
-          select: { name: true },
+          select: {
+            name: true,
+            image: true, // ✅ select user profile image
+          },
         },
       },
       orderBy: { createdAt: 'desc' },
@@ -30,8 +33,9 @@ export async function GET(req) {
       userId: comment.userId,
       postId: comment.postId,
       content: comment.content,
-      userName: comment.user?.name,
       createdAt: comment.createdAt,
+      userName: comment.user?.name,
+      userImage: comment.user?.image,
     }));
 
     return NextResponse.json(formatted);
@@ -43,7 +47,7 @@ export async function GET(req) {
 
 export async function POST(req) {
   try {
-    const { userId, postId, content, name, email } = await req.json();
+    const { userId, postId, content, name, email, image } = await req.json();
 
     if (!userId || !postId || !content) {
       return NextResponse.json({ error: 'Missing userId, postId or content' }, { status: 400 });
@@ -60,11 +64,16 @@ export async function POST(req) {
     const [, , newComment] = await prisma.$transaction([
       prisma.user.upsert({
         where: { auth0Id: userId },
-        update: {},
+        update: {
+          name,
+          email,
+          image, // ✅ update profile picture
+        },
         create: {
           auth0Id: userId,
           name,
           email: email || `${userId}@example.com`,
+          image,
         },
       }),
       prisma.blogPost.upsert({
@@ -78,15 +87,23 @@ export async function POST(req) {
       }),
       prisma.comment.create({
         data: { userId, postId, content },
-        include: { user: { select: { name: true } } },
+        include: {
+          user: {
+            select: {
+              name: true,
+              image: true,
+            },
+          },
+        },
       }),
     ]);
 
     return NextResponse.json({
       id: newComment.id,
       content: newComment.content,
-      userName: newComment.user?.name,
       createdAt: newComment.createdAt,
+      userName: newComment.user?.name,
+      userImage: newComment.user?.image,
     }, { status: 201 });
   } catch (error) {
     console.error('Error creating comment:', error);

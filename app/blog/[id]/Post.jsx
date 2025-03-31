@@ -109,6 +109,7 @@ export default function Post({ postData }) {
         userId: user.sub,
         name: user.name,
         email: user.email,
+        image: user.picture,
         content: newComment,
       }),
     });
@@ -180,12 +181,30 @@ export default function Post({ postData }) {
 
           {comments.length ? (
             comments.map((comment) => (
-              <div className="text-sm mr-3 mt-2 p-3 border border-gray-500 bg-gray-600 rounded" key={comment.id}>
-                <strong>{user.name}</strong>
-                <p className="italic text-white">{comment.content}</p>
-                <p className="text-xs text-gray-300">
-                  {new Date(comment.createdAt).toLocaleString()}
-                </p>
+              <div
+                key={comment.id}
+                className="flex items-start gap-3 text-sm mr-3 mt-2 p-3 border border-gray-500 bg-gray-600 rounded"
+              >
+                {/* Todo */}
+                {/* {user.image ? (
+                  <img
+                    src={user.image}
+                    alt={`${user.name}'s profile`}
+                    className="gap-3 w-100 h-10 rounded-full object-cover flex-shrink-0"
+                  />
+                ) : (
+                  <div className="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center text-white text-sm">
+                    {user.name?.[0] || "?"}
+                  </div>
+                )} */}
+            
+                <div>
+                  <strong className="text-white">{user.name}</strong>
+                  <p className="text-white">{comment.content}</p>
+                  <p className="text-xs text-gray-300">
+                    {new Date(comment.createdAt).toLocaleString()}
+                  </p>
+                </div>
               </div>
             ))
           ) : (
