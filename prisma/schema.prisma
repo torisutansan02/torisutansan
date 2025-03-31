@@ -14,9 +14,9 @@ model BlogPost {
   category  String?    @db.VarChar(255)
   createdAt DateTime   @default(now())
 
-  comments  Comment[]  @relation(onDelete: Cascade)
-  favorites Favorite[] @relation(onDelete: Cascade)
-  likes     Like[]     @relation(onDelete: Cascade)
+  comments  Comment[]
+  favorites Favorite[]
+  likes     Like[]
 }
 
 model Comment {
@@ -67,7 +67,7 @@ model User {
   name      String    @db.VarChar(255)
   email     String    @unique @db.VarChar(255)
 
-  comments  Comment[]  @relation(onDelete: Cascade)
-  favorites Favorite[] @relation(onDelete: Cascade)
-  likes     Like[]     @relation(onDelete: Cascade)
+  comments  Comment[]
+  favorites Favorite[]
+  likes     Like[]
 }
