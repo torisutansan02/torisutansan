@@ -165,7 +165,7 @@ export default function Post({ postData }) {
           {user ? (
             <form onSubmit={handleCommentSubmit}>
               <textarea
-                className="flex p-8 bg-zinc-600 w-full rounded text-white"
+                className="flex p-8 bg-zinc-600 w-100 rounded text-white"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
                 placeholder="Write a comment..."
