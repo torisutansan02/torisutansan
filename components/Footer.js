@@ -26,7 +26,7 @@ const Footer = () => {
                         rel="noopener noreferrer"
                     >
                         <h2 className={inter.className}>
-                            {link.name} <span> -&gt; </span>
+                            {link.name} <span className = "!text-white"> -&gt; </span>
                         </h2>
                     </a>
                 ))}

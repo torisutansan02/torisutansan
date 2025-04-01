@@ -95,7 +95,7 @@
   }
 
   .grid {
-    gap: 5px;
+    gap: 10px;
     align-items: center;
     justify-content: center;
     display: grid;
