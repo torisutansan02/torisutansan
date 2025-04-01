@@ -18,6 +18,8 @@ export default function Post({ postData }) {
   const [newComment, setNewComment] = useState("");
   const [hasLiked, setHasLiked] = useState(false);
   const [hasFavorited, setHasFavorited] = useState(false);
+  const [likeLoading, setLikeLoading] = useState(false);
+  const [favoriteLoading, setFavoriteLoading] = useState(false);
 
   const postId = postData.id;
 
@@ -46,60 +48,60 @@ export default function Post({ postData }) {
   }, [postId, user]);
 
   const handleLike = async () => {
-    if (!user) return alert("Login to like this post");
-    if (!postId) return alert("Post ID not found");
+    if (likeLoading || !user || !postId) return;
+    setLikeLoading(true);
+    try {
+      const res = await fetch("/api/likes", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postId, userId: user.sub }),
+      });
 
-    const res = await fetch("/api/likes", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        postId,
-        userId: user.sub,
-        name: user.name,
-        email: user.email,
-      }),
-    });
-
-    if (res.ok) {
-      setLikes((prev) => prev + 1);
-      setHasLiked(true);
-    } else if (res.status === 409) {
-      alert("You already liked this post.");
-    } else {
-      alert("Failed to like post.");
+      if (res.ok) {
+        if (hasLiked) {
+          setLikes((prev) => Math.max(prev - 1, 0));
+          setHasLiked(false);
+        } else {
+          setLikes((prev) => prev + 1);
+          setHasLiked(true);
+        }
+      } else {
+        alert("Failed to toggle like.");
+      }
+    } finally {
+      setLikeLoading(false);
     }
   };
 
   const handleFavorite = async () => {
-    if (!user) return alert("Login to favorite this post");
-    if (!postId) return alert("Post ID not found");
+    if (favoriteLoading || !user || !postId) return;
+    setFavoriteLoading(true);
+    try {
+      const res = await fetch("/api/favorites", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ postId, userId: user.sub }),
+      });
 
-    const res = await fetch("/api/favorites", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        postId,
-        userId: user.sub,
-        name: user.name,
-        email: user.email,
-      }),
-    });
-
-    if (res.ok) {
-      setFavorites((prev) => prev + 1);
-      setHasFavorited(true);
-    } else if (res.status === 409) {
-      alert("You already favorited this post.");
-    } else {
-      alert("Failed to favorite post.");
+      if (res.ok) {
+        if (hasFavorited) {
+          setFavorites((prev) => Math.max(prev - 1, 0));
+          setHasFavorited(false);
+        } else {
+          setFavorites((prev) => prev + 1);
+          setHasFavorited(true);
+        }
+      } else {
+        alert("Failed to toggle favorite.");
+      }
+    } finally {
+      setFavoriteLoading(false);
     }
   };
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    if (!user) return alert("Login to comment");
-    if (!newComment.trim()) return;
-    if (!postId) return alert("Post ID not found");
+    if (!user || !newComment.trim() || !postId) return;
 
     const response = await fetch("/api/comments", {
       method: "POST",
@@ -125,6 +127,24 @@ export default function Post({ postData }) {
     }
   };
 
+  const handleCommentDelete = async (commentId) => {
+    if (!user || !commentId) return;
+    const confirmDelete = window.confirm("Are you sure you want to delete this comment?");
+    if (!confirmDelete) return;
+
+    const res = await fetch("/api/comments", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ commentId, userId: user.sub }),
+    });
+
+    if (res.ok) {
+      setComments((prev) => prev.filter((c) => c.id !== commentId));
+    } else {
+      alert("Failed to delete comment.");
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -134,13 +154,12 @@ export default function Post({ postData }) {
         <div className="pretty">
           <h3 className="blogheading">{postData.title}</h3>
           <p className="blogheading">{postData.date}</p>
-          <div
-            dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </div>
 
         <div className="actions">
           <button
+            disabled={likeLoading}
             className={`m-2 mt-5 p-1 rounded ${
               hasLiked ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"
             }`}
@@ -150,6 +169,7 @@ export default function Post({ postData }) {
           </button>
 
           <button
+            disabled={favoriteLoading}
             className={`m-2 mt-5 p-1 rounded ${
               hasFavorited ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"
             }`}
@@ -185,26 +205,34 @@ export default function Post({ postData }) {
                 key={comment.id}
                 className="flex items-start gap-3 text-sm mr-3 mt-2 p-3 border border-gray-500 bg-gray-600 rounded"
               >
-                {/* Todo */}
-                {/* {user.image ? (
+                {/* {comment.userImage ? (
                   <img
-                    src={user.image}
-                    alt={`${user.name}'s profile`}
-                    className="gap-3 w-100 h-10 rounded-full object-cover flex-shrink-0"
+                    src={comment.userImage}
+                    alt={`${comment.userName}'s profile`}
+                    className="w-10 h-10 rounded-full object-cover flex-shrink-0"
                   />
                 ) : (
                   <div className="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center text-white text-sm">
-                    {user.name?.[0] || "?"}
+                    {comment.userName?.[0] || "?"}
                   </div>
                 )} */}
-            
-                <div>
+
+                <div className="flex-1">
                   <strong className="text-white">{user.name}</strong>
-                  <p className="text-white">{comment.content}</p>
+                  <p className="text-white whitespace-pre-wrap break-all">{comment.content}</p>
                   <p className="text-xs text-gray-300">
                     {new Date(comment.createdAt).toLocaleString()}
                   </p>
                 </div>
+
+                {user && (
+                  <button
+                    className="text-xd ml-2"
+                    onClick={() => handleCommentDelete(comment.id)}
+                  >
+                    Delete
+                  </button>
+                )}
               </div>
             ))
           ) : (

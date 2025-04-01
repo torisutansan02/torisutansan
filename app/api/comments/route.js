@@ -1,3 +1,4 @@
+// ✅ /api/comments/route.ts
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 
@@ -15,23 +16,22 @@ export async function GET(req) {
       select: {
         id: true,
         userId: true,
-        postId: true,
         content: true,
         createdAt: true,
         user: {
           select: {
             name: true,
-            image: true, // ✅ select user profile image
+            image: true,
           },
         },
       },
       orderBy: { createdAt: 'desc' },
+      take: 20,
     });
 
     const formatted = comments.map((comment) => ({
       id: comment.id,
       userId: comment.userId,
-      postId: comment.postId,
       content: comment.content,
       createdAt: comment.createdAt,
       userName: comment.user?.name,
@@ -47,66 +47,63 @@ export async function GET(req) {
 
 export async function POST(req) {
   try {
-    const { userId, postId, content, name, email, image } = await req.json();
+    const { userId, postId, content } = await req.json();
 
     if (!userId || !postId || !content) {
       return NextResponse.json({ error: 'Missing userId, postId or content' }, { status: 400 });
     }
 
-    const existingCount = await prisma.comment.count({
-      where: { userId, postId },
-    });
-
+    const existingCount = await prisma.comment.count({ where: { userId, postId } });
     if (existingCount >= 3) {
       return NextResponse.json({ error: 'Comment limit reached for this post' }, { status: 429 });
     }
 
-    const [, , newComment] = await prisma.$transaction([
-      prisma.user.upsert({
-        where: { auth0Id: userId },
-        update: {
-          name,
-          email,
-          image, // ✅ update profile picture
-        },
-        create: {
-          auth0Id: userId,
-          name,
-          email: email || `${userId}@example.com`,
-          image,
-        },
-      }),
-      prisma.blogPost.upsert({
-        where: { id: postId },
-        update: {},
-        create: {
-          id: postId,
-          title: postId,
-          content: '',
-        },
-      }),
-      prisma.comment.create({
-        data: { userId, postId, content },
-        include: {
-          user: {
-            select: {
-              name: true,
-              image: true,
-            },
+    const newComment = await prisma.comment.create({
+      data: { userId, postId, content },
+      include: {
+        user: {
+          select: {
+            name: true,
+            image: true,
           },
         },
-      }),
-    ]);
+      },
+    });
 
     return NextResponse.json({
       id: newComment.id,
       content: newComment.content,
       createdAt: newComment.createdAt,
+      userId: newComment.userId,
       userName: newComment.user?.name,
       userImage: newComment.user?.image,
     }, { status: 201 });
   } catch (error) {
     console.error('Error creating comment:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function DELETE(req) {
+  try {
+    const { commentId, userId } = await req.json();
+
+    if (!commentId || !userId) {
+      return NextResponse.json({ error: 'Missing commentId or userId' }, { status: 400 });
+    }
+
+    const comment = await prisma.comment.findUnique({ where: { id: commentId } });
+    if (!comment) {
+      return NextResponse.json({ error: 'Comment not found' }, { status: 404 });
+    }
+    if (comment.userId !== userId) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
+    }
+
+    await prisma.comment.delete({ where: { id: commentId } });
+    return NextResponse.json({ message: 'Comment deleted' }, { status: 200 });
+  } catch (error) {
+    console.error('Error deleting comment:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

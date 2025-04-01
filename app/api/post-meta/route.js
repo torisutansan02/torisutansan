@@ -17,39 +17,27 @@ export async function GET(request) {
       prisma.comment.findMany({
         where: { postId },
         orderBy: { createdAt: 'desc' },
-        take: 50,
+        take: 20,
         select: {
           id: true,
-          userId: true,
-          postId: true,
           content: true,
           createdAt: true,
           user: {
             select: {
               name: true,
-              image: true, // ✅ added image
+              image: true,
             },
           },
         },
       }),
-      userId ? prisma.like.findFirst({ where: { postId, userId } }) : null,
-      userId ? prisma.favorite.findFirst({ where: { postId, userId } }) : null,
+      userId ? prisma.like.findUnique({ where: { userId_postId: { userId, postId } } }) : null,
+      userId ? prisma.favorite.findUnique({ where: { userId_postId: { userId, postId } } }) : null,
     ]);
-
-    const formattedComments = comments.map((comment) => ({
-      id: comment.id,
-      userId: comment.userId,
-      postId: comment.postId,
-      content: comment.content,
-      createdAt: comment.createdAt,
-      userName: comment.user?.name,
-      userImage: comment.user?.image, // ✅ send image to frontend
-    }));
 
     return NextResponse.json({
       likes,
       favorites,
-      comments: formattedComments,
+      comments,
       hasLiked: !!hasLiked,
       hasFavorited: !!hasFavorited,
     });
