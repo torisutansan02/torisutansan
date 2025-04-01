@@ -9,6 +9,9 @@
 }
 
 @media (max-width: 1023px) {
+    h1, h2, h3, h4, h5, h6 {
+        text-align: center;
+    }
     code {
         font-size: 12px;
         max-width: 100%;

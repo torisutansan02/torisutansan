@@ -132,7 +132,7 @@ export default function Post({ postData }) {
 
       <div className="text">
         <div className="pretty">
-          <h1 className="blogheading">{postData.title}</h1>
+          <h3 className="blogheading">{postData.title}</h3>
           <p className="blogheading">{postData.date}</p>
           <div
             dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
