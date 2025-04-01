@@ -22,19 +22,28 @@ export default function Home() {
           </h1>
 
           <p className = "pretty">
-            Hello, my name is Tristan. I am a fourth year computer science student. I will post my projects, 
+            Hello, my name is Tristan. I graduated with a computer science degree
+            in December of 2024. 
+            <br/>
+            <br/>
+            I will post my projects, 
             and other activities on here. It is my personal objective to try to learn new things whenever I
-            have the opportunity. As such, I hope this website evolves with time.
+            have the opportunity. 
+            <br/>
+            <br/>
+            As such, I hope this website evolves with time.
           </p>
 
-          <Image
-            src="/images/tristancai2024.png"
-            alt="Tristan Cai 2024"
-            width={256} // specify width
-            height={170} // specify height
-            className="rounded-md"
-            priority // Add priority property
-          />
+          <div className="md:block md:text-left text-center mt-8">
+            <Image
+              src="/images/tristancai2024.png"
+              alt="Tristan Cai 2024"
+              width={256}
+              height={170}
+              className="rounded-md inline-block"
+              priority
+            />
+          </div>
 
 
           <h2 className = "heading">
@@ -43,7 +52,8 @@ export default function Home() {
 
           <p className = "pretty">
             I am going to use this to hone in on my front-end skills. I am hoping I get 
-            better with CSS, HTML and JavaScript. Back-end skills are also important. I
+            better with CSS, HTML and JavaScript. 
+            Back-end skills are also important. I
             am going to use user-authentication for server-side and client-side features.
             This way, I can add to my personal blog.
           </p>

@@ -56,7 +56,7 @@ html {
   }
 
   .heading {
-    font-family: "Montserrat Alternates";
+    font-family: "Noto Sans JP";
     width: fit-content;
     color: white;
     padding: 5px;
@@ -92,7 +92,7 @@ html {
 @media (max-width: 1023px) {
   .text {
     font-family: "Noto Sans JP";
-    margin-top: 100px;
+    margin-top: 60px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 25px;
@@ -124,12 +124,16 @@ html {
   }
 
   .heading {
-    font-family: "Montserrat Alternates";
-    width: fit-content;
+    font-family: "Noto Sans JP";
     overflow: hidden;
+    white-space: nowrap;
+    width: fit-content; /* or however long your text is */
+    padding: 10px;
     color: white;
     border-radius: 10px;
-    animation: typing 2s steps(40, end), blink-caret 1s step-end infinite;
+    animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
+    margin: 20px auto 0; /* centers horizontally */
+    text-align: center; /* not necessary, but harmless */
   }
 
   .blogheading {
@@ -146,7 +150,7 @@ html {
 
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: orange; }
+    50% { border-color: rgb(255, 255, 255); }
   }
 
   h1 {
@@ -197,4 +201,8 @@ html {
     font-size: 12px;
   }
 
+  Image {
+    display: block;
+    margin: auto;
+  }
 }

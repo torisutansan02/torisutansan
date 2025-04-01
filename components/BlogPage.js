@@ -22,7 +22,7 @@ export default function BlogPage({ allPostsData }) {
         <Navbar />
         <Sidebar />
         <div className="text">
-          <h2 className = "heading"> Blog </h2>
+          <h1 className = "heading"> Blog </h1>
           
           <p className = "pretty"> 
             You can find links to my blog posts below. These are posts that revolve around my daily life.
