@@ -1,17 +1,11 @@
-// next.config.mjs
+import bundleAnalyzer from '@next/bundle-analyzer';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  webpack: (config, { dev, isServer }) => {
-    if (dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        minSize: 0,
-      };
-    }
-    return config;
-  },
+  // other config
 };
 
-export default nextConfig;
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
+
+export default withBundleAnalyzer(nextConfig);
