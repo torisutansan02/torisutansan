@@ -1,20 +1,17 @@
-// app/blog/page.js or page.tsx
+// app/blog/page.js
 import { getSortedPostsData } from '@/lib/posts';
 import BlogPage from '@/components/BlogPage';
 
-export const dynamic = 'force-static'; // ✅ Full static generation at build time
+// We use `generateStaticParams` in App Router to generate static params at build time
+export const generateStaticParams = async () => {
+  const allPostsData = await getSortedPostsData();
+  return allPostsData.map(post => ({
+    id: post.id,
+  }));
+};
 
 export default async function Blog() {
-  try {
-    const allPostsData = await getSortedPostsData(); // ✅ Await async data fetch
-    return <BlogPage allPostsData={allPostsData || []} />;
-  } catch (error) {
-    console.error('❌ Failed to load blog posts:', error);
-    return (
-      <main className="prose mx-auto py-10">
-        <h1>Blog</h1>
-        <p>Sorry, we couldn’t load the blog posts at this time.</p>
-      </main>
-    );
-  }
+  const allPostsData = await getSortedPostsData(); // Fetch blog data during build
+
+  return <BlogPage allPostsData={allPostsData || []} />;
 }

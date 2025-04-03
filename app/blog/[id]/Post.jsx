@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,44 +12,44 @@ import "@/styles/globals.css";
 
 export default function Post({ postData }) {
   const { user } = useUser();
-  const [likes, setLikes] = useState(0);
-  const [favorites, setFavorites] = useState(0);
-  const [comments, setComments] = useState([]);
+  const [likes, setLikes] = useState(postData?.likes || 0);
+  const [favorites, setFavorites] = useState(postData?.favorites || 0);
+  const [comments, setComments] = useState(postData?.comments || []);
   const [newComment, setNewComment] = useState("");
-  const [hasLiked, setHasLiked] = useState(false);
-  const [hasFavorited, setHasFavorited] = useState(false);
+  const [hasLiked, setHasLiked] = useState(postData?.hasLiked || false);
+  const [hasFavorited, setHasFavorited] = useState(postData?.hasFavorited || false);
   const [likeLoading, setLikeLoading] = useState(false);
   const [favoriteLoading, setFavoriteLoading] = useState(false);
 
   const postId = postData.id;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!postId) return;
+  // Efficient Fetching of Post Metadata
+  const fetchPostMetadata = useCallback(async () => {
+    if (!postId || !user) return;
 
-      try {
-        const res = await fetch(
-          `/api/post-meta?postId=${postId}${user ? `&userId=${user.sub}` : ''}`
-        );
-        if (!res.ok) throw new Error("Failed to fetch post metadata");
+    try {
+      const res = await fetch(`/api/post-meta?postId=${postId}&userId=${user.sub}`);
+      if (!res.ok) throw new Error("Failed to fetch post metadata");
 
-        const { likes, favorites, comments, hasLiked, hasFavorited } = await res.json();
-        setLikes(likes);
-        setFavorites(favorites);
-        setComments(comments);
-        setHasLiked(hasLiked);
-        setHasFavorited(hasFavorited);
-      } catch (error) {
-        console.error("Failed to fetch data:", error);
-      }
-    };
-
-    fetchData();
+      const { likes, favorites, comments, hasLiked, hasFavorited } = await res.json();
+      setLikes(likes);
+      setFavorites(favorites);
+      setComments(comments);
+      setHasLiked(hasLiked);
+      setHasFavorited(hasFavorited);
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+    }
   }, [postId, user]);
 
-  const handleLike = async () => {
+  useEffect(() => {
+    fetchPostMetadata();
+  }, [fetchPostMetadata]);
+
+  const handleLike = useCallback(async () => {
     if (likeLoading || !user || !postId) return;
     setLikeLoading(true);
+
     try {
       const res = await fetch("/api/likes", {
         method: "PATCH",
@@ -58,24 +58,20 @@ export default function Post({ postData }) {
       });
 
       if (res.ok) {
-        if (hasLiked) {
-          setLikes((prev) => Math.max(prev - 1, 0));
-          setHasLiked(false);
-        } else {
-          setLikes((prev) => prev + 1);
-          setHasLiked(true);
-        }
+        setLikes(prev => hasLiked ? Math.max(prev - 1, 0) : prev + 1);
+        setHasLiked(!hasLiked);
       } else {
         alert("Failed to toggle like.");
       }
     } finally {
       setLikeLoading(false);
     }
-  };
+  }, [postId, user, hasLiked, likeLoading]);
 
-  const handleFavorite = async () => {
+  const handleFavorite = useCallback(async () => {
     if (favoriteLoading || !user || !postId) return;
     setFavoriteLoading(true);
+
     try {
       const res = await fetch("/api/favorites", {
         method: "PATCH",
@@ -84,22 +80,17 @@ export default function Post({ postData }) {
       });
 
       if (res.ok) {
-        if (hasFavorited) {
-          setFavorites((prev) => Math.max(prev - 1, 0));
-          setHasFavorited(false);
-        } else {
-          setFavorites((prev) => prev + 1);
-          setHasFavorited(true);
-        }
+        setFavorites(prev => hasFavorited ? Math.max(prev - 1, 0) : prev + 1);
+        setHasFavorited(!hasFavorited);
       } else {
         alert("Failed to toggle favorite.");
       }
     } finally {
       setFavoriteLoading(false);
     }
-  };
+  }, [postId, user, hasFavorited, favoriteLoading]);
 
-  const handleCommentSubmit = async (e) => {
+  const handleCommentSubmit = useCallback(async (e) => {
     e.preventDefault();
     if (!user || !newComment.trim() || !postId) return;
 
@@ -118,16 +109,16 @@ export default function Post({ postData }) {
 
     if (response.ok) {
       const newCommentData = await response.json();
-      setComments((prev) => [newCommentData, ...prev]);
+      setComments(prev => [newCommentData, ...prev]);
       setNewComment("");
     } else if (response.status === 429) {
       alert("You have reached the max comments for this post.");
     } else {
       alert("Failed to add comment");
     }
-  };
+  }, [newComment, postId, user]);
 
-  const handleCommentDelete = async (commentId) => {
+  const handleCommentDelete = useCallback(async (commentId) => {
     if (!user || !commentId) return;
     const confirmDelete = window.confirm("Are you sure you want to delete this comment?");
     if (!confirmDelete) return;
@@ -139,17 +130,16 @@ export default function Post({ postData }) {
     });
 
     if (res.ok) {
-      setComments((prev) => prev.filter((c) => c.id !== commentId));
+      setComments(prev => prev.filter(c => c.id !== commentId));
     } else {
       alert("Failed to delete comment.");
     }
-  };
+  }, [user]);
 
   return (
     <>
       <Navbar />
       <Sidebar />
-
       <div className="text">
         <div className="pretty">
           <h3 className="blogheading">{postData.title}</h3>
@@ -160,9 +150,7 @@ export default function Post({ postData }) {
         <div className="actions">
           <button
             disabled={likeLoading}
-            className={`m-2 mt-5 p-1 rounded ${
-              hasLiked ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"
-            }`}
+            className={`m-2 mt-5 p-1 rounded ${hasLiked ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"}`}
             onClick={handleLike}
           >
             ❤️ {likes}
@@ -170,9 +158,7 @@ export default function Post({ postData }) {
 
           <button
             disabled={favoriteLoading}
-            className={`m-2 mt-5 p-1 rounded ${
-              hasFavorited ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"
-            }`}
+            className={`m-2 mt-5 p-1 rounded ${hasFavorited ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"}`}
             onClick={handleFavorite}
           >
             💾 {favorites}
@@ -205,27 +191,13 @@ export default function Post({ postData }) {
                 key={comment.id}
                 className="flex items-start gap-3 text-sm mr-3 mt-2 p-3 border border-gray-500 bg-gray-600 rounded"
               >
-                {/* {comment.userImage ? (
-                  <img
-                    src={comment.userImage}
-                    alt={`${comment.userName}'s profile`}
-                    className="w-10 h-10 rounded-full object-cover flex-shrink-0"
-                  />
-                ) : (
-                  <div className="w-10 h-10 rounded-full bg-gray-500 flex items-center justify-center text-white text-sm">
-                    {comment.userName?.[0] || "?"}
-                  </div>
-                )} */}
-
                 <div className="flex-1">
-                  <strong className="text-white">{user.name}</strong>
+                  <strong className="text-white">{comment.userName}</strong>
                   <p className="text-white whitespace-pre-wrap break-all">{comment.content}</p>
-                  <p className="text-xs text-gray-300">
-                    {new Date(comment.createdAt).toLocaleString()}
-                  </p>
+                  <p className="text-xs text-gray-300">{new Date(comment.createdAt).toLocaleString()}</p>
                 </div>
 
-                {user && (
+                {user && comment.userId === user.sub && (
                   <button
                     className="text-xd ml-2"
                     onClick={() => handleCommentDelete(comment.id)}
@@ -240,7 +212,6 @@ export default function Post({ postData }) {
           )}
         </div>
       </div>
-
       <Footer />
     </>
   );
