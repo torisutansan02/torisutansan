@@ -1,0 +1,8 @@
+{
+  "id": "firstpost",
+  "contentHtml": "<p>This is my first blog I am posting to my website. Today, I am trying to learn dynamic routing to post these cute little blogs on my website. When I get better with databases, I want to use MongoDB. Every paragraph in my blog is going to have four to five sentences. Enough to explain my\r\nthoughts but not excessive.</p>\n<p>Hopefully this serves as an opportunity for you to learn more about me. Today, I am making a smoothie. I think the ingredients I use themselves\r\ndo not taste very good. But in combination, I think they are delicious.</p>\n<ul>\n<li>Spinach</li>\n<li>Bananas</li>\n<li>Chia Seeds</li>\n<li>Matcha</li>\n<li>Almond Milk</li>\n<li>Tropical fruit blend (Mangoes, strawberries).</li>\n</ul>\n<p>You might want to try this recipe yourself. I use a variety of different ingredients each day for my smoothies. Please take my advice and use different ingredients for smoothies everyday! Variety makes everything more fun and flavorful!</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>First Column</th><th>Second Column</th></tr></thead><tbody><tr><td>Test Case 1</td><td>Test Case 1</td></tr><tr><td>Test Case 2</td><td>Test Case 2</td></tr><tr><td>Test Case 3</td><td>Test Case 3</td></tr></tbody></table>",
+  "title": "First Blog Post",
+  "date": "November 27, 2023",
+  "category": "Personal",
+  "categories": []
+}

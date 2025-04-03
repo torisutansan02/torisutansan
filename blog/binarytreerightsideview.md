@@ -10,7 +10,7 @@ You are given the $root$ of a binary tree, and you have to return $nodes$ that a
 
 - The nodes that if you were standing on the right side of the tree, you can point to.
 
-<img src="/binaryTreeRightSideView/BinaryTreeRightSideView1.png" style="width: 100%; height: 100%;">
+<img src="/binaryTreeRightSideView/BinaryTreeRightSideView1.png" alt="Image" style="width: 100%; height: auto;" />
 
 ## How To Solve?
 
@@ -47,7 +47,7 @@ Travel to node 4 whose depth is 2.
 
 I will include a visual below to demonstrate the DFS algorithm.
 
-<img src="/binaryTreeRightSideView/BinaryTreeRightSideView2.png" style="width: 100%; height: 100%;">
+<img src="/binaryTreeRightSideView/BinaryTreeRightSideView2.png" alt="Image" style="width: 100%; height: auto;" />
 
 
 ### Tree Solution

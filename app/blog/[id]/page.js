@@ -1,14 +1,20 @@
 import Post from './Post';
-import { getAllPostIds, getPostData } from '@/lib/posts';
+import { getAllPostIds, getPrebuiltPost } from '@/lib/posts';
+import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-  const posts = getAllPostIds();
-  return posts.map(({ id }) => ({ id }));
+  return getAllPostIds();
 }
 
-export default async function BlogPostPage({params}) {
+export default async function BlogPostPage({ params }) {
   const { id } = await params;
 
-  const postData = await getPostData(id);
+  let postData;
+  try {
+    postData = getPrebuiltPost(id); // 🚀 Loads precompiled JSON
+  } catch (err) {
+    notFound(); // 🛑 Fallback for missing posts
+  }
+
   return <Post postData={postData} />;
 }
