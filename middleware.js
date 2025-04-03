@@ -1,42 +1,38 @@
-import { NextResponse } from 'next/server';
-import { auth0 } from './lib/auth0';
+import { NextResponse } from "next/server";
+import { auth0 } from "./lib/auth0";
 
 export async function middleware(request) {
-  const start = Date.now();
+  const start = Date.now(); // ✅ Start timer
 
-  const { pathname } = request.nextUrl;
+  const authRes = await auth0.middleware(request);
 
-  // ✅ Allow public routes
-  if (
-    pathname.startsWith('/auth') ||
-    pathname.startsWith('/api/public') ||
-    pathname === '/'
-  ) {
-    logRequest(request, start);
-    return NextResponse.next();
+  // Allow public access to /auth routes
+  if (request.nextUrl.pathname.startsWith("/auth")) {
+    logRequest(request, start); // ✅ Log before early return
+    return authRes;
   }
 
-  // ✅ Only check session (avoid double-auth calls)
+  const { origin } = new URL(request.url);
   const session = await auth0.getSession();
 
   if (!session) {
-    const loginUrl = new URL('/auth/login', request.url);
-    logRequest(request, start);
-    return NextResponse.redirect(loginUrl);
+    logRequest(request, start); // ✅ Log before redirect
+    return NextResponse.redirect(`${origin}/auth/login`);
   }
 
-  logRequest(request, start);
-  return NextResponse.next();
+  logRequest(request, start); // ✅ Log successful authed request
+  return authRes;
 }
 
-// ✅ Log request timing
+// ✅ Helper logger
 function logRequest(request, start) {
   const duration = Date.now() - start;
-  console.log(`🛡 ${request.method} ${request.nextUrl.pathname} → ${duration}ms`);
+  console.log(`${request.method} ${request.nextUrl.pathname} → ${duration}ms`);
 }
 
+// ✅ Middleware route matcher (you already have this)
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
+    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
   ],
 };
