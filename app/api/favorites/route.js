@@ -4,24 +4,58 @@ import prisma from '@/lib/prisma';
 export async function PATCH(req) {
   try {
     const { userId, postId } = await req.json();
-
     if (!userId || !postId) {
       return NextResponse.json({ error: 'Missing userId or postId' }, { status: 400 });
     }
 
-    const existing = await prisma.favorite.findUnique({
-      where: { userId_postId: { userId, postId } },
-    });
+    let added = false;
 
-    if (existing) {
-      await prisma.favorite.delete({ where: { userId_postId: { userId, postId } } });
-      return NextResponse.json({ message: 'Favorite removed' });
-    } else {
-      await prisma.favorite.create({ data: { userId, postId } });
-      return NextResponse.json({ message: 'Favorite added' });
+    try {
+      // Try to insert the favorite
+      await prisma.$executeRawUnsafe(
+        `
+        INSERT INTO \`Favorite\` (userId, postId, createdAt)
+        VALUES (?, ?, NOW())
+      `,
+        userId,
+        postId
+      );
+
+      // If successful, increment the favorite count
+      await prisma.$executeRawUnsafe(
+        `
+        UPDATE \`PostMeta\`
+        SET favorites = favorites + 1
+        WHERE postId = ?
+      `,
+        postId
+      );
+
+      added = true;
+    } catch (e) {
+      // Favorite already exists — remove it instead
+      await prisma.$executeRawUnsafe(
+        `
+        DELETE FROM \`Favorite\`
+        WHERE userId = ? AND postId = ?
+      `,
+        userId,
+        postId
+      );
+
+      await prisma.$executeRawUnsafe(
+        `
+        UPDATE \`PostMeta\`
+        SET favorites = GREATEST(favorites - 1, 0)
+        WHERE postId = ?
+      `,
+        postId
+      );
     }
+
+    return NextResponse.json({ message: added ? 'Favorite added' : 'Favorite removed' });
   } catch (error) {
-    console.error('Error toggling favorite:', error);
+    console.error('❌ /api/favorites error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

@@ -23,7 +23,7 @@ export default function Post({ postData }) {
 
   const postId = postData.id;
 
-  // Efficient Fetching of Post Metadata
+  // Fetch metadata
   const fetchPostMetadata = useCallback(async () => {
     if (!postId || !user) return;
 
@@ -38,7 +38,7 @@ export default function Post({ postData }) {
       setHasLiked(hasLiked);
       setHasFavorited(hasFavorited);
     } catch (error) {
-      console.error("Failed to fetch data:", error);
+      console.error("Failed to fetch metadata:", error);
     }
   }, [postId, user]);
 
@@ -58,7 +58,7 @@ export default function Post({ postData }) {
       });
 
       if (res.ok) {
-        setLikes(prev => hasLiked ? Math.max(prev - 1, 0) : prev + 1);
+        setLikes(prev => (hasLiked ? Math.max(prev - 1, 0) : prev + 1));
         setHasLiked(!hasLiked);
       } else {
         alert("Failed to toggle like.");
@@ -80,7 +80,7 @@ export default function Post({ postData }) {
       });
 
       if (res.ok) {
-        setFavorites(prev => hasFavorited ? Math.max(prev - 1, 0) : prev + 1);
+        setFavorites(prev => (hasFavorited ? Math.max(prev - 1, 0) : prev + 1));
         setHasFavorited(!hasFavorited);
       } else {
         alert("Failed to toggle favorite.");
@@ -140,6 +140,7 @@ export default function Post({ postData }) {
     <>
       <Navbar />
       <Sidebar />
+
       <div className="text">
         <div className="pretty">
           <h3 className="blogheading">{postData.title}</h3>
@@ -185,14 +186,14 @@ export default function Post({ postData }) {
             <p>Please log in to comment.</p>
           )}
 
-          {comments.length ? (
+{comments.length ? (
             comments.map((comment) => (
               <div
                 key={comment.id}
                 className="flex items-start gap-3 text-sm mr-3 mt-2 p-3 border border-gray-500 bg-gray-600 rounded"
               >
                 <div className="flex-1">
-                  <strong className="text-white">{comment.userName}</strong>
+                  <strong className="text-white">{user.name}</strong>
                   <p className="text-white whitespace-pre-wrap break-all">{comment.content}</p>
                   <p className="text-xs text-gray-300">{new Date(comment.createdAt).toLocaleString()}</p>
                 </div>
@@ -212,6 +213,7 @@ export default function Post({ postData }) {
           )}
         </div>
       </div>
+
       <Footer />
     </>
   );

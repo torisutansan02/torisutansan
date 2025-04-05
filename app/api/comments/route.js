@@ -1,6 +1,30 @@
-// ✅ /api/comments/route.ts
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+
+async function ensureUserExists(userId) {
+  const exists = await prisma.user.findUnique({ where: { auth0Id: userId } });
+  if (!exists) {
+    await prisma.user.create({
+      data: {
+        auth0Id: userId,
+        name: 'Anonymous',
+        email: `${userId}@placeholder.com`,
+      },
+    });
+  }
+}
+
+async function ensurePostExists(postId) {
+  await prisma.blogPost.upsert({
+    where: { id: postId },
+    update: {},
+    create: {
+      id: postId,
+      title: postId,
+      content: '',
+    },
+  });
+}
 
 export async function GET(req) {
   const { searchParams } = new URL(req.url);
@@ -52,6 +76,11 @@ export async function POST(req) {
     if (!userId || !postId || !content) {
       return NextResponse.json({ error: 'Missing userId, postId or content' }, { status: 400 });
     }
+
+    await Promise.all([
+      ensureUserExists(userId),
+      ensurePostExists(postId),
+    ]);
 
     const existingCount = await prisma.comment.count({ where: { userId, postId } });
     if (existingCount >= 3) {

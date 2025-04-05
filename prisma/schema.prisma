@@ -8,39 +8,48 @@ datasource db {
 }
 
 model BlogPost {
-  id        String     @id @db.VarChar(255)
-  title     String     @db.VarChar(255)
-  content   String     @db.Text
-  category  String?    @db.VarChar(255)
-  createdAt DateTime   @default(now())
+  id         String     @id @db.VarChar(255)
+  title      String     @db.VarChar(255)
+  content    String     @db.Text
+  category   String?    @db.VarChar(255)
+  createdAt  DateTime   @default(now())
 
-  comments  Comment[]
-  favorites Favorite[]
-  likes     Like[]
+  comments   Comment[]
+  favorites  Favorite[]
+  likes      Like[]
+  postMeta   PostMeta?
+}
+
+model PostMeta {
+  postId     String    @id
+  likes      Int       @default(0)
+  favorites  Int       @default(0)
+
+  blogpost   BlogPost  @relation(fields: [postId], references: [id], onDelete: Cascade)
 }
 
 model Comment {
-  id        Int      @id @default(autoincrement())
-  postId    String
-  userId    String
-  content   String   @db.Text
-  createdAt DateTime @default(now())
+  id         Int       @id @default(autoincrement())
+  postId     String
+  userId     String
+  content    String    @db.Text
+  createdAt  DateTime  @default(now())
 
-  blogpost  BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
-  user      User     @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
+  blogpost   BlogPost  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user       User      @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
 
   @@index([postId])
   @@index([userId])
 }
 
 model Favorite {
-  id        Int      @id @default(autoincrement())
-  postId    String
-  userId    String
-  createdAt DateTime @default(now())
+  id         Int       @id @default(autoincrement())
+  postId     String
+  userId     String
+  createdAt  DateTime  @default(now())
 
-  blogpost  BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
-  user      User     @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
+  blogpost   BlogPost  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user       User      @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
 
   @@unique([userId, postId])
   @@index([postId])
@@ -48,13 +57,13 @@ model Favorite {
 }
 
 model Like {
-  id        Int      @id @default(autoincrement())
-  postId    String
-  userId    String
-  createdAt DateTime @default(now())
+  id         Int       @id @default(autoincrement())
+  postId     String
+  userId     String
+  createdAt  DateTime  @default(now())
 
-  blogpost  BlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
-  user      User     @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
+  blogpost   BlogPost  @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user       User      @relation(fields: [userId], references: [auth0Id], onDelete: Cascade)
 
   @@unique([userId, postId])
   @@index([postId])
@@ -62,13 +71,13 @@ model Like {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  auth0Id   String    @unique @db.VarChar(255)
-  name      String    @db.VarChar(255)
-  email     String    @unique @db.VarChar(255)
-  image     String?   @db.VarChar(1024) // <-- Add this line
+  id         Int        @id @default(autoincrement())
+  auth0Id    String     @unique @db.VarChar(255)
+  name       String     @db.VarChar(255)
+  email      String     @unique @db.VarChar(255)
+  image      String?    @db.VarChar(1024)
 
-  comments  Comment[]
-  favorites Favorite[]
-  likes     Like[]
+  comments   Comment[]
+  favorites  Favorite[]
+  likes      Like[]
 }
