@@ -145,7 +145,7 @@ export default function Post({ postData }) {
         <div className="pretty">
           <h3 className="blogheading">{postData.title}</h3>
           <p className="blogheading">{postData.date}</p>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div className = "markdown-body" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </div>
 
         <div className="actions">

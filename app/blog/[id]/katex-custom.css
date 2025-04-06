@@ -8,6 +8,26 @@
     font-size: 24px;
 }
 
+.markdown-body a {
+    margin: 5px;
+    background-color: #aaaaaa;
+    padding: 5px 10px;
+    border-radius: 8px; /* rounded corners */
+    color: black;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .markdown-body a:hover {
+    background-color: #e0e0e0; /* slightly darker gray on hover */
+  }
+
+  .markdown-body img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 @media (max-width: 1023px) {
     h1, h2, h3, h4, h5, h6 {
         text-align: center;
@@ -58,5 +78,9 @@
         overflow-x: auto;
 
         vertical-align: middle; /* Ensures inline equations align with text */
+    }
+
+    .markdown-body p {
+        text-align: center;
     }
 }

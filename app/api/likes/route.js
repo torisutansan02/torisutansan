@@ -11,21 +11,21 @@ export async function PATCH(req) {
     let added = false;
 
     try {
-      // Try to insert the favorite
+      // Try to insert the like
       await prisma.$executeRawUnsafe(
         `
-        INSERT INTO \`Favorite\` (userId, postId, createdAt)
+        INSERT INTO \`Like\` (userId, postId, createdAt)
         VALUES (?, ?, NOW())
       `,
         userId,
         postId
       );
 
-      // If successful, increment the favorite count
+      // If successful, increment the like count
       await prisma.$executeRawUnsafe(
         `
         UPDATE \`PostMeta\`
-        SET favorites = favorites + 1
+        SET likes = likes + 1
         WHERE postId = ?
       `,
         postId
@@ -33,10 +33,10 @@ export async function PATCH(req) {
 
       added = true;
     } catch (e) {
-      // Favorite already exists — remove it instead
+      // Like already exists — remove it instead
       await prisma.$executeRawUnsafe(
         `
-        DELETE FROM \`Favorite\`
+        DELETE FROM \`Like\`
         WHERE userId = ? AND postId = ?
       `,
         userId,
@@ -46,16 +46,16 @@ export async function PATCH(req) {
       await prisma.$executeRawUnsafe(
         `
         UPDATE \`PostMeta\`
-        SET favorites = GREATEST(favorites - 1, 0)
+        SET likes = GREATEST(likes - 1, 0)
         WHERE postId = ?
       `,
         postId
       );
     }
 
-    return NextResponse.json({ message: added ? 'Favorite added' : 'Favorite removed' });
+    return NextResponse.json({ message: added ? 'Like added' : 'Like removed' });
   } catch (error) {
-    console.error('❌ /api/favorites error:', error);
+    console.error('❌ /api/likes error:', error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
