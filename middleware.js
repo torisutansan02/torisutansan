@@ -13,10 +13,7 @@ export async function middleware(request) {
   }
 
   const { origin } = new URL(request.url);
-  console.time("getSession");
-    const session = await auth0.getSession();
-    console.timeEnd("getSession");
-
+  const session = await auth0.getSession();
 
   if (!session) {
     logRequest(request, start); // ✅ Log before redirect

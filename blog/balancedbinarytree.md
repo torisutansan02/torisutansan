@@ -8,7 +8,7 @@ category: 'Trees'
 
 You are given a binary tree $root$ and you must determine if it is height-balanced or not. An empty tree is height-balanced.
 
-<img src="/balancedBinaryTree/BalancedBinaryTree1.png" alt="Image" style="width: 100%; height: auto;" />
+![Image](/balancedBinaryTree/BalancedBinaryTree1.png)
 
 ## How To Solve?
 
@@ -32,7 +32,7 @@ Try to solve the question intuitively. Start from the $leftmost$ leaf node. Find
 
 To verify your examples, use the visual I will add below to help:
 
-<img src="/balancedBinaryTree/BalancedBinaryTree2.png" alt="Image" style="width: 100%; height: auto;" />
+![Image](/balancedBinaryTree/BalancedBinaryTree2.png)
 
 ### Helpful Hints
 - Use $postorder$ $DFS$.

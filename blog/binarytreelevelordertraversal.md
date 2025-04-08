@@ -10,7 +10,7 @@ You are given the $root$ of a binary tree and you must return the level order tr
 
 - Left to right, level by level.
 
-<img src="/binaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal1.png" alt="Image" style="width: 100%; height: auto;" />
+![Image](/binaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal1.png)
 
 ## How to Solve?
 
@@ -30,7 +30,7 @@ However, implementing its algorithm is quite difficult. You want to use a $queue
 
 Below, I will include an illustration demonstrating how to use $BFS$ and a $queue$ to solve this problem.
 
-<img src="/binaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal2.png" alt="Image" style="width: 100%; height: auto;" />
+![Image](/binaryTreeLevelOrderTraversal/BinaryTreeLevelOrderTraversal2.png)
 
 ### Tree Solution
 

@@ -12,7 +12,7 @@ Its diameter is the length of the longest path.
 
 The length of a path is represented by the number of edges in between two nodes.
 
-<img src="/diameterOfBinaryTree/DiameterOfBinaryTree1.png" alt="Image" style="width: 100%; height: auto;" />
+![Image](/diameterOfBinaryTree/DiameterOfBinaryTree1.png)
 
 ## How To Solve?
 
@@ -39,7 +39,7 @@ Try using the example trees above or create ones, including ones where traversin
 - I will include a graphic below to help illustrate this algorithm, which is $postorder$ traversal.
     - $left-right-root$ traversal.
 
-<img src="/diameterOfBinaryTree/DiameterOfBinaryTree2.png" alt="Image" style="width: 100%; height: auto;" />
+![Image](/diameterOfBinaryTree/DiameterOfBinaryTree2.png)
 
 
 ### Helpful Hints
