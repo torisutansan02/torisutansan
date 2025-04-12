@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
-import redis from '@/lib/redis';
+import getRedis from '@/lib/redis';
+
+const redis = getRedis();
 
 export async function GET(req) {
   const postId = new URL(req.url).searchParams.get('postId');
