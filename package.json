@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "postinstall": "prisma generate",
     "build:posts": "node scripts/buildPosts.js",
     "build": "npm run build:posts && next build",
     "start": "next start"
