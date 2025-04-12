@@ -23,7 +23,6 @@ export default function Post({ postData }) {
 
   const postId = postData.id;
 
-  // Fetch metadata
   const fetchPostMetadata = useCallback(async () => {
     if (!postId || !user) return;
 
