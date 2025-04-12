@@ -67,7 +67,7 @@ export async function GET(req) {
 
   // Cache for anonymous requests only
   if (!userId) {
-    await redis.setEx(cacheKey, 60, JSON.stringify(responseData)); // TTL = 60s
+    await redis.setEx(cacheKey, 60, JSON.stringify(responseData));
   }
 
   return NextResponse.json(responseData, {
