@@ -254,6 +254,8 @@ def isPalindrome(self, head):
     return True
 ```
 
+- detectCycle() implementation.
+
 ```python
 def detectCycle(self, head):
     slow = fast = head
