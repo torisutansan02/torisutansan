@@ -1,11 +1,11 @@
 .katex-display {
     text-align: left !important; /* Align block equations to the left */
-    font-size: 24px;
+    font-size: 1rem;
 }
   
 .katex {
     text-align: left !important; /* Align inline equations to the left */
-    font-size: 24px;
+    font-size: 1rem;
 }
 
 .markdown-body a {
@@ -34,15 +34,15 @@
     }
 
     code {
-        font-size: 12px;
+        font-size: 0.8rem;
         max-width: 100%;
         display: block; /* Ensures it behaves like a block element */
         white-space: pre; /* Preserves formatting */
         overflow-x: auto; /* Enables horizontal scrolling */
         overflow-y: auto; /* Enables vertical scrolling */
-        max-height: 200px; /* Adjust height as needed */
+        max-height: 15rem; /* Adjust height as needed */
         background-color: #f4f4f4; /* Optional: Background color */
-        padding: 10px; /* Optional: Padding for better readability */
+        padding: 1rem; /* Optional: Padding for better readability */
         border: 1px solid #ddd; /* Optional: Border for better visibility */
         border-radius: 10px;
     }    
@@ -83,12 +83,12 @@
 
     .markdown-body p {
         text-align: left;
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
     }
 
-    li {
-        margin-left: 10px;
-        margin-right: 10px;
+    ul {
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
     }
 }
