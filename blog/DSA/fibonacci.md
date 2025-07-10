@@ -1,5 +1,5 @@
 ---
-title: 'fibonacci'
+title: 'Fibonacci'
 date: 'June 11, 2025'
 category: 'DSA'
 ---
