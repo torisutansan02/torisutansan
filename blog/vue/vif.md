@@ -10,13 +10,56 @@ Allows us to write an if-statement directly in an HTML element without plain Jav
 - Referred to as Conditional Rendering.
 
 ```html
-<p v-if="hasApples">
-    Tristan has apples.
-</p>
+<!DOCTYPE html>
+<html>
 
-<p v-else>
-    Tristan does not have apples.
-</p>
+<head>
+    <title> Tristan's Vue Project </title>
+    <style>
+        #app {
+            width: 20rem;
+            height: 10rem;
+            background-color: lightgreen;
+        }
+
+        #app > div {
+            padding: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> V-If and V-Else </h1>
+
+    <div id="app">
+        <p> {{ count }} </p>
+        <div v-on:mousemove="color = Math.floor(Math.random()*360)"
+             v-bind:style="{ backgroundColor: 'hsl('+color+', 60%, 60%)' }"
+        >
+            <button v-on:click="count++"> Click </button>
+            <p v-if="count > 10"> DANGER ZONE </p>
+            <p v-else-if="count > 3"> In Stock </p>
+            <p v-else-if="count > 0"> Low in stock </p>
+            <p v-else> Not in stock </p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    count: 0,
+                    color: 'lightgreen'
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
 ```
 
 ## Conditionals
@@ -37,16 +80,6 @@ What are logical operators?
 - '||'.
     - Logical OR.
 
-```html
-<p v-if="apples > 0">
-    Tristan has apples.
-</p>
-
-<p v-else>
-    Tristan does not have apples.
-</p>
-```
-
 ## Conditional Rendering Directives
 
 V-If.
@@ -58,105 +91,13 @@ V-Else-If.
 V-Else.
 - Succeeds V-If and V-Else-If. Evaluates as True if the preceeding conditionals are evaluated as False.
 
-```html
-<p v-if="apples > 3">
-    Tristan has apples!
-</p>
-
-<p v-else-if="apples > 0">
-    Apples running low!
-</p>
-
-<p v-else>
-    Tristan has no apples!
-</p>
-```
-
 ## Return Value From a Function
 
 Instead of using a comparison, use the True or False return value from a function.
 
-```html
-<div id="app">
-    <p v-if="msg.includes('pizza')">
-        The message includes the word 'pizza'.
-    </p>
-    <p v-else>
-        The message does not include the word 'pizza'.
-    </p>
-</div>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-<script>
-    const app = Vue.createApp({
-        data() {
-            return {
-                msg: "I like tacos and pizza!"
-            }
-        }
-    })
-    app.mount('#app')
-</script>
-```
-
 V-If can be used to create other tags like div or img tags.
 
-```html
-<div id="app">
-    <div v-if="msg.includes('pizza')">
-        <p> Message contains 'pizza'. </p>
-        <img src="pizza.svg">
-    </div>
-    <div v-else>
-        Message does not contain 'pizza'.
-    </div>
-</div>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-<script>
-    const app = Vue.createApp({
-        data() {
-            return {
-                msg: 'I like pizza!'
-            }
-        }
-    })
-    app.mount('#app')
-</script>
-```
-
 You can expand upon this with V-Else-If.
-
-```html
-<div id="app">
-    <div v-if="msg.includes('pizza')">
-        <p> Pizza </p>
-        <img src="pizza.svg">
-    </div>
-    <div v-else-if="msg.includes('tomatoes')">
-        <p> Tomatoes </p>
-        <img src="tomatoes.svg">
-    </div>
-    <div v-else>
-        No pizza or tomatoes
-    </div>
-</div>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-<script>
-    const app = Vue.createApp({
-        data() {
-            return {
-                msg: 'Pizza and tomatoes~!'
-            }
-        }
-    })
-    app.mount('#app')
-</script>
-```
 
 ### Webpage Code
 

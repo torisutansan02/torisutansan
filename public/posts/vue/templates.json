@@ -1,0 +1,8 @@
+{
+  "id": "vue/templates",
+  "contentHtml": "<h1>Vue Templates</h1>\n<p>The HTML part of a Vue application.</p>\n<p>We use the template tag in *.vue files.</p>\n<p>You can use template as a configuration option in a Vue instance.</p>\n<ul>\n<li>And put HTML inside.</li>\n</ul>\n<pre><code class=\"hljs language-html\"></code></pre>\n<h2>Single File Components (SFCs)</h2>\n<p>It is best to write Vue code in SFCs, or *.vue files.</p>\n<p>It consists of three parts:</p>\n<ul>\n<li>A template tag with HTML content.</li>\n<li>A script tag with Vue code.</li>\n<li>A style tag where we write CSS styling.</li>\n</ul>",
+  "title": "Templates",
+  "date": "July 11, 2025",
+  "category": "Vue",
+  "categories": []
+}

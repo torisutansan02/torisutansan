@@ -36,8 +36,6 @@ Options API is easier to understand and has a more recognizable structure.
 - Add a $script$ tag with a Vue link to handle Vue code.
 - Add the Vue instance to the script tag.
 
-### Webpage Code
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -62,5 +60,57 @@ Options API is easier to understand and has a more recognizable structure.
       app.mount('#app');
     </script>
   </body>
+</html>
+```
+
+### Text Interpolation
+
+Text is taken from the Vue instance to show on a web page.
+
+```html
+<div id="app"> {{ message }} </div>
+```
+
+### JavaScript in Text Interpolation
+
+You can use JavaScript expressions in double curly braces.
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title> Tristan's Vue Project </title>
+  <style>
+    #app {
+      width: 20rem;
+      height: 10rem;
+      padding: 2rem;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+
+<body>
+  <h1> JavaScript in Text Interpolation </h1>
+  
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          message: 'Hello world!'
+        }
+      }
+    })
+    app.mount('#app')
+  </script>
+</body>
+
 </html>
 ```

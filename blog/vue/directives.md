@@ -27,8 +27,16 @@ Below are the different Vue directives.
 
 <head>
     <style>
+        #app {
+            width: 20rem;
+            height: 10rem;
+            padding: 5rem;
+            background-color: lightgreen;
+        }
         .blue-BG {
-            background-color: blue;
+            width: fit-content;
+            padding: 5rem;
+            background-color: lightblue;
         }
     </style>
 </head>

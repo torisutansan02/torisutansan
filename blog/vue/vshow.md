@@ -24,24 +24,52 @@ If the client is a user (True), display content.
 - Else (False), do not display content.
 
 ```html
-<div id="app">
-    <div v-show="isUser">
-        Is a user.
-    </div>
-</div>
+<!DOCTYPE html>
+<html>
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-<script>
-    const app = Vue.createApp({
-        data() {
-            return {
-                isUser: true
-            }
+<head>
+    <title> Tristan's Vue Project </title>
+    <style>
+        #app {
+            width: 20rem;
+            height: 20rem;
+            padding: 5rem;
+            border: 1px solid black;
+            border-radius: 2rem;
         }
-    })
-    app.mount('#app')
-</script>
+
+        #app > div {
+            width: fit-content;
+            background-color: lightgreen;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> V-Show Visibility </h1>
+
+    <div id="app">
+        <p> Click the button below to change status. </p>
+        <button v-on:click="show = !show"> Click </button>
+        <div v-show="show"> Show Div </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    show: true
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
 ```
 
 ## V-Show vs. V-If
@@ -56,26 +84,6 @@ Why use V-If then?
 - Else-if or else conditionals.
 
 V-Show keeps the content, V-If destroys the content.
-
-```html
-<div id="app">
-    <div v-show="isUser"> Is a user. </div>
-    <div v-if="isUser"> Is a user. </div>
-</div>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-<script>
-    const app = Vue.createApp({
-        data() {
-            return {
-                isUser: true
-            }
-        }
-    })
-    app.mount('#app')
-</script>
-```
 
 ### Webpage Code
 
