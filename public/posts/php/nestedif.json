@@ -1,0 +1,8 @@
+{
+  "id": "php/nestedif",
+  "contentHtml": "<h1>Nested If</h1>\n<p>You can have if statements within if statements.</p>\n<pre><code class=\"hljs language-html\"><span class=\"hljs-meta\">&#x3C;!DOCTYPE <span class=\"hljs-keyword\">html</span>></span>\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">html</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">body</span>></span>\r\n<span class=\"hljs-meta\">&#x3C;?php\r\n    $x = 15;\r\n    if ($x > 10) {\r\n        echo \"Greater than 10\";\r\n        if ($x > 20) {\r\n            echo \"Greater than 20\";\r\n        }\r\n        else {\r\n            echo \"Less than 20\";\r\n        }\r\n    }\r\n?></span>\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">body</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">html</span>></span>\n</code></pre>",
+  "title": "Nested If",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}

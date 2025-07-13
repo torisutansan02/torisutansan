@@ -1,0 +1,8 @@
+{
+  "id": "php/forloop",
+  "contentHtml": "<h1>For Loop</h1>\n<p>Loops through a code block a specified number of times.</p>\n<ul>\n<li>First expression sets a counter.</li>\n<li>Second expression evaluates before each iteration.\n<ul>\n<li>Must be true for code block to be executed.</li>\n</ul>\n</li>\n<li>Third expression evaluates after each iteration.\n<ul>\n<li>Does some sort of operation.</li>\n</ul>\n</li>\n</ul>\n<pre><code class=\"hljs language-html\"><span class=\"hljs-meta\">&#x3C;!DOCTYPE <span class=\"hljs-keyword\">html</span>></span>\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">html</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">body</span>></span>\r\n<span class=\"hljs-meta\">&#x3C;?php\r\n    for ($i = 0; $i &#x3C; 10; $i++) {\r\n        echo \"$i &#x3C;br>\";\r\n    }\r\n?></span>\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">body</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">html</span>></span>\n</code></pre>",
+  "title": "For Loop",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}

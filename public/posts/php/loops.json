@@ -1,0 +1,8 @@
+{
+  "id": "php/loops",
+  "contentHtml": "<h1>Loops</h1>\n<p>Used to repeat code.</p>\n<ul>\n<li>If a certain condition is true.</li>\n</ul>\n<p>There are 4 loop types in PHP:</p>\n<ul>\n<li>while\n<ul>\n<li>Specified condition is true.</li>\n</ul>\n</li>\n<li>do while\n<ul>\n<li>Loops through a code block once.</li>\n<li>Repeats as long as the specified condition is true.</li>\n</ul>\n</li>\n<li>for\n<ul>\n<li>Specified number of times.</li>\n</ul>\n</li>\n<li>foreach\n<ul>\n<li>Each element in the array.</li>\n</ul>\n</li>\n</ul>",
+  "title": "Loops",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}

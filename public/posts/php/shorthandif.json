@@ -1,0 +1,8 @@
+{
+  "id": "php/shorthandif",
+  "contentHtml": "<h1>Shorthand If</h1>\n<p>You can write if statements in one line.</p>\n<pre><code class=\"hljs language-html\"><span class=\"hljs-meta\">&#x3C;!DOCTYPE <span class=\"hljs-keyword\">html</span>></span>\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">html</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">body</span>></span>\r\n<span class=\"hljs-meta\">&#x3C;?php\r\n    $x = 10;\r\n    if ($x == 10) echo \"Nice!\";\r\n?></span>\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">body</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">html</span>></span>\n</code></pre>\n<h2>Shorthand If-Else</h2>\n<p>Can also be written in one line.</p>\n<ul>\n<li>Ternary operatory / conditional expression.</li>\n</ul>\n<pre><code class=\"hljs language-html\"><span class=\"hljs-meta\">&#x3C;!DOCTYPE <span class=\"hljs-keyword\">html</span>></span>\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">html</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">body</span>></span>\r\n<span class=\"hljs-meta\">&#x3C;?php\r\n    $x = 5;\r\n    if ($x == 4) ? \"Nice!\" : \"Not nice!\";\r\n?></span>\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">body</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">html</span>></span>\n</code></pre>",
+  "title": "Shorthand If",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}
