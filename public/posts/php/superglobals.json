@@ -1,0 +1,8 @@
+{
+  "id": "php/superglobals",
+  "contentHtml": "<h1>Superglobals</h1>\n<p>There are predefined superglobals.</p>\n<ul>\n<li>They are always accessible regardless of scope.</li>\n</ul>\n<p>They are:</p>\n<pre><code>$GLOBALS\r\n\r\n$_SERVER\r\n\r\n$_REQUEST\r\n\r\n$_POST\r\n\r\n$_GET\r\n\r\n$_FILES\r\n\r\n$_ENV\r\n\r\n$_COOKIE\r\n\r\n$_SESSION\n</code></pre>",
+  "title": "Superglobals",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}

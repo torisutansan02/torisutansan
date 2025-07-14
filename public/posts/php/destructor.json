@@ -1,0 +1,8 @@
+{
+  "id": "php/destructor",
+  "contentHtml": "<h1>__destruct</h1>\n<p>Called when the object is destructed.</p>\n<ul>\n<li>Script is stopped or exited.</li>\n</ul>\n<p>Creating this function automatically calls it at the end of a script.</p>\n<ul>\n<li>Starts with two underscores.</li>\n</ul>\n<pre><code class=\"hljs language-html\"><span class=\"hljs-meta\">&#x3C;!DOCTYPE <span class=\"hljs-keyword\">html</span>></span>\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">html</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">body</span>></span>\r\n<span class=\"hljs-meta\">&#x3C;?php\r\n    class Car {\r\n        // Properties\r\n        public $name;\r\n        public $price;\r\n\r\n        // Constructor\r\n        function __construct($name, $price) {\r\n            $this->name = $name;\r\n            $this->price = $price;\r\n        }\r\n\r\n        // Destructor\r\n        function __destruct() {\r\n            echo \"The car is {$this->name} with a price of {$this->price}\";\r\n        }\r\n    }\r\n\r\n    $lexus = new Car(\"Lexus\", 1000);\r\n?></span>\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">body</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">html</span>></span>\n</code></pre>",
+  "title": "Destructor",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}

@@ -1,0 +1,8 @@
+{
+  "id": "php/classconstants",
+  "contentHtml": "<h1>Class Constants</h1>\n<p>Used to define constant data within a class.</p>\n<ul>\n<li>Declared inside a class with a const keyword.</li>\n<li>Cannot be changed.</li>\n<li>Case-sensitive. Recommended to use all uppercase.</li>\n<li>Can access a constant from outside the class name.</li>\n</ul>\n<pre><code class=\"hljs language-html\"><span class=\"hljs-meta\">&#x3C;!DOCTYPE <span class=\"hljs-keyword\">html</span>></span>\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">html</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">body</span>></span>\r\n<span class=\"hljs-meta\">&#x3C;?php\r\n    class Hello {\r\n        const HELLO = \"HI THERE!\";\r\n\r\n        public function helloThere() {\r\n            echo self::HELLO;\r\n        }\r\n    }\r\n\r\n    $hello = new Hello();\r\n    $hello->helloThere();\r\n?></span>\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">body</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">html</span>></span>\n</code></pre>",
+  "title": "Class Constants",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}

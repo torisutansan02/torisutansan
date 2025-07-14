@@ -21,26 +21,43 @@ A watcher method is never called.
     - As is the old value.
 
 ```html
-<input type="range" v-model="rangeVal">
-<p> {{ rangeVal }} </p>
+<!DOCTYPE html>
+<html>
 
-const app = Vue.createApp({
-    data() {
-        rangeVal: 70
-    },
-    watch: {
-        rangeVal(val) {
-            if (val > 20 && val < 60) {
-                if (val < 40) {
-                    this.rangeVal = 20;
+<head>
+    <title> Tristan's Vue Project </title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="range" min="0" max="100" step="1" v-model="rangeVal">
+        <p> {{ rangeVal }} </p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    rangeVal: 70
                 }
-                else {
-                    this.rangeVal = 60;
+            },
+            watch: {
+                rangeVal(val) {
+                    if (val > 30 && val < 60) {
+                        this.rangeVal = 30;
+                    }
                 }
             }
-        }
-    }
-})
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
 ```
 
 ## Watcher With New and Old Values
@@ -48,31 +65,110 @@ const app = Vue.createApp({
 New and old property value automatically available as input arguments to watcher methods.
 
 ```html
-<div v-on:click="updatePos"></div>
-<p> {{ xDiff }} </p>
+<!DOCTYPE html>
+<html>
 
-const app = Vue.createApp({
-    data() {
-        xPos: 0,
-        xDiff: 0
-    },
-    watch: {
-        xPos(newVal, oldVal) {
-            this.xDiff = newVal - oldVal
+<head>
+    <title> Tristan's Vue Project </title>
+    <style>
+        #app > div {
+            width: 10rem;
+            height: 10rem;
+            background-color: lightgreen;
         }
-    },
-    methods: {
-        updatePos(event) {
-            this.xPos = event.offsetX
-        }
-    }
-})
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div @click="update"></div>
+        <p> {{ xDiff }} </p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    xPos: 0,
+                    xDiff: 0
+                }
+            },
+            watch: {
+                xPos(newVal, oldVal) {
+                    this.xDiff = newVal - oldVal
+                }
+            },
+            methods: {
+                update(event) {
+                    this.xPos = event.offsetX
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
 ```
 
 We can use these values to give feedback to the user the exact moment the input goes from invalid to valid.
 
 ```html
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title> Tristan's Vue Project </title>
+    <style>
+        .valid {
+            color: green;
+        }
+
+        .invalid {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <label>
+            <input type="email" v-model="address">
+        </label>
+        <p :class="addClass">{{ feedback }}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    address: '',
+                    feedback: '',
+                    addClass: 'invalid'
+                }
+            },
+            watch: {
+                address(newV, oldV) {
+                    if (!newV.includes('@')) {
+                        this.feedback = 'Bad email!';
+                        this.addClass = 'invalid';
+                    }
+                    else {
+                        this.feedback = 'Good!';
+                        this.addClass = 'valid';
+                    }
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
 ```
 
 ## Watchers vs. Methods

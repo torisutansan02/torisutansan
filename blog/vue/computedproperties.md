@@ -35,23 +35,53 @@ data() {
 A more intuitive answer to a checkbox is Yes or No, not True or False.
 
 ```html
-<input type="checkbox" v-model="chbxVal"> {{ isImportant }}
+<!DOCTYPE html>
+<html>
 
-data() {
-    return {
-        chbxVal: false
-    }
-},
-computed: {
-    isImportant() {
-        if (this.chbxVal) {
-            return 'yes'
-        }
-        else {
-            return 'no'
-        }
-    }
-}
+<head>
+    <title> Tristan's Vue Project </title>
+    <script>
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <form>
+            <p>
+                Special item?
+                <label>
+                    <input type="checkbox" v-model="clicked">
+                    {{ isSpecial }}
+                </label>
+            </p>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    clicked: false
+                }
+            },
+            computed: {
+                isSpecial() {
+                    if (this.clicked) {
+                        return "yes"
+                    }
+                    else {
+                        return "no"
+                    }
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
 ```
 
 ## Computed Properties vs. Methods

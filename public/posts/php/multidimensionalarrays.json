@@ -1,0 +1,8 @@
+{
+  "id": "php/multidimensionalarrays",
+  "contentHtml": "<h1>Multidimensional Arrays</h1>\n<p>Arrays inside arrays.</p>\n<ul>\n<li>That's really it.</li>\n</ul>\n<pre><code class=\"hljs language-html\"><span class=\"hljs-meta\">&#x3C;!DOCTYPE <span class=\"hljs-keyword\">html</span>></span>\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">html</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;<span class=\"hljs-name\">body</span>></span>\r\n<span class=\"hljs-meta\">&#x3C;?php\r\n    $cars = [\r\n        [\"Toyota\", 1000],\r\n        [\"Honda\", 1200],\r\n        [\"Lexus\", 1400]\r\n    ];\r\n\r\n    for ($r = 0; $r &#x3C; 3; $r++) {\r\n        echo \"Row number $r\";\r\n\r\n        echo \"&#x3C;ul>\";\r\n        for ($c = 0; $c &#x3C; 2; $c++) {\r\n            echo \"&#x3C;li>\" . $cars[$r][$c] . \"&#x3C;/li>\";\r\n        }\r\n        echo \"&#x3C;/ul>\";\r\n    }\r\n?></span>\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">body</span>></span>\r\n\r\n<span class=\"hljs-tag\">&#x3C;/<span class=\"hljs-name\">html</span>></span>\n</code></pre>",
+  "title": "Multidimensial Arrays",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}

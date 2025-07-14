@@ -1,0 +1,8 @@
+{
+  "id": "php/oop",
+  "contentHtml": "<h1>What is OOP?</h1>\n<p>Stand for Object-Oriented Programming.</p>\n<ul>\n<li>Procedural programming involves writing procedures or functions that perform operations on data.</li>\n<li>OOP is about creating objects that contain data and functions.</li>\n</ul>\n<p>OOP Benefits:</p>\n<ul>\n<li>Faster and easier to execute.</li>\n<li>Provides a clear structure for programs.</li>\n<li>Keeps the PHP code DRY (Don't Repeat Yourself), easier to maintain, modify and debug.</li>\n<li>Creates fully reusable applications with less code and shorter development time.</li>\n</ul>\n<h2>PHP - Classes and Objects</h2>\n<p>Class Fruit:</p>\n<ul>\n<li>Objects\n<ul>\n<li>Apple.</li>\n<li>Banana.</li>\n<li>Mango.</li>\n</ul>\n</li>\n</ul>\n<p>Class Car:</p>\n<ul>\n<li>Objects\n<ul>\n<li>Toyota.</li>\n<li>Honda.</li>\n<li>Lexus.</li>\n</ul>\n</li>\n</ul>\n<p>A class is a template for objects.</p>\n<ul>\n<li>An object is an instance of a class.</li>\n</ul>\n<p>Objects inherit all properties and behaviors from a class.</p>\n<ul>\n<li>Each object has different values for properties.</li>\n</ul>",
+  "title": "OOP",
+  "date": "July 12, 2025",
+  "category": "PHP 7",
+  "categories": []
+}
