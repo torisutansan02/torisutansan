@@ -1,3 +1,57 @@
+.markdown-body h1 {
+    color: rgb(40, 40, 255);
+}
+
+.markdown-body h2 {
+    color: rgb(159, 0, 165);
+}
+
+.markdown-body h3 {
+    color: rgb(0, 110, 0);
+}
+
+.markdown-body h4 {
+    color: rgb(132, 0, 255);
+}
+
+.markdown-body h5 {
+    color: rgb(132, 0, 255);
+}
+
+.markdown-body p {
+    color: rgb(0, 0, 0);
+    background-color: rgb(180, 180, 180);
+    max-width: fit-content;
+    padding: 0.75rem;
+    border-radius: 1rem;
+}
+
+.markdown-body ul {
+    background-color: rgb(192, 192, 192);
+    width: fit-content;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+    border-radius: 1rem;
+}
+
+.markdown-body code {
+    font-size: 0.8rem;
+    max-width: 60%;
+    border: 1px solid black;
+    display: block; /* Ensures it behaves like a block element */
+    white-space: pre; /* Preserves formatting */
+    overflow-x: auto; /* Enables horizontal scrolling */
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 15rem; /* Adjust height as needed */
+    background-color: #3b3b3b; /* Optional: Background color */
+    color: rgb(186, 235, 255);
+    padding: 1rem; /* Optional: Padding for better readability */
+    border: 0.1rem solid black; /* Optional: Border for better visibility */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+}    
+
 .katex-display {
     text-align: left !important; /* Align block equations to the left */
     font-size: 1rem;
@@ -29,11 +83,27 @@
 }
 
 @media (max-width: 1023px) {
-    h1, h2, h3, h4, h5, h6 {
-        text-align: left;
+    .markdown-body p {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        text-align: center;
+        min-width: fit-content;
+        max-width: 100%;
     }
 
-    code {
+    .markdown-body ul {
+        background-color: transparent;
+        padding-bottom: 0.2rem;
+        padding-top: 0.6rem;
+    }
+
+    ul li ul li:nth-child(1n) {
+        margin-top: 0.2rem;
+        font-weight: bold;
+        color: rgb(44, 44, 44);
+    }
+
+    .markdown-body code {
         font-size: 0.8rem;
         max-width: 100%;
         display: block; /* Ensures it behaves like a block element */
@@ -41,9 +111,8 @@
         overflow-x: auto; /* Enables horizontal scrolling */
         overflow-y: auto; /* Enables vertical scrolling */
         max-height: 15rem; /* Adjust height as needed */
-        background-color: #f4f4f4; /* Optional: Background color */
-        padding: 1rem; /* Optional: Padding for better readability */
-        border: 1px solid #ddd; /* Optional: Border for better visibility */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         border-radius: 10px;
     }    
     
@@ -79,16 +148,5 @@
         overflow-x: auto;
 
         vertical-align: middle; /* Ensures inline equations align with text */
-    }
-
-    .markdown-body p {
-        text-align: left;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    }
-
-    ul {
-        margin-top: 0.2rem;
-        margin-bottom: 0.2rem;
     }
 }
