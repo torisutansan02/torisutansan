@@ -86,13 +86,12 @@
     .markdown-body p {
         margin-left: 0.5rem;
         margin-right: 0.5rem;
-        text-align: center;
         min-width: fit-content;
-        max-width: 100%;
     }
 
     .markdown-body ul {
         background-color: transparent;
+        max-width: 90%;
         padding-bottom: 0.2rem;
         padding-top: 0.6rem;
     }
