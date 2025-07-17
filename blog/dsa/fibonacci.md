@@ -26,7 +26,7 @@ How is this problem different from factorial?
 
 Try $n = 5$ yourself, then refer to the coding solution.
 
-![Image](/dsa/fibonacci/Fibonacci1.png)
+![Image](/dsa/fibonacci/Fibonacci1.svg)
 
 ### Time and Space
 
