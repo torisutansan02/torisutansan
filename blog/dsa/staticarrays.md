@@ -27,7 +27,7 @@ i = 0
 print(arr[i])
 ```
 
-![Image](/dsa/staticarrays/StaticArrays1.png)
+![Image](/dsa/staticarrays/StaticArrays1.svg)
 
 Accessing an array index's value is instant.
 - It is mapped to an address in memory.

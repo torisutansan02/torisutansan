@@ -10,7 +10,7 @@ You are given two binary trees $p$ and $q$ and must return $True$ if they are th
 
 All nodes have the same value, and they are structurally identical.
 
-![Image](/trees/sameTree/SameTree1.png)
+![Image](/trees/sameTree/SameTree1.svg)
 
 ## How to Solve?
 
@@ -46,7 +46,7 @@ Why?
 
 Try to find out the solution through this algorithm. I will include a visual below to help navigate to figuring out if a tree is the same.
 
-![Image](/trees/sameTree/SameTree2.png)
+![Image](/trees/sameTree/SameTree2.svg)
 
 ### Helpful Hints
 

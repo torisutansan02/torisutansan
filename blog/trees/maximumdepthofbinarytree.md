@@ -10,7 +10,7 @@ You are given the $root$ of a binary tree and must return its maximum depth.
 
 The maximum depth is defined by the number of nodes along its longest path from the $root$ node to the furthest $leaf$ node.
 
-![Image](/trees/maximumDepthOfBinaryTree/MaximumDepthOfBinaryTree1.png)
+![Image](/trees/maximumDepthOfBinaryTree/MaximumDepthOfBinaryTree1.svg)
 
 ## How to Solve?
 
@@ -34,7 +34,7 @@ Try using the above examples to $simulate$ the $DFS$ algorithm. For each level y
 
 - Ensure you store the maximum depth with $res$ and a $max$ function.
 
-![Image](/trees/maximumDepthOfBinaryTree/MaximumDepthOfBinaryTree2.png)
+![Image](/trees/maximumDepthOfBinaryTree/MaximumDepthOfBinaryTree2.svg)
 
 ### Helpful Hints
 -$res = 1 + max(left, right)$

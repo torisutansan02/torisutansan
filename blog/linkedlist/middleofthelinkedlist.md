@@ -9,7 +9,7 @@ category: 'Linked List'
 You are given the $head$ of a linked list and must return its middle node.
 - If the linked list is even, return the $2nd$ of the two even nodes.
 
-![Image](/linkedlist/middleOfTheLinkedList/MiddleOfTheLinkedList1.png)
+![Image](/linkedlist/middleOfTheLinkedList/MiddleOfTheLinkedList1.svg)
 
 ## How to Solve?
 
@@ -37,7 +37,7 @@ Let's set $s$ as our slow pointer and $f$ as our fast pointer. They initially po
 
 Try using this intuition on a linked list yourself. If not, I will provide a visual diagram of the algorithm below.
 
-![Image](/linkedlist/middleOfTheLinkedList/MiddleOfTheLinkedList2.png)
+![Image](/linkedlist/middleOfTheLinkedList/MiddleOfTheLinkedList2.svg)
 
 Notice how $fast$ is not pointing to null by in example 2 on the first iteration. That is how $slow$ ends up being at $3$ in this case.
 

@@ -8,7 +8,7 @@ category: 'Linked List'
 
 You are given a linked list with a $head$. Determine if there is a cycle in the linked list. A cycle occurs when a node points to a previous node.
 
-![Image](/linkedlist/linkedListCycle/LinkedListCycle1.png)
+![Image](/linkedlist/linkedListCycle/LinkedListCycle1.svg)
 
 ## How to Solve?
 
@@ -38,7 +38,7 @@ Let's set $s$ as our hare and $f$ as our tortoise.
     
 Try creating a linked list with a cycle and see if the hare meets the tortoise if it going twice its pace. Otherwise, I will create a visual below to demonstrate it works.
 
-![Image](/linkedlist/linkedListCycle/LinkedListCycle2.png)
+![Image](/linkedlist/linkedListCycle/LinkedListCycle2.svg)
 
 ### Helpful Hints
 

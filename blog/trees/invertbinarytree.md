@@ -11,7 +11,7 @@ You are given the $root$ of a binary tree and you must return its inverted versi
 - $root = [1, 2, 3, 4, 5, 6, 7]$
 - $Output: [1, 3, 2, 7, 6, 5, 4]$
 
-![Image](/trees/invertBinaryTree/InvertedBinaryTree2.png)
+![Image](/trees/invertBinaryTree/InvertedBinaryTree2.svg)
 
 ## How to Solve?
 
@@ -34,7 +34,7 @@ What if the root has no nodes?
 
 Below, I will create a visual diagram of how swapping will work.
 
-![Image](/trees/invertBinaryTree/InvertBinaryTree.png)
+![Image](/trees/invertBinaryTree/InvertBinaryTree.svg)
 
 ### Helpful Hints
 - Make sure to use recursion on the root's left and right nodes.

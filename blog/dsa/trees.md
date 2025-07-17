@@ -43,7 +43,7 @@ Zig Zag level order is particularly difficult.
 
 Pay attention to each level and use a boolean like $LTR$ or $RTL$ for $left-to-right$ or $right-to-left$ traversal.
 
-![Traversals](/dsa/trees/Traversals.png)
+![Traversals](/dsa/trees/Traversals.svg)
 
 - inorder() implementation.
 
@@ -147,7 +147,7 @@ You should familiarize yourself with some.
     - Are two trees the same?
     - Is a tree a subtree of a tree?
 
-![BT Properties](/dsa/trees/BinaryTreeProperties.png)
+![BT Properties](/dsa/trees/BinaryTreeProperties.svg)
 
 - height() implementation.
 
@@ -262,7 +262,7 @@ What should you practice?
     - Searching.
     - LCA.
 
-![BST Properties](/dsa/trees/BinarySearchTrees.png)
+![BST Properties](/dsa/trees/BinarySearchTrees.svg)
 
 - insert() implementation.
 
@@ -345,7 +345,7 @@ Do the following:
 - Deserialize a tree.
     - Turn it back into a tree.
 
-![Advanced Trees](/dsa/trees/AdvancedTrees.png)
+![Advanced Trees](/dsa/trees/AdvancedTrees.svg)
 
 - invertTree() implementation.
 
