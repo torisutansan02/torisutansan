@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { useUser } from "@auth0/nextjs-auth0";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
+import MarkdownRenderer from "@/components/MarkdownRenderer";
+
 import "katex/dist/katex.min.css";
 import "./katex-custom.css";
 import "@/styles/Home.module.css";
@@ -21,11 +23,11 @@ export default function Post({ postData }) {
   const [likeLoading, setLikeLoading] = useState(false);
   const [favoriteLoading, setFavoriteLoading] = useState(false);
 
+  const memoizedHtml = useMemo(() => postData.contentHtml, [postData.contentHtml]);
   const postId = postData.id;
 
   const fetchPostMetadata = useCallback(async () => {
     if (!postId || !user) return;
-
     try {
       const res = await fetch(`/api/post-meta?postId=${postId}&userId=${user.sub}`);
       if (!res.ok) throw new Error("Failed to fetch post metadata");
@@ -48,7 +50,6 @@ export default function Post({ postData }) {
   const handleLike = useCallback(async () => {
     if (likeLoading || !user || !postId) return;
     setLikeLoading(true);
-
     try {
       const res = await fetch("/api/likes", {
         method: "PATCH",
@@ -70,7 +71,6 @@ export default function Post({ postData }) {
   const handleFavorite = useCallback(async () => {
     if (favoriteLoading || !user || !postId) return;
     setFavoriteLoading(true);
-
     try {
       const res = await fetch("/api/favorites", {
         method: "PATCH",
@@ -112,6 +112,8 @@ export default function Post({ postData }) {
       setNewComment("");
     } else if (response.status === 429) {
       alert("You have reached the max comments for this post.");
+    } else if (response.status === 400) {
+      alert("Meaningful comments must be between 20 and 100 characters.")
     } else {
       alert("Failed to add comment");
     }
@@ -144,7 +146,9 @@ export default function Post({ postData }) {
         <div className="pretty">
           <h4 className="blogheading">{postData.title}</h4>
           <h5 className="blogheading">{postData.date}</h5>
-          <div className = "markdown-body" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+
+          {/* ✅ This avoids re-rendering the entire block */}
+          <MarkdownRenderer html={memoizedHtml} />
         </div>
 
         <div className="actions">
@@ -185,7 +189,7 @@ export default function Post({ postData }) {
             <p>Please log in to comment.</p>
           )}
 
-{comments.length ? (
+          {comments.length ? (
             comments.map((comment) => (
               <div
                 key={comment.id}

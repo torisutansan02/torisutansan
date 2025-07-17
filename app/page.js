@@ -36,7 +36,7 @@ export default function Home() {
 
           <div className="md:block md:text-left text-center mt-8">
             <Image
-              src="/images/tristancai2024.png"
+              src="/images/TristanCai2025.svg"
               alt="Tristan Cai 2024"
               width={256}
               height={170}

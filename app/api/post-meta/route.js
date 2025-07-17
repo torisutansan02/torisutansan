@@ -1,3 +1,4 @@
+// routes/api/post-meta/route.js
 import { NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import getRedis from '@/lib/redis';
@@ -11,11 +12,11 @@ export async function GET(req) {
     return NextResponse.json({ error: 'Missing postId' }, { status: 400 });
   }
 
+  const redis = getRedis();
   const cacheKey = `post-meta:${postId}`;
 
-  // 🚀 Try Redis cache for anonymous users
+  // ✅ Check full cache for anonymous user
   if (!userId) {
-    const redis = getRedis();
     const cached = await redis.get(cacheKey);
     if (cached) {
       return NextResponse.json(JSON.parse(cached), {
@@ -26,9 +27,8 @@ export async function GET(req) {
 
   const start = Date.now();
 
-  // 🔁 Get postMeta + comments
+  // ✅ Fetch postMeta and comments in parallel
   const postMetaPromise = prisma.postMeta.findUnique({ where: { postId } });
-
   const commentsPromise = prisma.comment.findMany({
     where: { postId },
     orderBy: { createdAt: 'desc' },
@@ -42,52 +42,59 @@ export async function GET(req) {
     },
   });
 
-  // 🧠 Get like/favorite in a transaction (if logged in)
+  // ✅ Only run DB queries for user engagement if userId is present
   const engagementPromise = userId
-    ? prisma.$transaction([
-        prisma.like.findUnique({
-          where: { userId_postId: { userId, postId } },
-        }),
-        prisma.favorite.findUnique({
-          where: { userId_postId: { userId, postId } },
-        }),
+    ? Promise.all([
+        prisma.like.findUnique({ where: { userId_postId: { userId, postId } } }),
+        prisma.favorite.findUnique({ where: { userId_postId: { userId, postId } } }),
       ])
     : Promise.resolve([null, null]);
 
-  const [postMeta, comments, [hasLiked, hasFavorited]] = await Promise.all([
+  // ✅ Fetch Redis counts for likes/favorites
+  const [redisLikes, redisFavorites] = await Promise.all(
+    ['likes', 'favorites'].map((key) =>
+      redis.get(`post-meta:${key}:${postId}`)
+    )
+  );
+
+  const [
+    postMeta,
+    comments,
+    [hasLiked, hasFavorited],
+  ] = await Promise.all([
     postMetaPromise,
     commentsPromise,
     engagementPromise,
   ]);
 
-  const formattedComments = comments.map((comment) => ({
-    id: comment.id,
-    userId: comment.userId,
-    content: comment.content,
-    createdAt: comment.createdAt,
-    userName: comment.user?.name ?? 'Unknown',
-    userImage: comment.user?.image ?? null,
+  // ✅ Prefer Redis counts; fallback to DB
+  const likes = redisLikes !== null ? parseInt(redisLikes) : postMeta?.likes ?? 0;
+  const favorites = redisFavorites !== null ? parseInt(redisFavorites) : postMeta?.favorites ?? 0;
+
+  const formattedComments = comments.map((c) => ({
+    id: c.id,
+    userId: c.userId,
+    content: c.content,
+    createdAt: c.createdAt,
+    userName: c.user?.name ?? 'Unknown',
+    userImage: c.user?.image ?? null,
   }));
 
   const responseData = {
-    likes: postMeta?.likes ?? 0,
-    favorites: postMeta?.favorites ?? 0,
+    likes,
+    favorites,
     comments: formattedComments,
     hasLiked: !!hasLiked,
     hasFavorited: !!hasFavorited,
   };
 
-  // 🧊 Cache for anonymous users only
+  // ✅ Set Redis cache for anonymous users
   if (!userId) {
-    const redis = getRedis();
-    await redis.setEx(cacheKey, 60, JSON.stringify(responseData));
+    await redis.set(cacheKey, JSON.stringify(responseData), 'EX', 60); // 60s TTL
   }
 
-  console.log(`⏱️ post-meta API completed in ${Date.now() - start}ms`);
-
+  console.log(`⏱️ /api/post-meta took ${Date.now() - start}ms`);
   return NextResponse.json(responseData, {
-    headers: {
-      'X-Cache': 'MISS',
-    },
+    headers: { 'X-Cache': 'MISS' },
   });
 }

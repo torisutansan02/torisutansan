@@ -38,4 +38,4 @@ Integers and strings are separated by 4 bytes, or 32 bits:
 - Address denoted with a $ sign.
     - Followed by the amount of bytes.
 
-![Image](/dsa/ram/RAM.png)
+![Image](/dsa/ram/RAM.svg)
