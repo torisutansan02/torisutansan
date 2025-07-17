@@ -28,7 +28,7 @@ Below are the operations to create a functional linked list.
     - Add pop()
     - Add popfront()
 
-![Singly Linked List](/linkedLists/LinkedList1.png)
+![Singly Linked List](/dsa/linkedLists/LinkedList1.png)
 
 - get() implementation.
 
@@ -126,7 +126,7 @@ Below are the basic operations for solving LeetCode questions.
 
 These are easy problems to solve on LeetCode and are the fundamentals for more difficult problems.
 
-![Singly Linked List](/linkedLists/LinkedList2.png)
+![Singly Linked List](/dsa/linkedLists/LinkedList2.png)
 
 - reverseList() implementation.
 
@@ -172,7 +172,7 @@ The problems below use dummy nodes to solve there corresponding Linked List ques
 
 Dummy nodes are useful for edge cases and returning the proper linked list.
 
-![Singly Linked List](/linkedLists/LinkedList3.png)
+![Singly Linked List](/dsa/linkedLists/LinkedList3.png)
 
 - mergedTwoSortedLists() implementation.
 
@@ -226,7 +226,7 @@ If you combine these patterns or use them optimally, you'll discover that solvin
 
 They require practice and patience, like all things LeetCode.
 
-![Singly Linked List](/linkedLists/LinkedList4.png)
+![Singly Linked List](/dsa/linkedLists/LinkedList4.png)
 
 - isPalindrome() implementation.
 

@@ -10,7 +10,7 @@ You are given a $BST$ $root$ and must return the lowest common ancestor $(LCA)$ 
 
 - The $ancestor$ is a node who has both $p$ and $q$ as descendents.
 
-![Image](/lowestCommonAncestorOfABST/LowestCommonAncestorOfABST1.png)
+![Image](/trees/lowestCommonAncestorOfABST/LowestCommonAncestorOfABST1.png)
 
 ## How to Solve?
 
@@ -44,7 +44,7 @@ The current pointer is at $3$, and $p = 2$ and $q = 4$ now. But notice how $cur 
 
 This is the intuition behind the algorithm. Try using the logic to solve the problem yourself. If you need help, I have created an illustration below demonstrating the algorithm.
 
-![Image](/lowestCommonAncestorOfABST/LowestCommonAncestorOfABST2.png)
+![Image](/trees/lowestCommonAncestorOfABST/LowestCommonAncestorOfABST2.png)
 
 ### Tree Solution
 ```python

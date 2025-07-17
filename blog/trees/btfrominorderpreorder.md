@@ -10,7 +10,7 @@ You are given two $arrays$ for preorder and inorder traversal.
 
 You must return its $binary$ tree.
 
-![Image](/btFromInorderPreorder/BTFromInorderPreorder1.png)
+![Image](/trees/btFromInorderPreorder/BTFromInorderPreorder1.png)
 
 ## How to Solve
 
@@ -33,7 +33,7 @@ Can you also see that the entire $right$ subtree is right of the middle?
 Below, I will include a diagram that builds the tree.
 - Hint: Use DFS.
 
-![Image](/btFromInorderPreorder/BTFromInorderPreorder2.png)
+![Image](/trees/btFromInorderPreorder/BTFromInorderPreorder2.png)
 
 ### Helpful Hints
 

@@ -26,7 +26,7 @@ This type of problem is referred to as $bottom-up$, where the final return state
 
 Try solving with $n = 5$ yourself, then refer to the solution below.
 
-![Image](/factorial/Factorial1.png)
+![Image](/dsa/factorial/Factorial1.png)
 
 ### Time and Space
 
