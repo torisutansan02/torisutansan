@@ -20,20 +20,29 @@
 
 .markdown-body p {
     color: rgb(0, 0, 0);
-    background-color: rgb(180, 180, 180);
+    background-color: rgb(196, 196, 196);
     max-width: fit-content;
     padding: 0.75rem;
     border-radius: 1rem;
 }
 
 .markdown-body ul {
-    background-color: rgb(192, 192, 192);
     width: fit-content;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     padding-right: 1rem;
     border-radius: 1rem;
 }
+
+.markdown-body ul li:nth-child(1n) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.markdown-body ul li ul li:nth-child(1n) {
+    padding-top: 1rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
 
 .markdown-body code {
     font-size: 0.8rem;
@@ -45,20 +54,23 @@
     overflow-y: auto; /* Enables vertical scrolling */
     max-height: 15rem; /* Adjust height as needed */
     background-color: #3b3b3b; /* Optional: Background color */
-    color: rgb(186, 235, 255);
+    color: rgb(205, 255, 251);
     padding: 1rem; /* Optional: Padding for better readability */
     border: 0.1rem solid black; /* Optional: Border for better visibility */
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
     border-radius: 1rem;
 }    
 
-.katex-display {
-    text-align: left !important; /* Align block equations to the left */
-    font-size: 1rem;
-}
-  
-.katex {
-    text-align: left !important; /* Align inline equations to the left */
+.markdown-body ul .katex {
+    font-family: 'Georgia';
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
     font-size: 1rem;
 }
 
@@ -116,36 +128,8 @@
     }    
     
     .katex-display {
-        text-align: left !important; /* Align block equations */
-        font-size: 100%;
-        font-weight: bold;
-        max-width: 100%;
-        
-        /* Prevent overflow */
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        white-space: normal !important;
-        display: block;
-        
-        /* Force line breaks */
-        overflow-x: auto; /* Allow horizontal scrolling if needed */
-    }
-    
-    .katex {
-        text-align: left !important;
-        font-size: 100%;
-        font-weight: bolder;
-        max-width: 100%;
-        
-        /* Prevent overflow */
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        white-space: normal !important;
-        display: inline-block;
-        
-        /* Force wrapping for inline math */
         overflow-x: auto;
-
-        vertical-align: middle; /* Ensures inline equations align with text */
+        padding: 0.5rem;
     }
+
 }
