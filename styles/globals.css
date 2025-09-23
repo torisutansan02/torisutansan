@@ -7,7 +7,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: "Noto Sans JP";
+  font-family: "Yuji Syuku", sans-serif;
   color: white;
   background: #282b30;
 }
@@ -40,7 +40,11 @@ html {
 
 @media (min-width: 1024px) {
   .text {
-    font-family: "Noto Sans JP";
+    font-family: "Yuji Syuku", sans-serif;
+    letter-spacing: -2px;
+    word-spacing: 2px;
+    font-size: 1.2rem;
+    line-height: 1.5;
     margin-top: 100px;
     margin-left: 400px;
     margin-right: 400px;
@@ -56,7 +60,7 @@ html {
   }
 
   .heading {
-    font-family: "Noto Sans JP";
+    font-family: "Yuji Syuku", sans-serif;;
     width: fit-content;
     color: white;
     padding: 5px;
