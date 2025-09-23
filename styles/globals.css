@@ -43,8 +43,8 @@ html {
     font-family: "Yuji Syuku", sans-serif;
     letter-spacing: -2px;
     word-spacing: 2px;
-    font-size: 1.2rem;
     line-height: 1.5;
+    font-size: 1.2rem;
     margin-top: 100px;
     margin-left: 400px;
     margin-right: 400px;
@@ -95,6 +95,9 @@ html {
 
 @media (max-width: 1023px) {
   .text {
+    letter-spacing: -2px;
+    word-spacing: 2px;
+    line-height: 1.5;
     margin-top: 60px;
     margin-left: 20px;
     margin-right: 20px;
