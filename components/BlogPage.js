@@ -73,15 +73,23 @@ export default function BlogPage({ allPostsData }) {
         <Footer />
       </>
     );
-  } else (
-    <>
-      <Navbar />
-      <Sidebar />
-      <div className="text">
-        <h1 className="heading"> Blog </h1>
-        <p className="pretty">Please log in to access blogs...</p>
-      </div>
-      <Footer />
-    </>
-  );
+  } else {
+    return (
+      <>
+        <Navbar />
+        <Sidebar />
+        <div className="text">
+          <h1 className="heading"> Blog </h1>
+          <p className="pretty">Please log in to access blogs:</p>
+          <a
+            className="grid bg-zinc-700 w-50 hover:bg-gray-900 content-center text-center py-4 mt-1 text-white rounded-lg"
+            href="/auth/login"
+          >
+            Log In
+          </a>
+        </div>
+        <Footer />
+      </>
+    );
+  };
 }
