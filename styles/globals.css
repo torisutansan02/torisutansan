@@ -95,7 +95,7 @@ html {
 
 @media (max-width: 1023px) {
   .text {
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
     word-spacing: 2px;
     line-height: 1.5;
     margin-top: 60px;

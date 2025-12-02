@@ -25,7 +25,7 @@ function Sidebar() {
             aria-hidden="true"
           />
         </Disclosure.Button>
-        <div className="p-2 w-15 h-screen bg-indigo-300 opacity-90 z-20 fixed top-10 -left-40 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
+        <div className="p-2 w-15 h-screen bg-indigo-300 z-20 fixed top-10 -left-40 lg:left-0 lg:w-60  peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
           <div className="flex flex-col justify-start item-center">
             <div className="my-2 border-b border-gray-100 pb-2">
 
