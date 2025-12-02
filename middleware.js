@@ -33,6 +33,6 @@ function logRequest(request, start) {
 // ✅ Middleware route matcher (you already have this)
 export const config = {
   matcher: [
-    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+    ["/blog/:path*"],
   ],
 };
