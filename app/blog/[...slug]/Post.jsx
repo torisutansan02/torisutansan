@@ -154,7 +154,7 @@ export default function Post({ postData }) {
         <div className="actions">
           <button
             disabled={likeLoading}
-            className={`m-2 mt-5 p-1 rounded ${hasLiked ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"}`}
+            className={`m-2 mt-5 p-4 rounded border-none ${hasLiked ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"}`}
             onClick={handleLike}
           >
             ❤️ {likes}
@@ -162,7 +162,7 @@ export default function Post({ postData }) {
 
           <button
             disabled={favoriteLoading}
-            className={`m-2 mt-5 p-1 rounded ${hasFavorited ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"}`}
+            className={`m-2 mt-5 p-4 rounded border-none ${hasFavorited ? "bg-gray-600 text-white" : "bg-zinc-500 text-white"}`}
             onClick={handleFavorite}
           >
             💾 {favorites}
@@ -175,13 +175,13 @@ export default function Post({ postData }) {
           {user ? (
             <form onSubmit={handleCommentSubmit}>
               <textarea
-                className="flex p-8 bg-zinc-600 w-100 rounded text-white"
+                className="flex p-8 bg-zinc-600 w-100 rounded text-white placeholder:text-white"
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
                 placeholder="Write a comment..."
                 required
               />
-              <button className="bg-zinc-500 mt-2 mb-2 p-2 rounded text-white" type="submit">
+              <button className="bg-zinc-500 mt-4 mb-2 p-4 rounded border-none text-white" type="submit">
                 Post Comment
               </button>
             </form>
@@ -193,17 +193,18 @@ export default function Post({ postData }) {
             comments.map((comment) => (
               <div
                 key={comment.id}
-                className="flex items-start gap-3 text-sm mr-3 mt-2 p-3 border border-gray-500 bg-gray-600 rounded"
+                className="lg:flex items-center gap-3 text-sm mr-3 mt-2 p-3 border border-gray-500 bg-gray-600 rounded"
               >
-                <div className="flex-1">
-                  <strong className="text-white">{user.name}</strong>
-                  <p className="text-white whitespace-pre-wrap break-all">{comment.content}</p>
-                  <p className="text-xs text-gray-300">{new Date(comment.createdAt).toLocaleString()}</p>
+                <img src={user.picture || "/default-profile.png"} alt="User Avatar" className="w-fit mb-1 mr-2 h-fit rounded-full" />
+                <div className="flex-1 mt-2">
+                  <strong className="text-white text-2xl">{user.name}</strong>
+                  <p className="text-white whitespace-pre-wrap break-all text-lg">{comment.content}</p>
+                  <p className="text-md text-gray-300">{new Date(comment.createdAt).toLocaleString()}</p>
                 </div>
 
                 {user && comment.userId === user.sub && (
                   <button
-                    className="text-xd ml-2"
+                    className="text-2xl text-red-500 hover:text-red-600 mr-4 lg:mt-0 mt-2 bg-red-100 rounded-lg border-none cursor-pointer p-2"
                     onClick={() => handleCommentDelete(comment.id)}
                   >
                     Delete

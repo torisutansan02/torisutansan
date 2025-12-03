@@ -38,7 +38,10 @@ export default function Sidebar() {
               {!user && !isLoading ? (
                 <SidebarItem href="/auth/login" icon={<CgLogIn />} label="Login" />
               ) : (
+                <>
                 <SidebarItem href="/auth/logout" icon={<CgLogIn />} label="Logout" />
+                <SidebarItem href="/profile" icon={<CgProfile />} label="Profile" />
+                </>
               )}
             </div>
           </Disclosure.Panel>

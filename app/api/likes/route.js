@@ -1,32 +1,53 @@
 // routes/api/likes/route.js
-import { NextResponse } from 'next/server';
-import getRedis from '@/lib/redis';
+import { NextResponse } from "next/server";
+import prisma from "@/lib/prisma";
+import getRedis from "@/lib/redis";
+import { normalizeId } from "@/lib/normalize";
 
 const redis = getRedis();
 
 export async function PATCH(req) {
   try {
-    const { userId, postId } = await req.json();
-    if (!userId || !postId) {
-      return new NextResponse('Missing userId or postId', { status: 400 });
-    }
+    let { userId, postId } = await req.json();
+    if (!userId || !postId)
+      return NextResponse.json({ error: "Missing userId/postId" }, { status: 400 });
 
-    const userKey = `l:${userId}:${postId}`; // user-like
-    const countKey = `p:likes:${postId}`;    // post-meta
+    postId = normalizeId(postId);
 
-    const setResult = await redis.set(userKey, '1', 'EX', 86400, 'NX');
+    const userKey = `l:${userId}:${postId}`;
+    const countKey = `p:likes:${postId}`;
 
-    if (setResult) {
-      // First time like — increment count
+    const alreadyLiked = await redis.get(userKey);
+
+    // Ensure post exists in DB
+    await prisma.blogPost.upsert({
+      where: { id: postId },
+      update: {},
+      create: { id: postId, title: postId, content: "" },
+    });
+
+    if (!alreadyLiked) {
+      // LIKE
+      await redis.set(userKey, "1", "EX", 86400);
       await redis.incr(countKey);
+
+      await prisma.like.upsert({
+        where: { userId_postId: { userId, postId } },
+        update: {},
+        create: { userId, postId },
+      });
     } else {
-      // Already liked — unlike
+      // UNLIKE
       await redis.pipeline().del(userKey).decr(countKey).exec();
+
+      await prisma.like.deleteMany({
+        where: { userId, postId },
+      });
     }
 
     return new NextResponse(null, { status: 204 });
-  } catch (error) {
-    console.error('❌ PATCH /api/likes error:', error);
-    return new NextResponse('Internal server error', { status: 500 });
+  } catch (err) {
+    console.error("❌ /api/likes error", err);
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }

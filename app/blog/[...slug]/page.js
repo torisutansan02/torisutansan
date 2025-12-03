@@ -1,24 +1,32 @@
-import Post from './Post';
-import { getAllPostIds, getPrebuiltPost } from '@/lib/posts';
-import { notFound } from 'next/navigation';
+import Post from "./Post";
+import { getAllPostIds, getPrebuiltPost } from "@/lib/posts";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  return getAllPostIds().map(({ id }) => ({
-    slug: id.split('/'), // Support nested paths like personal/firstpost
+  const posts = getAllPostIds();
+
+  return posts.map(({ id }) => ({
+    slug: id.split("/"), // nested arrays (["python","syntax"])
   }));
 }
 
-export const dynamic = 'force-static'; // ✅ Static generation at build time
+export const dynamic = "force-static";
 
 export default async function BlogPostPage({ params }) {
-  const awaitParams = await params;
-  const id = awaitParams.slug.join('/'); // ✅ No `await` here — params is just an object
+  const p = await params;
+
+  if (!p?.slug) return notFound();
+
+  // slug is always an array for [...slug]
+  const id = Array.isArray(p.slug)
+    ? p.slug.join("/")
+    : p.slug;
 
   let postData;
   try {
-    postData = await getPrebuiltPost(id); // ✅ Prebuilt JSON from public/posts/*
-  } catch (err) {
-    return notFound(); // ✅ 404 if post doesn’t exist
+    postData = getPrebuiltPost(id);
+  } catch {
+    return notFound();
   }
 
   return <Post postData={postData} />;
