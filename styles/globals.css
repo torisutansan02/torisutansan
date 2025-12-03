@@ -136,7 +136,6 @@ html {
     border-radius: 10px;
     animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
     margin: 20px auto 0; /* centers horizontally */
-    text-align: center; /* not necessary, but harmless */
   }
 
   .blogheading {
